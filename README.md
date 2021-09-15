@@ -2,4 +2,15 @@
 
 A Flutter plugin for trust wallet core
 
+download pre_release lib zip from release.
 
+
+create "libs" folder in path ./android then put trustwalletcore into libs folder
+
+create "Frameworks" folder in path ./ios then put  SwiftProtobuf.xcframework and WalletCore.xcframework into Frameworks folder
+
+your project file structs will look like this
+
+<img width="348" alt="截屏2021-09-15 下午4 10 52" src="https://user-images.githubusercontent.com/54241621/133395756-8541e0eb-a5f8-44f5-8c3c-0ed8379377cd.png">
+
+then you are ready to run.
