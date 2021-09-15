@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_trust_wallet_core (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_trust_wallet_core (from `.symlinks/plugins/flutter_trust_wallet_core/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_trust_wallet_core:
+    :path: ".symlinks/plugins/flutter_trust_wallet_core/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  flutter_trust_wallet_core: 0d8b4bd94a053e818c6e7ff0a8b1e1298f4a08a6
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.10.1
