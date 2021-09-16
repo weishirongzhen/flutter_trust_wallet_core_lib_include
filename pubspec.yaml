@@ -1,6 +1,6 @@
 name: flutter_trust_wallet_core
 description: A Flutter plugin for trust wallet core
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/weishirongzhen/flutter_trust_wallet_core
 
 
@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
   ffi: ^1.1.2
   protobuf: ^2.0.0
+  fixnum: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
