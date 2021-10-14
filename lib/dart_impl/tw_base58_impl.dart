@@ -5,6 +5,7 @@ class TWBase58Impl extends TWBase58 {
     final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     final encode = TWBase58.TWBase58Encode(data);
     final result = TWStringImpl.toDartString(encode);
+    TWData.TWDataDelete(data);
     return result;
   }
 
@@ -12,6 +13,7 @@ class TWBase58Impl extends TWBase58 {
     final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     final encode = TWBase58.TWBase58EncodeNoCheck(data);
     final result = TWStringImpl.toDartString(encode);
+    TWData.TWDataDelete(data);
     return result;
   }
 
