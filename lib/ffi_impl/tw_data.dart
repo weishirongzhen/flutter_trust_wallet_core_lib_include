@@ -238,7 +238,7 @@ static  Pointer<Void> TWDataCreateWithData(
 
 typedef _c_TWDataCreateWithBytes = Pointer<Void> Function(
   Pointer<Uint8> bytes,
-  Uint64 size,
+  IntPtr size,
 );
 
 typedef _dart_TWDataCreateWithBytes = Pointer<Void> Function(
