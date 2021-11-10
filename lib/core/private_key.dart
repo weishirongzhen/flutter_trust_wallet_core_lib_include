@@ -39,6 +39,14 @@ class PrivateKey {
     return PublicKey._(data);
   }
 
+  Uint8List sign(Uint8List digest, int curve) {
+    final digestPoint = TWData.TWDataCreateWithBytes(digest.toPointerUint8(), digest.length);
+    final data = TWPrivateKeyImpl.sign(_nativehandle, digestPoint, curve);
+    final res = TWData.TWDataBytes(data).asTypedList(TWData.TWDataSize(data));
+    TWData.TWDataDelete(digestPoint);
+    return res;
+  }
+
   void delete() {
     TWPrivateKeyImpl.delete(_nativehandle);
   }

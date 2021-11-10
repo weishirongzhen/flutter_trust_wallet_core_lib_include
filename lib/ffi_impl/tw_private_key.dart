@@ -164,7 +164,7 @@ abstract class TWPrivateKey {
   late final _dart_TWPrivateKeyGetSharedKey _TWPrivateKeyGetSharedKey = _TWPrivateKeyGetSharedKey_ptr.asFunction<_dart_TWPrivateKeyGetSharedKey>();
 
   /// Signs a digest using ECDSA and given curve.
-  Pointer<Void> TWPrivateKeySign(
+  static Pointer<Void> TWPrivateKeySign(
     Pointer<Void> pk,
     Pointer<Void> digest,
     int curve,
@@ -176,8 +176,8 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeySign_ptr = _lookup<NativeFunction<_c_TWPrivateKeySign>>('TWPrivateKeySign');
-  late final _dart_TWPrivateKeySign _TWPrivateKeySign = _TWPrivateKeySign_ptr.asFunction<_dart_TWPrivateKeySign>();
+  static late final _TWPrivateKeySign_ptr = _lookup<NativeFunction<_c_TWPrivateKeySign>>('TWPrivateKeySign');
+  static late final _dart_TWPrivateKeySign _TWPrivateKeySign = _TWPrivateKeySign_ptr.asFunction<_dart_TWPrivateKeySign>();
 
   /// Signs a digest using ECDSA and given curve. The result is encoded with DER.
   Pointer<Void> TWPrivateKeySignAsDER(
