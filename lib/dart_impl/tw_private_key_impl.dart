@@ -29,4 +29,8 @@ class TWPrivateKeyImpl extends TWPrivateKey {
   static Pointer<Void> getPublicKeySecp256k1(Pointer<Void> pk, bool compressed) {
     return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1(pk, compressed ? 1 : 0);
   }
+
+  static Pointer<Void> sign(Pointer<Void> pk, Pointer<Void> digest, int curve) {
+    return TWPrivateKey.TWPrivateKeySign(pk, digest, curve);
+  }
 }
