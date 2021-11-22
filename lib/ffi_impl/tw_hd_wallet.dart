@@ -47,18 +47,18 @@ abstract class TWHDWallet  {
   static late final _dart_TWHDWalletCreateWithMnemonic _TWHDWalletCreateWithMnemonic = _TWHDWalletCreateWithMnemonic_ptr.asFunction<_dart_TWHDWalletCreateWithMnemonic>();
 
   /// Creates an HDWallet from a seed.  Returned object needs to be deleted.
-  static Pointer<Void> TWHDWalletCreateWithData(
+  static Pointer<Void> TWHDWalletCreateWithEntropy(
     Pointer<Void> data,
     Pointer<Utf8> passphrase,
   ) {
-    return _TWHDWalletCreateWithData(
+    return _TWHDWalletCreateWithEntropy(
       data,
       passphrase,
     );
   }
 
-  static late final _TWHDWalletCreateWithData_ptr = _lookup<NativeFunction<_c_TWHDWalletCreateWithData>>('TWHDWalletCreateWithData');
-  static late final _dart_TWHDWalletCreateWithData _TWHDWalletCreateWithData = _TWHDWalletCreateWithData_ptr.asFunction<_dart_TWHDWalletCreateWithData>();
+  static late final _TWHDWalletCreateWithEntropy_ptr = _lookup<NativeFunction<_c_TWHDWalletCreateWithEntropy>>('TWHDWalletCreateWithEntropy');
+  static late final _dart_TWHDWalletCreateWithEntropy _TWHDWalletCreateWithEntropy = _TWHDWalletCreateWithEntropy_ptr.asFunction<_dart_TWHDWalletCreateWithEntropy>();
 
   /// Deletes a wallet.
   static void TWHDWalletDelete(
@@ -257,12 +257,12 @@ typedef _dart_TWHDWalletCreateWithMnemonic = Pointer<Void> Function(
   Pointer<Utf8> passphrase,
 );
 
-typedef _c_TWHDWalletCreateWithData = Pointer<Void> Function(
+typedef _c_TWHDWalletCreateWithEntropy = Pointer<Void> Function(
   Pointer<Void> data,
   Pointer<Utf8> passphrase,
 );
 
-typedef _dart_TWHDWalletCreateWithData = Pointer<Void> Function(
+typedef _dart_TWHDWalletCreateWithEntropy = Pointer<Void> Function(
   Pointer<Void> data,
   Pointer<Utf8> passphrase,
 );

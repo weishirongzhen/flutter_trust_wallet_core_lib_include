@@ -19,10 +19,10 @@ class TWHDWalletImpl extends TWHDWallet {
     return wallet;
   }
 
-  static Pointer<Void> createWithData(Uint8List bytes, {String passphrase = ""}) {
+  static Pointer<Void> createWithEntropy(Uint8List bytes, {String passphrase = ""}) {
     final _data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     final _passphraseTWString = TWStringImpl.toTWString(passphrase);
-    final wallet = TWHDWallet.TWHDWalletCreateWithData(_data, _passphraseTWString);
+    final wallet = TWHDWallet.TWHDWalletCreateWithEntropy(_data, _passphraseTWString);
     TWStringImpl.delete(_passphraseTWString);
     TWData.TWDataDelete(_data);
     return wallet;

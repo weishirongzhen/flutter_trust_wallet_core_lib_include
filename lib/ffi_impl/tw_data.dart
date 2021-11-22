@@ -4,9 +4,9 @@ part of trust_wallet_core_ffi;
 class TWData  {
   /// Creates a block of data from a byte array.
   static Pointer<Void> TWDataCreateWithBytes(
-    Pointer<Uint8> bytes,
-    int size,
-  ) {
+      Pointer<Uint8> bytes,
+      int size,
+      ) {
     return _TWDataCreateWithBytes(
       bytes,
       size,
@@ -18,8 +18,8 @@ class TWData  {
 
   /// Creates an uninitialized block of data with the provided size.
   Pointer<Void> TWDataCreateWithSize(
-    int size,
-  ) {
+      int size,
+      ) {
     return _TWDataCreateWithSize(
       size,
     );
@@ -29,9 +29,9 @@ class TWData  {
   late final _dart_TWDataCreateWithSize _TWDataCreateWithSize = _TWDataCreateWithSize_ptr.asFunction<_dart_TWDataCreateWithSize>();
 
   /// Creates a block of data by copying another block of data.
-static  Pointer<Void> TWDataCreateWithData(
-    Pointer<Void> data,
-  ) {
+  static  Pointer<Void> TWDataCreateWithData(
+      Pointer<Void> data,
+      ) {
     return _TWDataCreateWithData(
       data,
     );
@@ -42,8 +42,8 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Creates a block of data from a hexadecimal string.  Odd length is invalid (intended grouping to bytes is not obvious).
   Pointer<Void> TWDataCreateWithHexString(
-    Pointer<Utf8> hex,
-  ) {
+      Pointer<Utf8> hex,
+      ) {
     return _TWDataCreateWithHexString(
       hex,
     );
@@ -53,9 +53,9 @@ static  Pointer<Void> TWDataCreateWithData(
   late final _dart_TWDataCreateWithHexString _TWDataCreateWithHexString = _TWDataCreateWithHexString_ptr.asFunction<_dart_TWDataCreateWithHexString>();
 
   /// Returns the size in bytes.
- static int TWDataSize(
-    Pointer<Void> data,
-  ) {
+  static int TWDataSize(
+      Pointer<Void> data,
+      ) {
     return _TWDataSize(
       data,
     );
@@ -65,9 +65,9 @@ static  Pointer<Void> TWDataCreateWithData(
   static late final _dart_TWDataSize _TWDataSize = _TWDataSize_ptr.asFunction<_dart_TWDataSize>();
 
   /// Returns the raw pointer to the contents of data.
- static Pointer<Uint8> TWDataBytes(
-    Pointer<Void> data,
-  ) {
+  static Pointer<Uint8> TWDataBytes(
+      Pointer<Void> data,
+      ) {
     return _TWDataBytes(
       data,
     );
@@ -78,9 +78,9 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Returns the byte at the provided index.
   int TWDataGet(
-    Pointer<Void> data,
-    int index,
-  ) {
+      Pointer<Void> data,
+      int index,
+      ) {
     return _TWDataGet(
       data,
       index,
@@ -92,9 +92,9 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Sets the byte at the provided index.
   void TWDataSet(
-    Pointer<Void> data,
-    int index, int byte,
-  ) {
+      Pointer<Void> data,
+      int index, int byte,
+      ) {
     return _TWDataSet(
       data,
       index,
@@ -107,11 +107,11 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Copies a range of bytes into the provided buffer.
   void TWDataCopyBytes(
-    Pointer<Void> data,
-    int start,
-    int size,
-    Pointer<Uint8> output,
-  ) {
+      Pointer<Void> data,
+      int start,
+      int size,
+      Pointer<Uint8> output,
+      ) {
     return _TWDataCopyBytes(
       data,
       start,
@@ -125,11 +125,11 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Replaces a range of bytes with the contents of the provided buffer.
   void TWDataReplaceBytes(
-    Pointer<Void> data,
-    int start,
-    int size,
-    Pointer<Uint8> bytes,
-  ) {
+      Pointer<Void> data,
+      int start,
+      int size,
+      Pointer<Uint8> bytes,
+      ) {
     return _TWDataReplaceBytes(
       data,
       start,
@@ -143,10 +143,10 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Appends data from a byte array.
   void TWDataAppendBytes(
-    Pointer<Void> data,
-    Pointer<Uint8> bytes,
-    int size,
-  ) {
+      Pointer<Void> data,
+      Pointer<Uint8> bytes,
+      int size,
+      ) {
     return _TWDataAppendBytes(
       data,
       bytes,
@@ -159,9 +159,9 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Appends a single byte.
   void TWDataAppendByte(
-    Pointer<Void> data,
-    int byte,
-  ) {
+      Pointer<Void> data,
+      int byte,
+      ) {
     return _TWDataAppendByte(
       data,
       byte,
@@ -173,9 +173,9 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Appends a block of data.
   void TWDataAppendData(
-    Pointer<Void> data,
-    Pointer<Void> append,
-  ) {
+      Pointer<Void> data,
+      Pointer<Void> append,
+      ) {
     return _TWDataAppendData(
       data,
       append,
@@ -187,8 +187,8 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Revereses the bytes.
   void TWDataReverse(
-    Pointer<Void> data,
-  ) {
+      Pointer<Void> data,
+      ) {
     return _TWDataReverse(
       data,
     );
@@ -199,8 +199,8 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Sets all bytes to the given value.
   void TWDataReset(
-    Pointer<Void> data,
-  ) {
+      Pointer<Void> data,
+      ) {
     return _TWDataReset(
       data,
     );
@@ -211,8 +211,8 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Deletes a block of data created with a `TWDataCreate*` method.
   static void TWDataDelete(
-    Pointer<Void> data,
-  ) {
+      Pointer<Void> data,
+      ) {
     return _TWDataDelete(
       data,
     );
@@ -223,9 +223,9 @@ static  Pointer<Void> TWDataCreateWithData(
 
   /// Determines whether two data blocks are equal.
   int TWDataEqual(
-    Pointer<Void> lhs,
-    Pointer<Void> rhs,
-  ) {
+      Pointer<Void> lhs,
+      Pointer<Void> rhs,
+      ) {
     return _TWDataEqual(
       lhs,
       rhs,
@@ -237,166 +237,166 @@ static  Pointer<Void> TWDataCreateWithData(
 }
 
 typedef _c_TWDataCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  IntPtr size,
-);
+    Pointer<Uint8> bytes,
+    IntPtr size,
+    );
 
 typedef _dart_TWDataCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  int size,
-);
+    Pointer<Uint8> bytes,
+    int size,
+    );
 
 typedef _c_TWDataCreateWithSize = Pointer<Void> Function(
-  IntPtr size,
-);
+    IntPtr size,
+    );
 
 typedef _dart_TWDataCreateWithSize = Pointer<Void> Function(
-  int size,
-);
+    int size,
+    );
 
 typedef _c_TWDataCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataCreateWithHexString = Pointer<Void> Function(
-  Pointer<Utf8> hex,
-);
+    Pointer<Utf8> hex,
+    );
 
 typedef _dart_TWDataCreateWithHexString = Pointer<Void> Function(
-  Pointer<Utf8> hex,
-);
+    Pointer<Utf8> hex,
+    );
 
 typedef _c_TWDataSize = IntPtr Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataSize = int Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataBytes = Pointer<Uint8> Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataBytes = Pointer<Uint8> Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataGet = IntPtr Function(
-  Pointer<Void> data,
-  IntPtr index,
-);
+    Pointer<Void> data,
+    IntPtr index,
+    );
 
 typedef _dart_TWDataGet = int Function(
-  Pointer<Void> data,
-  int index,
-);
+    Pointer<Void> data,
+    int index,
+    );
 
 typedef _c_TWDataSet = Void Function(
-  Pointer<Void> data,
-  IntPtr index,
-  IntPtr byte,
-);
+    Pointer<Void> data,
+    IntPtr index,
+    IntPtr byte,
+    );
 
 typedef _dart_TWDataSet = void Function(
-  Pointer<Void> data,
-  int index, int byte,
-);
+    Pointer<Void> data,
+    int index, int byte,
+    );
 
 typedef _c_TWDataCopyBytes = Void Function(
-  Pointer<Void> data,
-  IntPtr start,
-  IntPtr size,
-  Pointer<Uint8> output,
-);
+    Pointer<Void> data,
+    IntPtr start,
+    IntPtr size,
+    Pointer<Uint8> output,
+    );
 
 typedef _dart_TWDataCopyBytes = void Function(
-  Pointer<Void> data,
-  int start,
-  int size,
-  Pointer<Uint8> output,
-);
+    Pointer<Void> data,
+    int start,
+    int size,
+    Pointer<Uint8> output,
+    );
 
 typedef _c_TWDataReplaceBytes = Void Function(
-  Pointer<Void> data,
-  IntPtr start,
-  IntPtr size,
-  Pointer<Uint8> bytes,
-);
+    Pointer<Void> data,
+    IntPtr start,
+    IntPtr size,
+    Pointer<Uint8> bytes,
+    );
 
 typedef _dart_TWDataReplaceBytes = void Function(
-  Pointer<Void> data,
-  int start,
-  int size,
-  Pointer<Uint8> bytes,
-);
+    Pointer<Void> data,
+    int start,
+    int size,
+    Pointer<Uint8> bytes,
+    );
 
 typedef _c_TWDataAppendBytes = Void Function(
-  Pointer<Void> data,
-  Pointer<Uint8> bytes,
-  IntPtr size,
-);
+    Pointer<Void> data,
+    Pointer<Uint8> bytes,
+    IntPtr size,
+    );
 
 typedef _dart_TWDataAppendBytes = void Function(
-  Pointer<Void> data,
-  Pointer<Uint8> bytes,
-  int size,
-);
+    Pointer<Void> data,
+    Pointer<Uint8> bytes,
+    int size,
+    );
 
 typedef _c_TWDataAppendByte = Void Function(
-  Pointer<Void> data,
-  IntPtr byte,
-);
+    Pointer<Void> data,
+    IntPtr byte,
+    );
 
 typedef _dart_TWDataAppendByte = void Function(
-  Pointer<Void> data,
-  int byte,
-);
+    Pointer<Void> data,
+    int byte,
+    );
 
 typedef _c_TWDataAppendData = Void Function(
-  Pointer<Void> data,
-  Pointer<Void> append,
-);
+    Pointer<Void> data,
+    Pointer<Void> append,
+    );
 
 typedef _dart_TWDataAppendData = void Function(
-  Pointer<Void> data,
-  Pointer<Void> append,
-);
+    Pointer<Void> data,
+    Pointer<Void> append,
+    );
 
 typedef _c_TWDataReverse = Void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataReverse = void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataReset = Void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataReset = void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataDelete = Void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _dart_TWDataDelete = void Function(
-  Pointer<Void> data,
-);
+    Pointer<Void> data,
+    );
 
 typedef _c_TWDataEqual = Uint8 Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
+    Pointer<Void> lhs,
+    Pointer<Void> rhs,
+    );
 
 typedef _dart_TWDataEqual = int Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
+    Pointer<Void> lhs,
+    Pointer<Void> rhs,
+    );

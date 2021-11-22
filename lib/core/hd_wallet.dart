@@ -18,7 +18,7 @@ class HDWallet {
   }
 
   HDWallet.createWithData(Uint8List bytes, {String passphrase = ""}) {
-    _nativehandle = TWHDWalletImpl.createWithData(bytes, passphrase: passphrase);
+    _nativehandle = TWHDWalletImpl.createWithEntropy(bytes, passphrase: passphrase);
     if (_nativehandle.hashCode == 0) throw Exception(["HDWallet nativehandle is null"]);
   }
 
