@@ -1,22 +1,20 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
+import 'package:flutter_trust_wallet_core/trust_wallet_core_ffi.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('flutter_trust_wallet_core');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
+    FlutterTrustWalletCore.init();
   });
 
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
-  });
+  test('word is valid', () async {
 
-  // test('getPlatformVersion', () async {
-  //   expect(await FlutterTrustWalletCore.platformVersion, '42');
-  // });
+    final result = TWMnemonicImpl.isValidWord("oil");
+
+    expect(result, true);
+  });
 }
