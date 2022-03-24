@@ -26,8 +26,9 @@ const SigningError$json = const {
     const {'1': 'Error_script_redeem', '2': 11},
     const {'1': 'Error_script_output', '2': 12},
     const {'1': 'Error_script_witness_program', '2': 13},
+    const {'1': 'Error_invalid_memo', '2': 14},
   ],
 };
 
 /// Descriptor for `SigningError`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List signingErrorDescriptor = $convert.base64Decode('CgxTaWduaW5nRXJyb3ISBgoCT0sQABIRCg1FcnJvcl9nZW5lcmFsEAESEgoORXJyb3JfaW50ZXJuYWwQAhIVChFFcnJvcl9sb3dfYmFsYW5jZRADEh8KG0Vycm9yX3plcm9fYW1vdW50X3JlcXVlc3RlZBAEEh0KGUVycm9yX21pc3NpbmdfcHJpdmF0ZV9rZXkQBRITCg9FcnJvcl93cm9uZ19mZWUQBhIRCg1FcnJvcl9zaWduaW5nEAcSFAoQRXJyb3JfdHhfdG9vX2JpZxAIEh0KGUVycm9yX21pc3NpbmdfaW5wdXRfdXR4b3MQCRIaChZFcnJvcl9ub3RfZW5vdWdoX3V0eG9zEAoSFwoTRXJyb3Jfc2NyaXB0X3JlZGVlbRALEhcKE0Vycm9yX3NjcmlwdF9vdXRwdXQQDBIgChxFcnJvcl9zY3JpcHRfd2l0bmVzc19wcm9ncmFtEA0=');
+final $typed_data.Uint8List signingErrorDescriptor = $convert.base64Decode('CgxTaWduaW5nRXJyb3ISBgoCT0sQABIRCg1FcnJvcl9nZW5lcmFsEAESEgoORXJyb3JfaW50ZXJuYWwQAhIVChFFcnJvcl9sb3dfYmFsYW5jZRADEh8KG0Vycm9yX3plcm9fYW1vdW50X3JlcXVlc3RlZBAEEh0KGUVycm9yX21pc3NpbmdfcHJpdmF0ZV9rZXkQBRITCg9FcnJvcl93cm9uZ19mZWUQBhIRCg1FcnJvcl9zaWduaW5nEAcSFAoQRXJyb3JfdHhfdG9vX2JpZxAIEh0KGUVycm9yX21pc3NpbmdfaW5wdXRfdXR4b3MQCRIaChZFcnJvcl9ub3RfZW5vdWdoX3V0eG9zEAoSFwoTRXJyb3Jfc2NyaXB0X3JlZGVlbRALEhcKE0Vycm9yX3NjcmlwdF9vdXRwdXQQDBIgChxFcnJvcl9zY3JpcHRfd2l0bmVzc19wcm9ncmFtEA0SFgoSRXJyb3JfaW52YWxpZF9tZW1vEA4=');

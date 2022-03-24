@@ -10,6 +10,10 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'Stellar.pbenum.dart';
+
+export 'Stellar.pbenum.dart';
+
 class Asset extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Asset', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'issuer')
@@ -272,6 +276,185 @@ class OperationChangeTrust extends $pb.GeneratedMessage {
   void clearValidBefore() => clearField(2);
 }
 
+class Claimant extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Claimant', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'account')
+    ..e<ClaimPredicate>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'predicate', $pb.PbFieldType.OE, defaultOrMaker: ClaimPredicate.Predicate_unconditional, valueOf: ClaimPredicate.valueOf, enumValues: ClaimPredicate.values)
+    ..hasRequiredFields = false
+  ;
+
+  Claimant._() : super();
+  factory Claimant({
+    $core.String? account,
+    ClaimPredicate? predicate,
+  }) {
+    final _result = create();
+    if (account != null) {
+      _result.account = account;
+    }
+    if (predicate != null) {
+      _result.predicate = predicate;
+    }
+    return _result;
+  }
+  factory Claimant.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Claimant.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Claimant clone() => Claimant()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Claimant copyWith(void Function(Claimant) updates) => super.copyWith((message) => updates(message as Claimant)) as Claimant; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Claimant create() => Claimant._();
+  Claimant createEmptyInstance() => create();
+  static $pb.PbList<Claimant> createRepeated() => $pb.PbList<Claimant>();
+  @$core.pragma('dart2js:noInline')
+  static Claimant getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Claimant>(create);
+  static Claimant? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get account => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set account($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAccount() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAccount() => clearField(1);
+
+  @$pb.TagNumber(2)
+  ClaimPredicate get predicate => $_getN(1);
+  @$pb.TagNumber(2)
+  set predicate(ClaimPredicate v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasPredicate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPredicate() => clearField(2);
+}
+
+class OperationCreateClaimableBalance extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OperationCreateClaimableBalance', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
+    ..aOM<Asset>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'asset', subBuilder: Asset.create)
+    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'amount')
+    ..pc<Claimant>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'claimants', $pb.PbFieldType.PM, subBuilder: Claimant.create)
+    ..hasRequiredFields = false
+  ;
+
+  OperationCreateClaimableBalance._() : super();
+  factory OperationCreateClaimableBalance({
+    Asset? asset,
+    $fixnum.Int64? amount,
+    $core.Iterable<Claimant>? claimants,
+  }) {
+    final _result = create();
+    if (asset != null) {
+      _result.asset = asset;
+    }
+    if (amount != null) {
+      _result.amount = amount;
+    }
+    if (claimants != null) {
+      _result.claimants.addAll(claimants);
+    }
+    return _result;
+  }
+  factory OperationCreateClaimableBalance.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OperationCreateClaimableBalance.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  OperationCreateClaimableBalance clone() => OperationCreateClaimableBalance()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  OperationCreateClaimableBalance copyWith(void Function(OperationCreateClaimableBalance) updates) => super.copyWith((message) => updates(message as OperationCreateClaimableBalance)) as OperationCreateClaimableBalance; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static OperationCreateClaimableBalance create() => OperationCreateClaimableBalance._();
+  OperationCreateClaimableBalance createEmptyInstance() => create();
+  static $pb.PbList<OperationCreateClaimableBalance> createRepeated() => $pb.PbList<OperationCreateClaimableBalance>();
+  @$core.pragma('dart2js:noInline')
+  static OperationCreateClaimableBalance getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OperationCreateClaimableBalance>(create);
+  static OperationCreateClaimableBalance? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Asset get asset => $_getN(0);
+  @$pb.TagNumber(1)
+  set asset(Asset v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasAsset() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAsset() => clearField(1);
+  @$pb.TagNumber(1)
+  Asset ensureAsset() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get amount => $_getI64(1);
+  @$pb.TagNumber(2)
+  set amount($fixnum.Int64 v) { $_setInt64(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasAmount() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAmount() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.List<Claimant> get claimants => $_getList(2);
+}
+
+class OperationClaimClaimableBalance extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OperationClaimClaimableBalance', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
+    ..a<$core.List<$core.int>>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'balanceId', $pb.PbFieldType.OY)
+    ..hasRequiredFields = false
+  ;
+
+  OperationClaimClaimableBalance._() : super();
+  factory OperationClaimClaimableBalance({
+    $core.List<$core.int>? balanceId,
+  }) {
+    final _result = create();
+    if (balanceId != null) {
+      _result.balanceId = balanceId;
+    }
+    return _result;
+  }
+  factory OperationClaimClaimableBalance.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OperationClaimClaimableBalance.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  OperationClaimClaimableBalance clone() => OperationClaimClaimableBalance()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  OperationClaimClaimableBalance copyWith(void Function(OperationClaimClaimableBalance) updates) => super.copyWith((message) => updates(message as OperationClaimClaimableBalance)) as OperationClaimClaimableBalance; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static OperationClaimClaimableBalance create() => OperationClaimClaimableBalance._();
+  OperationClaimClaimableBalance createEmptyInstance() => create();
+  static $pb.PbList<OperationClaimClaimableBalance> createRepeated() => $pb.PbList<OperationClaimClaimableBalance>();
+  @$core.pragma('dart2js:noInline')
+  static OperationClaimClaimableBalance getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OperationClaimClaimableBalance>(create);
+  static OperationClaimClaimableBalance? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<$core.int> get balanceId => $_getN(0);
+  @$pb.TagNumber(1)
+  set balanceId($core.List<$core.int> v) { $_setBytes(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasBalanceId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBalanceId() => clearField(1);
+}
+
 class MemoVoid extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MemoVoid', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
     ..hasRequiredFields = false
@@ -446,6 +629,8 @@ enum SigningInput_OperationOneof {
   opCreateAccount, 
   opPayment, 
   opChangeTrust, 
+  opCreateClaimableBalance, 
+  opClaimClaimableBalance, 
   notSet
 }
 
@@ -463,6 +648,8 @@ class SigningInput extends $pb.GeneratedMessage {
     6 : SigningInput_OperationOneof.opCreateAccount,
     7 : SigningInput_OperationOneof.opPayment,
     8 : SigningInput_OperationOneof.opChangeTrust,
+    14 : SigningInput_OperationOneof.opCreateClaimableBalance,
+    15 : SigningInput_OperationOneof.opClaimClaimableBalance,
     0 : SigningInput_OperationOneof.notSet
   };
   static const $core.Map<$core.int, SigningInput_MemoTypeOneof> _SigningInput_MemoTypeOneofByTag = {
@@ -474,7 +661,7 @@ class SigningInput extends $pb.GeneratedMessage {
     0 : SigningInput_MemoTypeOneof.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SigningInput', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TW.Stellar.Proto'), createEmptyInstance: create)
-    ..oo(0, [6, 7, 8])
+    ..oo(0, [6, 7, 8, 14, 15])
     ..oo(1, [9, 10, 11, 12, 13])
     ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fee', $pb.PbFieldType.O3)
     ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sequence')
@@ -489,6 +676,8 @@ class SigningInput extends $pb.GeneratedMessage {
     ..aOM<MemoId>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'memoId', subBuilder: MemoId.create)
     ..aOM<MemoHash>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'memoHash', subBuilder: MemoHash.create)
     ..aOM<MemoHash>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'memoReturnHash', subBuilder: MemoHash.create)
+    ..aOM<OperationCreateClaimableBalance>(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'opCreateClaimableBalance', subBuilder: OperationCreateClaimableBalance.create)
+    ..aOM<OperationClaimClaimableBalance>(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'opClaimClaimableBalance', subBuilder: OperationClaimClaimableBalance.create)
     ..hasRequiredFields = false
   ;
 
@@ -507,6 +696,8 @@ class SigningInput extends $pb.GeneratedMessage {
     MemoId? memoId,
     MemoHash? memoHash,
     MemoHash? memoReturnHash,
+    OperationCreateClaimableBalance? opCreateClaimableBalance,
+    OperationClaimClaimableBalance? opClaimClaimableBalance,
   }) {
     final _result = create();
     if (fee != null) {
@@ -547,6 +738,12 @@ class SigningInput extends $pb.GeneratedMessage {
     }
     if (memoReturnHash != null) {
       _result.memoReturnHash = memoReturnHash;
+    }
+    if (opCreateClaimableBalance != null) {
+      _result.opCreateClaimableBalance = opCreateClaimableBalance;
+    }
+    if (opClaimClaimableBalance != null) {
+      _result.opClaimClaimableBalance = opClaimClaimableBalance;
     }
     return _result;
   }
@@ -709,6 +906,28 @@ class SigningInput extends $pb.GeneratedMessage {
   void clearMemoReturnHash() => clearField(13);
   @$pb.TagNumber(13)
   MemoHash ensureMemoReturnHash() => $_ensure(12);
+
+  @$pb.TagNumber(14)
+  OperationCreateClaimableBalance get opCreateClaimableBalance => $_getN(13);
+  @$pb.TagNumber(14)
+  set opCreateClaimableBalance(OperationCreateClaimableBalance v) { setField(14, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasOpCreateClaimableBalance() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearOpCreateClaimableBalance() => clearField(14);
+  @$pb.TagNumber(14)
+  OperationCreateClaimableBalance ensureOpCreateClaimableBalance() => $_ensure(13);
+
+  @$pb.TagNumber(15)
+  OperationClaimClaimableBalance get opClaimClaimableBalance => $_getN(14);
+  @$pb.TagNumber(15)
+  set opClaimClaimableBalance(OperationClaimClaimableBalance v) { setField(15, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasOpClaimClaimableBalance() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearOpClaimClaimableBalance() => clearField(15);
+  @$pb.TagNumber(15)
+  OperationClaimClaimableBalance ensureOpClaimClaimableBalance() => $_ensure(14);
 }
 
 class SigningOutput extends $pb.GeneratedMessage {
