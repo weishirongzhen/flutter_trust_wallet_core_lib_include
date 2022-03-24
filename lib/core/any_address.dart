@@ -26,4 +26,9 @@ class AnyAddress {
   String description() {
     return TWAnyAddressImpl.description(_pointer);
   }
+
+  void delete() {
+    TWAnyAddressImpl.delete(_pointer);
+    _pointer = nullptr;
+  }
 }

@@ -6,6 +6,8 @@ class PublicKey {
 
   late Pointer<Void> _nativehandle;
 
+  Pointer<Void> get pointer => _nativehandle;
+
   PublicKey._(Pointer<Void> pointer) {
     _nativehandle = pointer;
   }
@@ -47,7 +49,8 @@ class PublicKey {
   }
 
    void delete(){
-    return TWPublicKeyImpl.delete(_nativehandle);
+    TWPublicKeyImpl.delete(_nativehandle);
+    _nativehandle = nullptr;
   }
 
    bool verify(Uint8List signature,Uint8List message){
