@@ -32,16 +32,19 @@ enum TWHRP {
     TWHRPIoTeX     /* "io" */,
     TWHRPZilliqa     /* "zil" */,
     TWHRPTerra     /* "terra" */,
+    TWHRPCryptoOrg     /* "cro" */,
     TWHRPKava     /* "kava" */,
     TWHRPOasis     /* "oasis" */,
     TWHRPBluzelle     /* "bluzelle" */,
     TWHRPBandChain     /* "band" */,
     TWHRPElrond     /* "erd" */,
     TWHRPBinance     /* "bnb" */,
+    TWHRPECash     /* "ecash" */,
     TWHRPTHORChain     /* "thor" */,
     TWHRPHarmony     /* "one" */,
     TWHRPCardano     /* "addr" */,
     TWHRPQtum     /* "qc" */,
+    TWHRPOsmosis     /* "osmo" */,
 };
 
 static const char *_Nonnull HRP_BITCOIN = "bc";
@@ -57,16 +60,19 @@ static const char *_Nonnull HRP_BITCOINGOLD = "btg";
 static const char *_Nonnull HRP_IOTEX = "io";
 static const char *_Nonnull HRP_ZILLIQA = "zil";
 static const char *_Nonnull HRP_TERRA = "terra";
+static const char *_Nonnull HRP_CRYPTOORG = "cro";
 static const char *_Nonnull HRP_KAVA = "kava";
 static const char *_Nonnull HRP_OASIS = "oasis";
 static const char *_Nonnull HRP_BLUZELLE = "bluzelle";
 static const char *_Nonnull HRP_BAND = "band";
 static const char *_Nonnull HRP_ELROND = "erd";
 static const char *_Nonnull HRP_BINANCE = "bnb";
+static const char *_Nonnull HRP_ECASH = "ecash";
 static const char *_Nonnull HRP_THORCHAIN = "thor";
 static const char *_Nonnull HRP_HARMONY = "one";
 static const char *_Nonnull HRP_CARDANO = "addr";
 static const char *_Nonnull HRP_QTUM = "qc";
+static const char *_Nonnull HRP_OSMOSIS = "osmo";
 
 const char *_Nullable stringForHRP(enum TWHRP hrp);
 enum TWHRP hrpForString(const char *_Nonnull string);

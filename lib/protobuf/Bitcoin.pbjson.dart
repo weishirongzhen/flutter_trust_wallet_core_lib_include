@@ -84,6 +84,7 @@ const SigningInput$json = const {
     const {'1': 'coin_type', '3': 10, '4': 1, '5': 13, '10': 'coinType'},
     const {'1': 'plan', '3': 11, '4': 1, '5': 11, '6': '.TW.Bitcoin.Proto.TransactionPlan', '10': 'plan'},
     const {'1': 'lock_time', '3': 12, '4': 1, '5': 13, '10': 'lockTime'},
+    const {'1': 'output_op_return', '3': 13, '4': 1, '5': 12, '10': 'outputOpReturn'},
   ],
   '3': const [SigningInput_ScriptsEntry$json],
 };
@@ -99,7 +100,7 @@ const SigningInput_ScriptsEntry$json = const {
 };
 
 /// Descriptor for `SigningInput`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List signingInputDescriptor = $convert.base64Decode('CgxTaWduaW5nSW5wdXQSGwoJaGFzaF90eXBlGAEgASgNUghoYXNoVHlwZRIWCgZhbW91bnQYAiABKANSBmFtb3VudBIZCghieXRlX2ZlZRgDIAEoA1IHYnl0ZUZlZRIdCgp0b19hZGRyZXNzGAQgASgJUgl0b0FkZHJlc3MSJQoOY2hhbmdlX2FkZHJlc3MYBSABKAlSDWNoYW5nZUFkZHJlc3MSHwoLcHJpdmF0ZV9rZXkYBiADKAxSCnByaXZhdGVLZXkSRQoHc2NyaXB0cxgHIAMoCzIrLlRXLkJpdGNvaW4uUHJvdG8uU2lnbmluZ0lucHV0LlNjcmlwdHNFbnRyeVIHc2NyaXB0cxI4CgR1dHhvGAggAygLMiQuVFcuQml0Y29pbi5Qcm90by5VbnNwZW50VHJhbnNhY3Rpb25SBHV0eG8SJAoOdXNlX21heF9hbW91bnQYCSABKAhSDHVzZU1heEFtb3VudBIbCgljb2luX3R5cGUYCiABKA1SCGNvaW5UeXBlEjUKBHBsYW4YCyABKAsyIS5UVy5CaXRjb2luLlByb3RvLlRyYW5zYWN0aW9uUGxhblIEcGxhbhIbCglsb2NrX3RpbWUYDCABKA1SCGxvY2tUaW1lGjoKDFNjcmlwdHNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoDFIFdmFsdWU6AjgB');
+final $typed_data.Uint8List signingInputDescriptor = $convert.base64Decode('CgxTaWduaW5nSW5wdXQSGwoJaGFzaF90eXBlGAEgASgNUghoYXNoVHlwZRIWCgZhbW91bnQYAiABKANSBmFtb3VudBIZCghieXRlX2ZlZRgDIAEoA1IHYnl0ZUZlZRIdCgp0b19hZGRyZXNzGAQgASgJUgl0b0FkZHJlc3MSJQoOY2hhbmdlX2FkZHJlc3MYBSABKAlSDWNoYW5nZUFkZHJlc3MSHwoLcHJpdmF0ZV9rZXkYBiADKAxSCnByaXZhdGVLZXkSRQoHc2NyaXB0cxgHIAMoCzIrLlRXLkJpdGNvaW4uUHJvdG8uU2lnbmluZ0lucHV0LlNjcmlwdHNFbnRyeVIHc2NyaXB0cxI4CgR1dHhvGAggAygLMiQuVFcuQml0Y29pbi5Qcm90by5VbnNwZW50VHJhbnNhY3Rpb25SBHV0eG8SJAoOdXNlX21heF9hbW91bnQYCSABKAhSDHVzZU1heEFtb3VudBIbCgljb2luX3R5cGUYCiABKA1SCGNvaW5UeXBlEjUKBHBsYW4YCyABKAsyIS5UVy5CaXRjb2luLlByb3RvLlRyYW5zYWN0aW9uUGxhblIEcGxhbhIbCglsb2NrX3RpbWUYDCABKA1SCGxvY2tUaW1lEigKEG91dHB1dF9vcF9yZXR1cm4YDSABKAxSDm91dHB1dE9wUmV0dXJuGjoKDFNjcmlwdHNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoDFIFdmFsdWU6AjgB');
 @$core.Deprecated('Use transactionPlanDescriptor instead')
 const TransactionPlan$json = const {
   '1': 'TransactionPlan',
@@ -111,11 +112,12 @@ const TransactionPlan$json = const {
     const {'1': 'utxos', '3': 5, '4': 3, '5': 11, '6': '.TW.Bitcoin.Proto.UnspentTransaction', '10': 'utxos'},
     const {'1': 'branch_id', '3': 6, '4': 1, '5': 12, '10': 'branchId'},
     const {'1': 'error', '3': 7, '4': 1, '5': 14, '6': '.TW.Common.Proto.SigningError', '10': 'error'},
+    const {'1': 'output_op_return', '3': 8, '4': 1, '5': 12, '10': 'outputOpReturn'},
   ],
 };
 
 /// Descriptor for `TransactionPlan`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List transactionPlanDescriptor = $convert.base64Decode('Cg9UcmFuc2FjdGlvblBsYW4SFgoGYW1vdW50GAEgASgDUgZhbW91bnQSKQoQYXZhaWxhYmxlX2Ftb3VudBgCIAEoA1IPYXZhaWxhYmxlQW1vdW50EhAKA2ZlZRgDIAEoA1IDZmVlEhYKBmNoYW5nZRgEIAEoA1IGY2hhbmdlEjoKBXV0eG9zGAUgAygLMiQuVFcuQml0Y29pbi5Qcm90by5VbnNwZW50VHJhbnNhY3Rpb25SBXV0eG9zEhsKCWJyYW5jaF9pZBgGIAEoDFIIYnJhbmNoSWQSMwoFZXJyb3IYByABKA4yHS5UVy5Db21tb24uUHJvdG8uU2lnbmluZ0Vycm9yUgVlcnJvcg==');
+final $typed_data.Uint8List transactionPlanDescriptor = $convert.base64Decode('Cg9UcmFuc2FjdGlvblBsYW4SFgoGYW1vdW50GAEgASgDUgZhbW91bnQSKQoQYXZhaWxhYmxlX2Ftb3VudBgCIAEoA1IPYXZhaWxhYmxlQW1vdW50EhAKA2ZlZRgDIAEoA1IDZmVlEhYKBmNoYW5nZRgEIAEoA1IGY2hhbmdlEjoKBXV0eG9zGAUgAygLMiQuVFcuQml0Y29pbi5Qcm90by5VbnNwZW50VHJhbnNhY3Rpb25SBXV0eG9zEhsKCWJyYW5jaF9pZBgGIAEoDFIIYnJhbmNoSWQSMwoFZXJyb3IYByABKA4yHS5UVy5Db21tb24uUHJvdG8uU2lnbmluZ0Vycm9yUgVlcnJvchIoChBvdXRwdXRfb3BfcmV0dXJuGAggASgMUg5vdXRwdXRPcFJldHVybg==');
 @$core.Deprecated('Use signingOutputDescriptor instead')
 const SigningOutput$json = const {
   '1': 'SigningOutput',

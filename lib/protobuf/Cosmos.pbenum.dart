@@ -26,3 +26,18 @@ class BroadcastMode extends $pb.ProtobufEnum {
   const BroadcastMode._($core.int v, $core.String n) : super(v, n);
 }
 
+class SigningMode extends $pb.ProtobufEnum {
+  static const SigningMode JSON = SigningMode._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'JSON');
+  static const SigningMode Protobuf = SigningMode._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'Protobuf');
+
+  static const $core.List<SigningMode> values = <SigningMode> [
+    JSON,
+    Protobuf,
+  ];
+
+  static final $core.Map<$core.int, SigningMode> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static SigningMode? valueOf($core.int value) => _byValue[value];
+
+  const SigningMode._($core.int v, $core.String n) : super(v, n);
+}
+
