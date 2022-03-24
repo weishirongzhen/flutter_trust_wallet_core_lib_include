@@ -393,6 +393,7 @@ class SigningInput extends $pb.GeneratedMessage {
     ..a<$core.int>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coinType', $pb.PbFieldType.OU3)
     ..aOM<TransactionPlan>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'plan', subBuilder: TransactionPlan.create)
     ..a<$core.int>(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lockTime', $pb.PbFieldType.OU3)
+    ..a<$core.List<$core.int>>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'outputOpReturn', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -410,6 +411,7 @@ class SigningInput extends $pb.GeneratedMessage {
     $core.int? coinType,
     TransactionPlan? plan,
     $core.int? lockTime,
+    $core.List<$core.int>? outputOpReturn,
   }) {
     final _result = create();
     if (hashType != null) {
@@ -447,6 +449,9 @@ class SigningInput extends $pb.GeneratedMessage {
     }
     if (lockTime != null) {
       _result.lockTime = lockTime;
+    }
+    if (outputOpReturn != null) {
+      _result.outputOpReturn = outputOpReturn;
     }
     return _result;
   }
@@ -562,6 +567,15 @@ class SigningInput extends $pb.GeneratedMessage {
   $core.bool hasLockTime() => $_has(11);
   @$pb.TagNumber(12)
   void clearLockTime() => clearField(12);
+
+  @$pb.TagNumber(13)
+  $core.List<$core.int> get outputOpReturn => $_getN(12);
+  @$pb.TagNumber(13)
+  set outputOpReturn($core.List<$core.int> v) { $_setBytes(12, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasOutputOpReturn() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearOutputOpReturn() => clearField(13);
 }
 
 class TransactionPlan extends $pb.GeneratedMessage {
@@ -573,6 +587,7 @@ class TransactionPlan extends $pb.GeneratedMessage {
     ..pc<UnspentTransaction>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'utxos', $pb.PbFieldType.PM, subBuilder: UnspentTransaction.create)
     ..a<$core.List<$core.int>>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'branchId', $pb.PbFieldType.OY)
     ..e<$0.SigningError>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', $pb.PbFieldType.OE, defaultOrMaker: $0.SigningError.OK, valueOf: $0.SigningError.valueOf, enumValues: $0.SigningError.values)
+    ..a<$core.List<$core.int>>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'outputOpReturn', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -585,6 +600,7 @@ class TransactionPlan extends $pb.GeneratedMessage {
     $core.Iterable<UnspentTransaction>? utxos,
     $core.List<$core.int>? branchId,
     $0.SigningError? error,
+    $core.List<$core.int>? outputOpReturn,
   }) {
     final _result = create();
     if (amount != null) {
@@ -607,6 +623,9 @@ class TransactionPlan extends $pb.GeneratedMessage {
     }
     if (error != null) {
       _result.error = error;
+    }
+    if (outputOpReturn != null) {
+      _result.outputOpReturn = outputOpReturn;
     }
     return _result;
   }
@@ -687,6 +706,15 @@ class TransactionPlan extends $pb.GeneratedMessage {
   $core.bool hasError() => $_has(6);
   @$pb.TagNumber(7)
   void clearError() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.List<$core.int> get outputOpReturn => $_getN(7);
+  @$pb.TagNumber(8)
+  set outputOpReturn($core.List<$core.int> v) { $_setBytes(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasOutputOpReturn() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearOutputOpReturn() => clearField(8);
 }
 
 class SigningOutput extends $pb.GeneratedMessage {

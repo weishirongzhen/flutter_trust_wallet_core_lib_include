@@ -1,10 +1,11 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SwiftProtobuf
 import Dispatch
 import Foundation
 import Swift
 @_exported import SwiftProtobuf
+import _Concurrency
 public struct Google_Protobuf_Any {
   public var typeURL: Swift.String {
     get
@@ -17,7 +18,7 @@ public struct Google_Protobuf_Any {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Any : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Any : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -72,7 +73,7 @@ public struct Google_Protobuf_Mixin {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Api : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Api : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -82,7 +83,7 @@ extension Google_Protobuf_Api : SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     get
   }
 }
-extension Google_Protobuf_Method : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Method : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -92,7 +93,7 @@ extension Google_Protobuf_Method : SwiftProtobuf.Message, SwiftProtobuf._Message
     get
   }
 }
-extension Google_Protobuf_Mixin : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Mixin : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -205,7 +206,7 @@ public protocol Decoder {
   mutating func decodeExtensionField(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) throws
   mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type) throws
 }
-extension Decoder {
+extension SwiftProtobuf.Decoder {
   public mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type) throws
 }
 public struct Google_Protobuf_FileDescriptorSet {
@@ -475,13 +476,13 @@ public struct Google_Protobuf_FieldDescriptorProto {
   }
   public init()
 }
-extension Google_Protobuf_FieldDescriptorProto.TypeEnum : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum] {
     get
   }
 }
-extension Google_Protobuf_FieldDescriptorProto.Label : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label] {
     get
@@ -831,7 +832,7 @@ public struct Google_Protobuf_FileOptions : SwiftProtobuf.ExtensibleMessage {
   public init()
   public var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet
 }
-extension Google_Protobuf_FileOptions.OptimizeMode : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode] {
     get
@@ -951,13 +952,13 @@ public struct Google_Protobuf_FieldOptions : SwiftProtobuf.ExtensibleMessage {
   public init()
   public var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet
 }
-extension Google_Protobuf_FieldOptions.CType : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions.CType : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_FieldOptions.CType]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_FieldOptions.CType] {
     get
   }
 }
-extension Google_Protobuf_FieldOptions.JSType : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions.JSType : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_FieldOptions.JSType]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_FieldOptions.JSType] {
     get
@@ -1052,7 +1053,7 @@ public struct Google_Protobuf_MethodOptions : SwiftProtobuf.ExtensibleMessage {
   public init()
   public var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet
 }
-extension Google_Protobuf_MethodOptions.IdempotencyLevel : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel : Swift.CaseIterable {
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel]
   public static var allCases: [SwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel] {
     get
@@ -1193,7 +1194,7 @@ public struct Google_Protobuf_GeneratedCodeInfo {
   }
   public init()
 }
-extension Google_Protobuf_FileDescriptorSet : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FileDescriptorSet : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1206,7 +1207,7 @@ extension Google_Protobuf_FileDescriptorSet : SwiftProtobuf.Message, SwiftProtob
     get
   }
 }
-extension Google_Protobuf_FileDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FileDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1219,7 +1220,7 @@ extension Google_Protobuf_FileDescriptorProto : SwiftProtobuf.Message, SwiftProt
     get
   }
 }
-extension Google_Protobuf_DescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_DescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1232,7 +1233,7 @@ extension Google_Protobuf_DescriptorProto : SwiftProtobuf.Message, SwiftProtobuf
     get
   }
 }
-extension Google_Protobuf_DescriptorProto.ExtensionRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_DescriptorProto.ExtensionRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1245,7 +1246,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange : SwiftProtobuf.Message
     get
   }
 }
-extension Google_Protobuf_DescriptorProto.ReservedRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_DescriptorProto.ReservedRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1255,7 +1256,7 @@ extension Google_Protobuf_DescriptorProto.ReservedRange : SwiftProtobuf.Message,
     get
   }
 }
-extension Google_Protobuf_ExtensionRangeOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_ExtensionRangeOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1268,7 +1269,7 @@ extension Google_Protobuf_ExtensionRangeOptions : SwiftProtobuf.Message, SwiftPr
     get
   }
 }
-extension Google_Protobuf_FieldDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1281,13 +1282,13 @@ extension Google_Protobuf_FieldDescriptorProto : SwiftProtobuf.Message, SwiftPro
     get
   }
 }
-extension Google_Protobuf_FieldDescriptorProto.TypeEnum : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.TypeEnum : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_FieldDescriptorProto.Label : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldDescriptorProto.Label : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_OneofDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_OneofDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1300,7 +1301,7 @@ extension Google_Protobuf_OneofDescriptorProto : SwiftProtobuf.Message, SwiftPro
     get
   }
 }
-extension Google_Protobuf_EnumDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1313,7 +1314,7 @@ extension Google_Protobuf_EnumDescriptorProto : SwiftProtobuf.Message, SwiftProt
     get
   }
 }
-extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumDescriptorProto.EnumReservedRange : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1323,7 +1324,7 @@ extension Google_Protobuf_EnumDescriptorProto.EnumReservedRange : SwiftProtobuf.
     get
   }
 }
-extension Google_Protobuf_EnumValueDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumValueDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1336,7 +1337,7 @@ extension Google_Protobuf_EnumValueDescriptorProto : SwiftProtobuf.Message, Swif
     get
   }
 }
-extension Google_Protobuf_ServiceDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_ServiceDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1349,7 +1350,7 @@ extension Google_Protobuf_ServiceDescriptorProto : SwiftProtobuf.Message, SwiftP
     get
   }
 }
-extension Google_Protobuf_MethodDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_MethodDescriptorProto : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1362,7 +1363,7 @@ extension Google_Protobuf_MethodDescriptorProto : SwiftProtobuf.Message, SwiftPr
     get
   }
 }
-extension Google_Protobuf_FileOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FileOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1375,10 +1376,10 @@ extension Google_Protobuf_FileOptions : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_FileOptions.OptimizeMode : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FileOptions.OptimizeMode : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_MessageOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_MessageOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1391,7 +1392,7 @@ extension Google_Protobuf_MessageOptions : SwiftProtobuf.Message, SwiftProtobuf.
     get
   }
 }
-extension Google_Protobuf_FieldOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1404,13 +1405,13 @@ extension Google_Protobuf_FieldOptions : SwiftProtobuf.Message, SwiftProtobuf._M
     get
   }
 }
-extension Google_Protobuf_FieldOptions.CType : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions.CType : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_FieldOptions.JSType : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldOptions.JSType : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_OneofOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_OneofOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1423,7 +1424,7 @@ extension Google_Protobuf_OneofOptions : SwiftProtobuf.Message, SwiftProtobuf._M
     get
   }
 }
-extension Google_Protobuf_EnumOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1436,7 +1437,7 @@ extension Google_Protobuf_EnumOptions : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_EnumValueOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumValueOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1449,7 +1450,7 @@ extension Google_Protobuf_EnumValueOptions : SwiftProtobuf.Message, SwiftProtobu
     get
   }
 }
-extension Google_Protobuf_ServiceOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_ServiceOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1462,7 +1463,7 @@ extension Google_Protobuf_ServiceOptions : SwiftProtobuf.Message, SwiftProtobuf.
     get
   }
 }
-extension Google_Protobuf_MethodOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_MethodOptions : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1475,10 +1476,10 @@ extension Google_Protobuf_MethodOptions : SwiftProtobuf.Message, SwiftProtobuf._
     get
   }
 }
-extension Google_Protobuf_MethodOptions.IdempotencyLevel : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_MethodOptions.IdempotencyLevel : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_UninterpretedOption : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_UninterpretedOption : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1491,7 +1492,7 @@ extension Google_Protobuf_UninterpretedOption : SwiftProtobuf.Message, SwiftProt
     get
   }
 }
-extension Google_Protobuf_UninterpretedOption.NamePart : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_UninterpretedOption.NamePart : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public var isInitialized: Swift.Bool {
@@ -1504,7 +1505,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart : SwiftProtobuf.Message, 
     get
   }
 }
-extension Google_Protobuf_SourceCodeInfo : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_SourceCodeInfo : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1514,7 +1515,7 @@ extension Google_Protobuf_SourceCodeInfo : SwiftProtobuf.Message, SwiftProtobuf.
     get
   }
 }
-extension Google_Protobuf_SourceCodeInfo.Location : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_SourceCodeInfo.Location : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1524,7 +1525,7 @@ extension Google_Protobuf_SourceCodeInfo.Location : SwiftProtobuf.Message, Swift
     get
   }
 }
-extension Google_Protobuf_GeneratedCodeInfo : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1534,7 +1535,7 @@ extension Google_Protobuf_GeneratedCodeInfo : SwiftProtobuf.Message, SwiftProtob
     get
   }
 }
-extension Google_Protobuf_GeneratedCodeInfo.Annotation : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_GeneratedCodeInfo.Annotation : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1550,7 +1551,7 @@ public struct Google_Protobuf_Duration {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Duration : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Duration : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1564,7 +1565,7 @@ public struct Google_Protobuf_Empty {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Empty : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Empty : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1579,19 +1580,19 @@ public protocol Enum : Swift.Hashable, Swift.RawRepresentable {
   init?(rawValue: Swift.Int)
   var rawValue: Swift.Int { get }
 }
-extension Enum {
+extension SwiftProtobuf.Enum {
   public func hash(into hasher: inout Swift.Hasher)
 }
 public protocol ExtensibleMessage : SwiftProtobuf.Message {
   var _protobuf_extensionFieldValues: SwiftProtobuf.ExtensionFieldValueSet { get set }
 }
-extension ExtensibleMessage {
+extension SwiftProtobuf.ExtensibleMessage {
   public mutating func setExtensionValue<F>(ext: SwiftProtobuf.MessageExtension<F, Self>, value: F.ValueType) where F : SwiftProtobuf.ExtensionField
   public func getExtensionValue<F>(ext: SwiftProtobuf.MessageExtension<F, Self>) -> F.ValueType? where F : SwiftProtobuf.ExtensionField
   public func hasExtensionValue<F>(ext: SwiftProtobuf.MessageExtension<F, Self>) -> Swift.Bool where F : SwiftProtobuf.ExtensionField
   public mutating func clearExtensionValue<F>(ext: SwiftProtobuf.MessageExtension<F, Self>) where F : SwiftProtobuf.ExtensionField
 }
-extension ExtensibleMessage {
+extension SwiftProtobuf.ExtensibleMessage {
   public mutating func setExtensionValue<T>(ext: SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<T>, Self>, value: [T.BaseType]) where T : SwiftProtobuf.FieldType
   public mutating func setExtensionValue<T>(ext: SwiftProtobuf.MessageExtension<SwiftProtobuf.PackedExtensionField<T>, Self>, value: [T.BaseType]) where T : SwiftProtobuf.FieldType
   public mutating func setExtensionValue<E>(ext: SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedEnumExtensionField<E>, Self>, value: [E]) where E : SwiftProtobuf.Enum, E.RawValue == Swift.Int
@@ -1607,7 +1608,7 @@ public protocol AnyExtensionField : Swift.CustomDebugStringConvertible {
   func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   var isInitialized: Swift.Bool { get }
 }
-extension AnyExtensionField {
+extension SwiftProtobuf.AnyExtensionField {
   public var isInitialized: Swift.Bool {
     get
   }
@@ -1845,7 +1846,7 @@ public struct Google_Protobuf_FieldMask {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_FieldMask : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FieldMask : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -1867,7 +1868,7 @@ public protocol FieldType {
 public protocol MapKeyType : SwiftProtobuf.FieldType {
   static func _lessThan(lhs: Self.BaseType, rhs: Self.BaseType) -> Swift.Bool
 }
-extension MapKeyType where Self.BaseType : Swift.Comparable {
+extension SwiftProtobuf.MapKeyType where Self.BaseType : Swift.Comparable {
   public static func _lessThan(lhs: Self.BaseType, rhs: Self.BaseType) -> Swift.Bool
 }
 public protocol MapValueType : SwiftProtobuf.FieldType {
@@ -2039,26 +2040,26 @@ public struct ProtobufBytes : SwiftProtobuf.FieldType, SwiftProtobuf.MapValueTyp
   public static func visitPacked<V>(value: [SwiftProtobuf.ProtobufBytes.BaseType], fieldNumber: Swift.Int, with visitor: inout V) throws where V : SwiftProtobuf.Visitor
 }
 public let defaultAnyTypeURLPrefix: Swift.String
-extension Google_Protobuf_Any {
+extension SwiftProtobuf.Google_Protobuf_Any {
   public init(message: SwiftProtobuf.Message, partial: Swift.Bool = false, typePrefix: Swift.String = defaultAnyTypeURLPrefix) throws
   public init(textFormatString: Swift.String, extensions: SwiftProtobuf.ExtensionMap? = nil) throws
   public func isA<M>(_ type: M.Type) -> Swift.Bool where M : SwiftProtobuf.Message
   public func hash(into hasher: inout Swift.Hasher)
 }
-extension Google_Protobuf_Any {
+extension SwiftProtobuf.Google_Protobuf_Any {
   @discardableResult
   public static func register(messageType: SwiftProtobuf.Message.Type) -> Swift.Bool
   public static func messageType(forTypeURL url: Swift.String) -> SwiftProtobuf.Message.Type?
   public static func messageType(forMessageName name: Swift.String) -> SwiftProtobuf.Message.Type?
 }
-extension Google_Protobuf_Duration {
+extension SwiftProtobuf.Google_Protobuf_Duration {
   public init(seconds: Swift.Int64 = 0, nanos: Swift.Int32 = 0)
 }
-extension Google_Protobuf_Duration : Swift.ExpressibleByFloatLiteral {
+extension SwiftProtobuf.Google_Protobuf_Duration : Swift.ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Swift.Double
   public init(floatLiteral value: Swift.Double)
 }
-extension Google_Protobuf_Duration {
+extension SwiftProtobuf.Google_Protobuf_Duration {
   public init(timeInterval: Foundation.TimeInterval)
   public var timeInterval: Foundation.TimeInterval {
     get
@@ -2068,39 +2069,39 @@ prefix public func - (operand: SwiftProtobuf.Google_Protobuf_Duration) -> SwiftP
 public func + (lhs: SwiftProtobuf.Google_Protobuf_Duration, rhs: SwiftProtobuf.Google_Protobuf_Duration) -> SwiftProtobuf.Google_Protobuf_Duration
 public func - (lhs: SwiftProtobuf.Google_Protobuf_Duration, rhs: SwiftProtobuf.Google_Protobuf_Duration) -> SwiftProtobuf.Google_Protobuf_Duration
 public func - (lhs: SwiftProtobuf.Google_Protobuf_Timestamp, rhs: SwiftProtobuf.Google_Protobuf_Timestamp) -> SwiftProtobuf.Google_Protobuf_Duration
-extension Google_Protobuf_FieldMask {
+extension SwiftProtobuf.Google_Protobuf_FieldMask {
   public init(protoPaths: [Swift.String])
   public init(protoPaths: Swift.String...)
   public init?(jsonPaths: Swift.String...)
 }
-extension Google_Protobuf_ListValue : Swift.ExpressibleByArrayLiteral {
+extension SwiftProtobuf.Google_Protobuf_ListValue : Swift.ExpressibleByArrayLiteral {
   public typealias Element = SwiftProtobuf.Google_Protobuf_Value
   public init(arrayLiteral elements: SwiftProtobuf.Google_Protobuf_ListValue.Element...)
   public typealias ArrayLiteralElement = SwiftProtobuf.Google_Protobuf_ListValue.Element
 }
-extension Google_Protobuf_ListValue {
+extension SwiftProtobuf.Google_Protobuf_ListValue {
   public init(values: [SwiftProtobuf.Google_Protobuf_Value])
   public subscript(index: Swift.Int) -> SwiftProtobuf.Google_Protobuf_Value {
     get
     set(newValue)
   }
 }
-extension Google_Protobuf_Struct : Swift.ExpressibleByDictionaryLiteral {
+extension SwiftProtobuf.Google_Protobuf_Struct : Swift.ExpressibleByDictionaryLiteral {
   public typealias Key = Swift.String
   public typealias Value = SwiftProtobuf.Google_Protobuf_Value
   public init(dictionaryLiteral: (Swift.String, SwiftProtobuf.Google_Protobuf_Value)...)
 }
-extension Google_Protobuf_Struct {
+extension SwiftProtobuf.Google_Protobuf_Struct {
   public init(fields: [Swift.String : SwiftProtobuf.Google_Protobuf_Value])
   public subscript(key: Swift.String) -> SwiftProtobuf.Google_Protobuf_Value? {
     get
     set(newValue)
   }
 }
-extension Google_Protobuf_Timestamp {
+extension SwiftProtobuf.Google_Protobuf_Timestamp {
   public init(seconds: Swift.Int64 = 0, nanos: Swift.Int32 = 0)
 }
-extension Google_Protobuf_Timestamp {
+extension SwiftProtobuf.Google_Protobuf_Timestamp {
   public init(timeIntervalSince1970: Foundation.TimeInterval)
   public init(timeIntervalSinceReferenceDate: Foundation.TimeInterval)
   public init(date: Foundation.Date)
@@ -2117,19 +2118,19 @@ extension Google_Protobuf_Timestamp {
 public func + (lhs: SwiftProtobuf.Google_Protobuf_Timestamp, rhs: SwiftProtobuf.Google_Protobuf_Duration) -> SwiftProtobuf.Google_Protobuf_Timestamp
 public func + (lhs: SwiftProtobuf.Google_Protobuf_Duration, rhs: SwiftProtobuf.Google_Protobuf_Timestamp) -> SwiftProtobuf.Google_Protobuf_Timestamp
 public func - (lhs: SwiftProtobuf.Google_Protobuf_Timestamp, rhs: SwiftProtobuf.Google_Protobuf_Duration) -> SwiftProtobuf.Google_Protobuf_Timestamp
-extension Google_Protobuf_Value : Swift.ExpressibleByIntegerLiteral {
+extension SwiftProtobuf.Google_Protobuf_Value : Swift.ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Swift.Int64
   public init(integerLiteral value: Swift.Int64)
 }
-extension Google_Protobuf_Value : Swift.ExpressibleByFloatLiteral {
+extension SwiftProtobuf.Google_Protobuf_Value : Swift.ExpressibleByFloatLiteral {
   public typealias FloatLiteralType = Swift.Double
   public init(floatLiteral value: Swift.Double)
 }
-extension Google_Protobuf_Value : Swift.ExpressibleByBooleanLiteral {
+extension SwiftProtobuf.Google_Protobuf_Value : Swift.ExpressibleByBooleanLiteral {
   public typealias BooleanLiteralType = Swift.Bool
   public init(booleanLiteral value: Swift.Bool)
 }
-extension Google_Protobuf_Value : Swift.ExpressibleByStringLiteral {
+extension SwiftProtobuf.Google_Protobuf_Value : Swift.ExpressibleByStringLiteral {
   public typealias StringLiteralType = Swift.String
   public typealias ExtendedGraphemeClusterLiteralType = Swift.String
   public typealias UnicodeScalarLiteralType = Swift.String
@@ -2137,59 +2138,59 @@ extension Google_Protobuf_Value : Swift.ExpressibleByStringLiteral {
   public init(unicodeScalarLiteral value: Swift.String)
   public init(extendedGraphemeClusterLiteral value: Swift.String)
 }
-extension Google_Protobuf_Value : Swift.ExpressibleByNilLiteral {
+extension SwiftProtobuf.Google_Protobuf_Value : Swift.ExpressibleByNilLiteral {
   public init(nilLiteral: ())
 }
-extension Google_Protobuf_Value {
+extension SwiftProtobuf.Google_Protobuf_Value {
   public init(numberValue: Swift.Double)
   public init(stringValue: Swift.String)
   public init(boolValue: Swift.Bool)
   public init(structValue: SwiftProtobuf.Google_Protobuf_Struct)
   public init(listValue: SwiftProtobuf.Google_Protobuf_ListValue)
 }
-extension Google_Protobuf_DoubleValue : Swift.ExpressibleByFloatLiteral {
+extension SwiftProtobuf.Google_Protobuf_DoubleValue : Swift.ExpressibleByFloatLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufDouble
   public typealias FloatLiteralType = SwiftProtobuf.Google_Protobuf_DoubleValue.WrappedType.BaseType
   public init(_ value: SwiftProtobuf.Google_Protobuf_DoubleValue.WrappedType.BaseType)
   public init(floatLiteral: SwiftProtobuf.Google_Protobuf_DoubleValue.FloatLiteralType)
 }
-extension Google_Protobuf_FloatValue : Swift.ExpressibleByFloatLiteral {
+extension SwiftProtobuf.Google_Protobuf_FloatValue : Swift.ExpressibleByFloatLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufFloat
   public typealias FloatLiteralType = Swift.Float
   public init(_ value: SwiftProtobuf.Google_Protobuf_FloatValue.WrappedType.BaseType)
   public init(floatLiteral: SwiftProtobuf.Google_Protobuf_FloatValue.FloatLiteralType)
 }
-extension Google_Protobuf_Int64Value : Swift.ExpressibleByIntegerLiteral {
+extension SwiftProtobuf.Google_Protobuf_Int64Value : Swift.ExpressibleByIntegerLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufInt64
   public typealias IntegerLiteralType = SwiftProtobuf.Google_Protobuf_Int64Value.WrappedType.BaseType
   public init(_ value: SwiftProtobuf.Google_Protobuf_Int64Value.WrappedType.BaseType)
   public init(integerLiteral: SwiftProtobuf.Google_Protobuf_Int64Value.IntegerLiteralType)
 }
-extension Google_Protobuf_UInt64Value : Swift.ExpressibleByIntegerLiteral {
+extension SwiftProtobuf.Google_Protobuf_UInt64Value : Swift.ExpressibleByIntegerLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufUInt64
   public typealias IntegerLiteralType = SwiftProtobuf.Google_Protobuf_UInt64Value.WrappedType.BaseType
   public init(_ value: SwiftProtobuf.Google_Protobuf_UInt64Value.WrappedType.BaseType)
   public init(integerLiteral: SwiftProtobuf.Google_Protobuf_UInt64Value.IntegerLiteralType)
 }
-extension Google_Protobuf_Int32Value : Swift.ExpressibleByIntegerLiteral {
+extension SwiftProtobuf.Google_Protobuf_Int32Value : Swift.ExpressibleByIntegerLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufInt32
   public typealias IntegerLiteralType = SwiftProtobuf.Google_Protobuf_Int32Value.WrappedType.BaseType
   public init(_ value: SwiftProtobuf.Google_Protobuf_Int32Value.WrappedType.BaseType)
   public init(integerLiteral: SwiftProtobuf.Google_Protobuf_Int32Value.IntegerLiteralType)
 }
-extension Google_Protobuf_UInt32Value : Swift.ExpressibleByIntegerLiteral {
+extension SwiftProtobuf.Google_Protobuf_UInt32Value : Swift.ExpressibleByIntegerLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufUInt32
   public typealias IntegerLiteralType = SwiftProtobuf.Google_Protobuf_UInt32Value.WrappedType.BaseType
   public init(_ value: SwiftProtobuf.Google_Protobuf_UInt32Value.WrappedType.BaseType)
   public init(integerLiteral: SwiftProtobuf.Google_Protobuf_UInt32Value.IntegerLiteralType)
 }
-extension Google_Protobuf_BoolValue : Swift.ExpressibleByBooleanLiteral {
+extension SwiftProtobuf.Google_Protobuf_BoolValue : Swift.ExpressibleByBooleanLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufBool
   public typealias BooleanLiteralType = Swift.Bool
   public init(_ value: SwiftProtobuf.Google_Protobuf_BoolValue.WrappedType.BaseType)
   public init(booleanLiteral: Swift.Bool)
 }
-extension Google_Protobuf_StringValue : Swift.ExpressibleByStringLiteral {
+extension SwiftProtobuf.Google_Protobuf_StringValue : Swift.ExpressibleByStringLiteral {
   public typealias WrappedType = SwiftProtobuf.ProtobufString
   public typealias StringLiteralType = Swift.String
   public typealias ExtendedGraphemeClusterLiteralType = Swift.String
@@ -2199,7 +2200,7 @@ extension Google_Protobuf_StringValue : Swift.ExpressibleByStringLiteral {
   public init(extendedGraphemeClusterLiteral: Swift.String)
   public init(unicodeScalarLiteral: Swift.String)
 }
-extension Google_Protobuf_BytesValue {
+extension SwiftProtobuf.Google_Protobuf_BytesValue {
   public typealias WrappedType = SwiftProtobuf.ProtobufBytes
   public init(_ value: SwiftProtobuf.Google_Protobuf_BytesValue.WrappedType.BaseType)
 }
@@ -2254,10 +2255,38 @@ public struct JSONEncodingOptions {
   public var preserveProtoFieldNames: Swift.Bool
   public init()
 }
-extension Message {
+public protocol Message : Swift.CustomDebugStringConvertible {
+  init()
+  static var protoMessageName: Swift.String { get }
+  var isInitialized: Swift.Bool { get }
+  var unknownFields: SwiftProtobuf.UnknownStorage { get set }
+  mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  func hash(into hasher: inout Swift.Hasher)
+  func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
+}
+extension SwiftProtobuf.Message {
+  public var isInitialized: Swift.Bool {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public var debugDescription: Swift.String {
+    get
+  }
+  public static func with(_ populator: (inout Self) throws -> ()) rethrows -> Self
+}
+public protocol _MessageImplementationBase : Swift.Hashable, SwiftProtobuf.Message {
+  func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
+}
+extension SwiftProtobuf._MessageImplementationBase {
+  public func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
+  public static func == (lhs: Self, rhs: Self) -> Swift.Bool
+  public func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
+}
+extension SwiftProtobuf.Message {
   public init(unpackingAny: SwiftProtobuf.Google_Protobuf_Any, extensions: SwiftProtobuf.ExtensionMap? = nil, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws
 }
-extension Message {
+extension SwiftProtobuf.Message {
   public func serializedData(partial: Swift.Bool = false) throws -> Foundation.Data
   @inlinable public init(serializedData data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
     self.init()
@@ -2278,7 +2307,7 @@ extension Message {
   @usableFromInline
   internal mutating func _merge(rawBuffer body: Swift.UnsafeRawBufferPointer, extensions: SwiftProtobuf.ExtensionMap?, partial: Swift.Bool, options: SwiftProtobuf.BinaryDecodingOptions) throws
 }
-extension Message {
+extension SwiftProtobuf.Message {
   public func jsonString(options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Swift.String
   public func jsonUTF8Data(options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Foundation.Data
   public init(jsonString: Swift.String, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
@@ -2286,7 +2315,7 @@ extension Message {
   public init(jsonUTF8Data: Foundation.Data, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
   public init(jsonUTF8Data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap? = nil, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
 }
-extension Message {
+extension SwiftProtobuf.Message {
   public static func jsonString<C>(from collection: C, options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Swift.String where Self == C.Element, C : Swift.Collection
   public static func jsonUTF8Data<C>(from collection: C, options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Foundation.Data where Self == C.Element, C : Swift.Collection
   public static func array(fromJSONString jsonString: Swift.String, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
@@ -2294,38 +2323,10 @@ extension Message {
   public static func array(fromJSONUTF8Data jsonUTF8Data: Foundation.Data, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
   public static func array(fromJSONUTF8Data jsonUTF8Data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap = SimpleExtensionMap(), options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
 }
-extension Message {
+extension SwiftProtobuf.Message {
   public func textFormatString() -> Swift.String
   public func textFormatString(options: SwiftProtobuf.TextFormatEncodingOptions) -> Swift.String
   public init(textFormatString: Swift.String, extensions: SwiftProtobuf.ExtensionMap? = nil) throws
-}
-public protocol Message : Swift.CustomDebugStringConvertible {
-  init()
-  static var protoMessageName: Swift.String { get }
-  var isInitialized: Swift.Bool { get }
-  var unknownFields: SwiftProtobuf.UnknownStorage { get set }
-  mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
-  func hash(into hasher: inout Swift.Hasher)
-  func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
-}
-extension Message {
-  public var isInitialized: Swift.Bool {
-    get
-  }
-  public func hash(into hasher: inout Swift.Hasher)
-  public var debugDescription: Swift.String {
-    get
-  }
-  public static func with(_ populator: (inout Self) throws -> ()) rethrows -> Self
-}
-public protocol _MessageImplementationBase : Swift.Hashable, SwiftProtobuf.Message {
-  func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
-}
-extension _MessageImplementationBase {
-  public func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
-  public static func == (lhs: Self, rhs: Self) -> Swift.Bool
-  public func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
 }
 public protocol AnyMessageExtension {
   var fieldNumber: Swift.Int { get }
@@ -2399,7 +2400,7 @@ public struct Google_Protobuf_SourceContext {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_SourceContext : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_SourceContext : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2419,7 +2420,7 @@ public enum Google_Protobuf_NullValue : SwiftProtobuf.Enum {
     get
   }
 }
-extension Google_Protobuf_NullValue : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_NullValue : Swift.CaseIterable {
   public static var allCases: [SwiftProtobuf.Google_Protobuf_NullValue]
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_NullValue]
 }
@@ -2471,10 +2472,10 @@ public struct Google_Protobuf_ListValue {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_NullValue : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_NullValue : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_Struct : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Struct : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2484,7 +2485,7 @@ extension Google_Protobuf_Struct : SwiftProtobuf.Message, SwiftProtobuf._Message
     get
   }
 }
-extension Google_Protobuf_Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2494,7 +2495,7 @@ extension Google_Protobuf_Value : SwiftProtobuf.Message, SwiftProtobuf._MessageI
     get
   }
 }
-extension Google_Protobuf_ListValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_ListValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2532,7 +2533,7 @@ public struct Google_Protobuf_Timestamp {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Timestamp : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Timestamp : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2553,7 +2554,7 @@ public enum Google_Protobuf_Syntax : SwiftProtobuf.Enum {
     get
   }
 }
-extension Google_Protobuf_Syntax : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_Syntax : Swift.CaseIterable {
   public static var allCases: [SwiftProtobuf.Google_Protobuf_Syntax]
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_Syntax]
 }
@@ -2629,11 +2630,11 @@ public struct Google_Protobuf_Field {
   }
   public init()
 }
-extension Google_Protobuf_Field.Kind : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_Field.Kind : Swift.CaseIterable {
   public static var allCases: [SwiftProtobuf.Google_Protobuf_Field.Kind]
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_Field.Kind]
 }
-extension Google_Protobuf_Field.Cardinality : Swift.CaseIterable {
+extension SwiftProtobuf.Google_Protobuf_Field.Cardinality : Swift.CaseIterable {
   public static var allCases: [SwiftProtobuf.Google_Protobuf_Field.Cardinality]
   public typealias AllCases = [SwiftProtobuf.Google_Protobuf_Field.Cardinality]
 }
@@ -2673,10 +2674,10 @@ public struct Google_Protobuf_Option {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_Syntax : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Syntax : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_Type : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Type : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2686,7 +2687,7 @@ extension Google_Protobuf_Type : SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     get
   }
 }
-extension Google_Protobuf_Field : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Field : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2696,13 +2697,13 @@ extension Google_Protobuf_Field : SwiftProtobuf.Message, SwiftProtobuf._MessageI
     get
   }
 }
-extension Google_Protobuf_Field.Kind : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Field.Kind : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_Field.Cardinality : SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Field.Cardinality : SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
 }
-extension Google_Protobuf_Enum : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Enum : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2712,7 +2713,7 @@ extension Google_Protobuf_Enum : SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     get
   }
 }
-extension Google_Protobuf_EnumValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_EnumValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2722,7 +2723,7 @@ extension Google_Protobuf_EnumValue : SwiftProtobuf.Message, SwiftProtobuf._Mess
     get
   }
 }
-extension Google_Protobuf_Option : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Option : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2739,12 +2740,6 @@ public struct UnknownStorage : Swift.Equatable {
   public init()
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (a: SwiftProtobuf.UnknownStorage, b: SwiftProtobuf.UnknownStorage) -> Swift.Bool
-}
-extension UnsafeMutableBufferPointer {
-}
-extension UnsafeMutableRawBufferPointer {
-}
-extension UnsafeMutableRawPointer {
 }
 public struct Version {
   public static let major: Swift.Int
@@ -2810,7 +2805,7 @@ public protocol Visitor {
   mutating func visitExtensionFieldsAsMessageSet(fields: SwiftProtobuf.ExtensionFieldValueSet, start: Swift.Int, end: Swift.Int) throws
   mutating func visitUnknown(bytes: Foundation.Data) throws
 }
-extension Visitor {
+extension SwiftProtobuf.Visitor {
   public mutating func visitSingularFloatField(value: Swift.Float, fieldNumber: Swift.Int) throws
   public mutating func visitSingularInt32Field(value: Swift.Int32, fieldNumber: Swift.Int) throws
   public mutating func visitSingularUInt32Field(value: Swift.UInt32, fieldNumber: Swift.Int) throws
@@ -2901,7 +2896,7 @@ public struct Google_Protobuf_BytesValue {
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public init()
 }
-extension Google_Protobuf_DoubleValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_DoubleValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2911,7 +2906,7 @@ extension Google_Protobuf_DoubleValue : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_FloatValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_FloatValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2921,7 +2916,7 @@ extension Google_Protobuf_FloatValue : SwiftProtobuf.Message, SwiftProtobuf._Mes
     get
   }
 }
-extension Google_Protobuf_Int64Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Int64Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2931,7 +2926,7 @@ extension Google_Protobuf_Int64Value : SwiftProtobuf.Message, SwiftProtobuf._Mes
     get
   }
 }
-extension Google_Protobuf_UInt64Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_UInt64Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2941,7 +2936,7 @@ extension Google_Protobuf_UInt64Value : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_Int32Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_Int32Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2951,7 +2946,7 @@ extension Google_Protobuf_Int32Value : SwiftProtobuf.Message, SwiftProtobuf._Mes
     get
   }
 }
-extension Google_Protobuf_UInt32Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_UInt32Value : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2961,7 +2956,7 @@ extension Google_Protobuf_UInt32Value : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_BoolValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_BoolValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2971,7 +2966,7 @@ extension Google_Protobuf_BoolValue : SwiftProtobuf.Message, SwiftProtobuf._Mess
     get
   }
 }
-extension Google_Protobuf_StringValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_StringValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
@@ -2981,7 +2976,7 @@ extension Google_Protobuf_StringValue : SwiftProtobuf.Message, SwiftProtobuf._Me
     get
   }
 }
-extension Google_Protobuf_BytesValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf.Google_Protobuf_BytesValue : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: Swift.String
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder

@@ -83,7 +83,7 @@ abstract class TWPrivateKey {
       _TWPrivateKeyGetPublicKeySecp256k1_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeySecp256k1>();
 
   /// Returns the public key associated with this private key.
-  Pointer<Void> TWPrivateKeyGetPublicKeyNist256p1(
+  static Pointer<Void> TWPrivateKeyGetPublicKeyNist256p1(
     Pointer<Void> pk,
   ) {
     return _TWPrivateKeyGetPublicKeyNist256p1(
@@ -91,12 +91,12 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetPublicKeyNist256p1_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyNist256p1>>('TWPrivateKeyGetPublicKeyNist256p1');
-  late final _dart_TWPrivateKeyGetPublicKeyNist256p1 _TWPrivateKeyGetPublicKeyNist256p1 =
+  static late final _TWPrivateKeyGetPublicKeyNist256p1_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyNist256p1>>('TWPrivateKeyGetPublicKeyNist256p1');
+  static late final _dart_TWPrivateKeyGetPublicKeyNist256p1 _TWPrivateKeyGetPublicKeyNist256p1 =
       _TWPrivateKeyGetPublicKeyNist256p1_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyNist256p1>();
 
   /// Returns the public key associated with this private key.
-  Pointer<Void> TWPrivateKeyGetPublicKeyEd25519(
+  static Pointer<Void> TWPrivateKeyGetPublicKeyEd25519(
     Pointer<Void> pk,
   ) {
     return _TWPrivateKeyGetPublicKeyEd25519(
@@ -104,11 +104,11 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetPublicKeyEd25519_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519>>('TWPrivateKeyGetPublicKeyEd25519');
-  late final _dart_TWPrivateKeyGetPublicKeyEd25519 _TWPrivateKeyGetPublicKeyEd25519 = _TWPrivateKeyGetPublicKeyEd25519_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyEd25519>();
+  static late final _TWPrivateKeyGetPublicKeyEd25519_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519>>('TWPrivateKeyGetPublicKeyEd25519');
+  static late final _dart_TWPrivateKeyGetPublicKeyEd25519 _TWPrivateKeyGetPublicKeyEd25519 = _TWPrivateKeyGetPublicKeyEd25519_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyEd25519>();
 
   /// Returns the public key associated with this private key.
-  Pointer<Void> TWPrivateKeyGetPublicKeyEd25519Blake2b(
+  static Pointer<Void> TWPrivateKeyGetPublicKeyEd25519Blake2b(
     Pointer<Void> pk,
   ) {
     return _TWPrivateKeyGetPublicKeyEd25519Blake2b(
@@ -116,12 +116,12 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetPublicKeyEd25519Blake2b_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519Blake2b>>('TWPrivateKeyGetPublicKeyEd25519Blake2b');
-  late final _dart_TWPrivateKeyGetPublicKeyEd25519Blake2b _TWPrivateKeyGetPublicKeyEd25519Blake2b =
+  static late final _TWPrivateKeyGetPublicKeyEd25519Blake2b_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519Blake2b>>('TWPrivateKeyGetPublicKeyEd25519Blake2b');
+  static late final _dart_TWPrivateKeyGetPublicKeyEd25519Blake2b _TWPrivateKeyGetPublicKeyEd25519Blake2b =
       _TWPrivateKeyGetPublicKeyEd25519Blake2b_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyEd25519Blake2b>();
 
   /// Returns the public key associated with this private key.
-  Pointer<Void> TWPrivateKeyGetPublicKeyEd25519Extended(
+  static Pointer<Void> TWPrivateKeyGetPublicKeyEd25519Extended(
     Pointer<Void> pk,
   ) {
     return _TWPrivateKeyGetPublicKeyEd25519Extended(
@@ -129,12 +129,12 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetPublicKeyEd25519Extended_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519Extended>>('TWPrivateKeyGetPublicKeyEd25519Extended');
-  late final _dart_TWPrivateKeyGetPublicKeyEd25519Extended _TWPrivateKeyGetPublicKeyEd25519Extended =
+  static late final _TWPrivateKeyGetPublicKeyEd25519Extended_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyEd25519Extended>>('TWPrivateKeyGetPublicKeyEd25519Extended');
+  static late final _dart_TWPrivateKeyGetPublicKeyEd25519Extended _TWPrivateKeyGetPublicKeyEd25519Extended =
       _TWPrivateKeyGetPublicKeyEd25519Extended_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyEd25519Extended>();
 
   /// Returns the public key associated with this private key.
-  Pointer<Void> TWPrivateKeyGetPublicKeyCurve25519(
+  static Pointer<Void> TWPrivateKeyGetPublicKeyCurve25519(
     Pointer<Void> pk,
   ) {
     return _TWPrivateKeyGetPublicKeyCurve25519(
@@ -142,13 +142,13 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetPublicKeyCurve25519_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyCurve25519>>('TWPrivateKeyGetPublicKeyCurve25519');
-  late final _dart_TWPrivateKeyGetPublicKeyCurve25519 _TWPrivateKeyGetPublicKeyCurve25519 =
+  static late final _TWPrivateKeyGetPublicKeyCurve25519_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetPublicKeyCurve25519>>('TWPrivateKeyGetPublicKeyCurve25519');
+  static late final _dart_TWPrivateKeyGetPublicKeyCurve25519 _TWPrivateKeyGetPublicKeyCurve25519 =
       _TWPrivateKeyGetPublicKeyCurve25519_ptr.asFunction<_dart_TWPrivateKeyGetPublicKeyCurve25519>();
 
   /// Computes an EC Diffie-Hellman secret in constant time
   /// Supported curves: secp256k1
-  Pointer<Void> TWPrivateKeyGetSharedKey(
+  static Pointer<Void> TWPrivateKeyGetSharedKey(
     Pointer<Void> pk,
     Pointer<Void> publicKey,
     int curve,
@@ -160,8 +160,8 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeyGetSharedKey_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetSharedKey>>('TWPrivateKeyGetSharedKey');
-  late final _dart_TWPrivateKeyGetSharedKey _TWPrivateKeyGetSharedKey = _TWPrivateKeyGetSharedKey_ptr.asFunction<_dart_TWPrivateKeyGetSharedKey>();
+  static late final _TWPrivateKeyGetSharedKey_ptr = _lookup<NativeFunction<_c_TWPrivateKeyGetSharedKey>>('TWPrivateKeyGetSharedKey');
+  static late final _dart_TWPrivateKeyGetSharedKey _TWPrivateKeyGetSharedKey = _TWPrivateKeyGetSharedKey_ptr.asFunction<_dart_TWPrivateKeyGetSharedKey>();
 
   /// Signs a digest using ECDSA and given curve.
   static Pointer<Void> TWPrivateKeySign(
@@ -180,7 +180,7 @@ abstract class TWPrivateKey {
   static late final _dart_TWPrivateKeySign _TWPrivateKeySign = _TWPrivateKeySign_ptr.asFunction<_dart_TWPrivateKeySign>();
 
   /// Signs a digest using ECDSA and given curve. The result is encoded with DER.
-  Pointer<Void> TWPrivateKeySignAsDER(
+  static Pointer<Void> TWPrivateKeySignAsDER(
     Pointer<Void> pk,
     Pointer<Void> digest,
     int curve,
@@ -192,11 +192,11 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeySignAsDER_ptr = _lookup<NativeFunction<_c_TWPrivateKeySignAsDER>>('TWPrivateKeySignAsDER');
-  late final _dart_TWPrivateKeySign _TWPrivateKeySignAsDER = _TWPrivateKeySignAsDER_ptr.asFunction<_dart_TWPrivateKeySignAsDER>();
+  static late final _TWPrivateKeySignAsDER_ptr = _lookup<NativeFunction<_c_TWPrivateKeySignAsDER>>('TWPrivateKeySignAsDER');
+  static late final _dart_TWPrivateKeySign _TWPrivateKeySignAsDER = _TWPrivateKeySignAsDER_ptr.asFunction<_dart_TWPrivateKeySignAsDER>();
 
   /// Signs a digest using ECDSA and given curve, returns schnoor signature.
-  Pointer<Void> TWPrivateKeySignSchnorr(
+  static Pointer<Void> TWPrivateKeySignSchnorr(
     Pointer<Void> pk,
     Pointer<Void> message,
     int curve,
@@ -208,8 +208,8 @@ abstract class TWPrivateKey {
     );
   }
 
-  late final _TWPrivateKeySignSchnorr_ptr = _lookup<NativeFunction<_c_TWPrivateKeySignSchnorr>>('TWPrivateKeySignSchnorr');
-  late final _dart_TWPrivateKeySign _TWPrivateKeySignSchnorr = _TWPrivateKeySignSchnorr_ptr.asFunction<_dart_TWPrivateKeySignSchnorr>();
+  static late final _TWPrivateKeySignSchnorr_ptr = _lookup<NativeFunction<_c_TWPrivateKeySignSchnorr>>('TWPrivateKeySignSchnorr');
+  static late final _dart_TWPrivateKeySign _TWPrivateKeySignSchnorr = _TWPrivateKeySignSchnorr_ptr.asFunction<_dart_TWPrivateKeySignSchnorr>();
 }
 
 typedef _c_TWPrivateKeyCreate = Pointer<Void> Function();
