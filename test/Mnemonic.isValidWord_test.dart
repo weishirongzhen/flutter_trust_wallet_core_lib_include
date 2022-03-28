@@ -4,6 +4,7 @@ import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
 
 void main() {
   FlutterTrustWalletCore.init();
+
   group('Mnemonic.isValidWord test', () {
     test('mnemonic.isisValidWord valid true', () {
       final mnemonicword1 = Mnemonic.isValidWord('word');

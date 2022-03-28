@@ -5,7 +5,6 @@ import '../../lib/flutter_trust_wallet_core.dart';
 void main(){
   FlutterTrustWalletCore.init();
   group('hDWallet.getAddressForCoin of TRX', (){
-
     test('hDWallet.getAddressForCoin of TRX',(){
       final hDWallet = HDWallet.createWithMnemonic('bean stone deal ship become wash net shift spoil embark luggage sand');
       final adress = hDWallet.getAddressForCoin(195);

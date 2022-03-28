@@ -7,7 +7,6 @@ import '../../lib/flutter_trust_wallet_core.dart';
 void main(){
   FlutterTrustWalletCore.init();
   group('hDWallet.getAddressForCoin of ETH', (){
-
     test('hDWallet.getAddressForCoin of ETH',(){
       final hDWallet = HDWallet.createWithMnemonic('capable obvious tired suit bomb swap street arrange room country mouse tackle');
       final adress = hDWallet.getAddressForCoin(60);

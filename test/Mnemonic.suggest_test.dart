@@ -4,6 +4,7 @@ import 'package:test/scaffolding.dart';
 
 void main() {
   FlutterTrustWalletCore.init();
+
   group('Mnemonic.suggest test',() {
     test('Mnemonic.suggest true',(){
       final suggest1 = Mnemonic.suggest('air');
