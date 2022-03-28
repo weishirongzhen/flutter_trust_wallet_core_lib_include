@@ -18,8 +18,7 @@ void main() {
     });
 
     test('test mnemonic.isValid 9', () {
-      final mnemonic2 = Mnemonic.isValid(
-          'casino direct hamster burden round assume retreat sound adjust');
+      final mnemonic2 = Mnemonic.isValid('casino direct hamster burden round assume retreat sound adjust');
       expect(mnemonic2, false);
     });
 
@@ -29,30 +28,25 @@ void main() {
     });
 
     test('test mnemonic.isValid 12', () {
-      final mnemonic4 = Mnemonic.isValid(
-          'fish flip quiz kind demand vibrant message axis pulse debris hawk speak');
-      assert(mnemonic4);
+      final mnemonic4 = Mnemonic.isValid('fish flip quiz kind demand vibrant message axis pulse debris hawk speak');
+      expect(mnemonic4, true);
     });
 
     test('test mnemonic.isvalid 15', () {
-      final mnemonic5 = Mnemonic.isValid(
-          'outer warm clinic leisure battle step flame tomato drink link broken lizard traffic flush perfect');
+      final mnemonic5 = Mnemonic.isValid('outer warm clinic leisure battle step flame tomato drink link broken lizard traffic flush perfect');
       expect(mnemonic5, true);
     });
 
     test('test mnemonic.isvalid 18', () {
-      final mnemonic6 = Mnemonic.isValid(
-          'daring melt sting rude once pistol walk section chapter turkey tourist dumb claw machine able left milk matrix');
+      final mnemonic6 = Mnemonic.isValid('daring melt sting rude once pistol walk section chapter turkey tourist dumb claw machine able left milk matrix');
       expect(mnemonic6, true);
     });
     test('test mnemonic.isvalid 21', () {
-      final mnemonic7 = Mnemonic.isValid(
-          'myself flag balance cannon divide gift render calm castle library hungry gap dial doctor another blush clay toast zebra kitchen pole');
+      final mnemonic7 = Mnemonic.isValid('myself flag balance cannon divide gift render calm castle library hungry gap dial doctor another blush clay toast zebra kitchen pole');
       expect(mnemonic7, true);
     });
     test('test mnemonic.isvalid 24', () {
-      final mnemonic8 = Mnemonic.isValid(
-          'shop wrestle analyst prefer shallow fatigue awake gallery invite crumble slot gym steel job aerobic animal winner uniform surge pulse monkey put belt physical');
+      final mnemonic8 = Mnemonic.isValid('shop wrestle analyst prefer shallow fatigue awake gallery invite crumble slot gym steel job aerobic animal winner uniform surge pulse monkey put belt physical');
       expect(mnemonic8, true);
     });
   });
