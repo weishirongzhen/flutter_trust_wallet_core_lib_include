@@ -1,11 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name WalletCore
 import Foundation
 import Swift
 import SwiftProtobuf
 @_exported import WalletCore
-import _Concurrency
 public struct AES {
   public static func encryptCBC(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data, mode: WalletCore.AESPaddingMode) -> Foundation.Data?
   public static func decryptCBC(key: Foundation.Data, data: Foundation.Data, iv: Foundation.Data, mode: WalletCore.AESPaddingMode) -> Foundation.Data?
@@ -1526,6 +1525,10 @@ public struct TW_Cosmos_Proto_Message {
     get
     set
   }
+  public var thorchainSendMessage: WalletCore.TW_Cosmos_Proto_Message.THORChainSend {
+    get
+    set
+  }
   public var unknownFields: SwiftProtobuf.UnknownStorage
   public enum OneOf_MessageOneof : Swift.Equatable {
     case sendCoinsMessage(WalletCore.TW_Cosmos_Proto_Message.Send)
@@ -1537,6 +1540,7 @@ public struct TW_Cosmos_Proto_Message {
     case rawJsonMessage(WalletCore.TW_Cosmos_Proto_Message.RawJSON)
     case wasmTerraExecuteContractTransferMessage(WalletCore.TW_Cosmos_Proto_Message.WasmTerraExecuteContractTransfer)
     case wasmTerraExecuteContractSendMessage(WalletCore.TW_Cosmos_Proto_Message.WasmTerraExecuteContractSend)
+    case thorchainSendMessage(WalletCore.TW_Cosmos_Proto_Message.THORChainSend)
     public static func == (a: WalletCore.TW_Cosmos_Proto_Message.OneOf_MessageOneof, b: WalletCore.TW_Cosmos_Proto_Message.OneOf_MessageOneof) -> Swift.Bool
   }
   public struct Send {
@@ -1640,6 +1644,13 @@ public struct TW_Cosmos_Proto_Message {
     public var recipientContractAddress: Swift.String
     public var msg: Swift.String
     public var coin: [Swift.String]
+    public var unknownFields: SwiftProtobuf.UnknownStorage
+    public init()
+  }
+  public struct THORChainSend {
+    public var fromAddress: Foundation.Data
+    public var toAddress: Foundation.Data
+    public var amounts: [WalletCore.TW_Cosmos_Proto_Amount]
     public var unknownFields: SwiftProtobuf.UnknownStorage
     public init()
   }
@@ -1801,6 +1812,16 @@ extension WalletCore.TW_Cosmos_Proto_Message.WasmTerraExecuteContractSend : Swif
   public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public static func == (lhs: WalletCore.TW_Cosmos_Proto_Message.WasmTerraExecuteContractSend, rhs: WalletCore.TW_Cosmos_Proto_Message.WasmTerraExecuteContractSend) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension WalletCore.TW_Cosmos_Proto_Message.THORChainSend : SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: Swift.String
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap
+  public mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
+  public static func == (lhs: WalletCore.TW_Cosmos_Proto_Message.THORChainSend, rhs: WalletCore.TW_Cosmos_Proto_Message.THORChainSend) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
@@ -3005,6 +3026,8 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   final public func getDerivedKey(coin: WalletCore.CoinType, account: Swift.UInt32, change: Swift.UInt32, address: Swift.UInt32) -> WalletCore.PrivateKey
   final public func getExtendedPrivateKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String
   final public func getExtendedPublicKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String
+  final public func getExtendedPrivateKeyAccount(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion, account: Swift.UInt32) -> Swift.String
+  final public func getExtendedPublicKeyAccount(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion, account: Swift.UInt32) -> Swift.String
 }
 public enum HRP : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConvertible {
   case unknown
