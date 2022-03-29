@@ -5,6 +5,7 @@ import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
 import 'package:convert/convert.dart';
 
 void main(){
+  FlutterTrustWalletCore.init();
   group('test',(){
     test('hDWallet',(){
       final hDWallet = HDWallet();;

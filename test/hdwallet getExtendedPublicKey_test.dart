@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
 
 void main(){
-
+  FlutterTrustWalletCore.init();
   group('test', (){
     test('hdwallet getExtendedPublicKey BTC', (){
       final hdwallet=HDWallet.createWithMnemonic('champion concert sibling whip cheese flip casual spawn detect series curve please');
