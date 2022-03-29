@@ -1306,6 +1306,7 @@ public enum CoinType : Swift.UInt32, Swift.CaseIterable {
   case aion
   case binance
   case bitcoin
+  case bitcoinTestnet
   case bitcoinCash
   case bitcoinGold
   case callisto
@@ -3026,10 +3027,13 @@ public enum HDVersion : Swift.UInt32, Swift.CaseIterable {
   final public func getDerivedKey(coin: WalletCore.CoinType, account: Swift.UInt32, change: Swift.UInt32, address: Swift.UInt32) -> WalletCore.PrivateKey
   final public func getExtendedPrivateKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String
   final public func getExtendedPublicKey(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion) -> Swift.String
+  final public func getExtendedPrivateKeyAccount(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion, account: Swift.UInt32) -> Swift.String
+  final public func getExtendedPublicKeyAccount(purpose: WalletCore.Purpose, coin: WalletCore.CoinType, version: WalletCore.HDVersion, account: Swift.UInt32) -> Swift.String
 }
 public enum HRP : Swift.UInt32, Swift.CaseIterable, Swift.CustomStringConvertible {
   case unknown
   case bitcoin
+  case bitcoinTestnet
   case litecoin
   case viacoin
   case groestlcoin

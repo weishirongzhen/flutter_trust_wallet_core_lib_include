@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Lhlpb+KYDAIGKPtisjcaNCdlFFo=
+		xSDtyLm6wtlzUn8DzWvVneL+ewQ=
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Lhlpb+KYDAIGKPtisjcaNCdlFFo=
+		xSDtyLm6wtlzUn8DzWvVneL+ewQ=
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		PEk7lyEO/rgN4pStDttOCDHhcoU=
+		fOX5d1uxJD7wv2/GKjnImBA+uE8=
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		PEk7lyEO/rgN4pStDttOCDHhcoU=
+		fOX5d1uxJD7wv2/GKjnImBA+uE8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -103,7 +103,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qFuusAgwpkMlSYbiavRNNzsxoH5SK08esHw7uRM4gbw=
+			meIzZ6eOxURWfXuoaFmrjEuUxOVqbl5+AFCKqjyMoYg=
 			</data>
 		</dict>
 		<key>Modules/SwiftProtobuf.swiftmodule/arm64.swiftdoc</key>
@@ -124,7 +124,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qFuusAgwpkMlSYbiavRNNzsxoH5SK08esHw7uRM4gbw=
+			meIzZ6eOxURWfXuoaFmrjEuUxOVqbl5+AFCKqjyMoYg=
 			</data>
 		</dict>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -145,7 +145,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uWU1xkgQniK/Pd/giSSsuUJ4mK7SqXd7cOwko904lic=
+			ZANLTGFZZP3FC8pcMfAjJF82LjmcoGu4kBqzSRArmdg=
 			</data>
 		</dict>
 		<key>Modules/SwiftProtobuf.swiftmodule/x86_64.swiftdoc</key>
@@ -166,7 +166,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			uWU1xkgQniK/Pd/giSSsuUJ4mK7SqXd7cOwko904lic=
+			ZANLTGFZZP3FC8pcMfAjJF82LjmcoGu4kBqzSRArmdg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
