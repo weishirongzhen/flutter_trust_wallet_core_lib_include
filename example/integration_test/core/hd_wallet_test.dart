@@ -27,7 +27,7 @@ void main() {
   });
 
   group('hdwallet.getExtendedPublicKey test', () {
-    test('the ExtendedPublicKey is TWHDVersionXPUB', () {
+    test('the ExtendedPublicKey is XPUB format', () {
       final hdwallet = HDWallet.createWithMnemonic(
           'champion concert sibling whip cheese flip casual spawn detect series curve please');
       final publicky = hdwallet.getExtendedPublicKey(44, 0, 0x0488b21e);
@@ -35,7 +35,7 @@ void main() {
           'xpub6CTPQSii8ynAsagXJC97Qmq1yf7qguJdj3DgEM7ZLSXhzASmPgeomWQ6gme7uPW1zookMH3eo9QCA2hWFrmDLfnPUg5ZWyWQ9JWHpU8xLve');
     });
 
-    test('the ExtendedPublicKey is TWHDVersionYPUB', () {
+    test('the ExtendedPublicKey is YPUB format', () {
       final hdwallet = HDWallet.createWithMnemonic(
           'champion concert sibling whip cheese flip casual spawn detect series curve please');
       final publicky = hdwallet.getExtendedPublicKey(49, 0, 0x049d7cb2);
@@ -43,7 +43,7 @@ void main() {
           'ypub6XPbPkGBWMiVWfMpVApQAbvDKp2e28URzjL6LeeX3nTmZr9KTJRk9p2p9Av9iyTNyLWzvEp7qgHBauW65wFDBnx6bezpba1V5PSMLKNHiR3');
     });
 
-    test('the ExtendedPublicKey is TWHDVersionTPUB', () {
+    test('the ExtendedPublicKey is TPUB format', () {
       final hdwallet = HDWallet.createWithMnemonic(
           'champion concert sibling whip cheese flip casual spawn detect series curve please');
       final publicky = hdwallet.getExtendedPublicKey(44, 1, 0x043587cf);
