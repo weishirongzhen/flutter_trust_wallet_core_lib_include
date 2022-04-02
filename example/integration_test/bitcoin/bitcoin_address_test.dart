@@ -1,24 +1,18 @@
-import 'package:convert/convert.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
 import 'uint8list.dart';
 
 void main() {
-  FlutterTrustWalletCore.init();
-  group('BitcoinAddress.isValid will be true', () {
-    test('valid BitcoinAddress', () {
-      final data =
-          Utils.string2Uint8List('00769bdff96a02f9135a1d19b749db6a78fe07dc90');
-      final address = BitcoinAddress.isValid(data);
+  group('BitcoinAddress.isValid test', () {
+    test('BitcoinAddress.isValid will be true', () {
+      final address = BitcoinAddress.isValid(
+          Utils.string2Uint8List('00769bdff96a02f9135a1d19b749db6a78fe07dc90'));
       expect(address, true);
     });
-  });
 
-  group('BitcoinAddress.isValid will be false', () {
-    test('Invalid BitcoinAddress', () {
-      final data = Utils.string2Uint8List(
-          '030b08b7fa52dc9403611ff33f11ee09a07b73c679e5f4f06106c4ef4c1353b43e');
-      final address = BitcoinAddress.isValid(data);
+    test('BitcoinAddress.isValid will be false', () {
+      final address = BitcoinAddress.isValid(Utils.string2Uint8List(
+          '030b08b7fa52dc9403611ff33f11ee09a07b73c679e5f4f06106c4ef4c1353b43e'));
       expect(address, false);
     });
   });
