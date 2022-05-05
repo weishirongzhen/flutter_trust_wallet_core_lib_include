@@ -2,7 +2,7 @@ part of trust_wallet_core_ffi;
 
 class TWHDWalletImpl extends TWHDWallet {
   static Pointer<Void> create({int strength = 128, String passphrase = ""}) {
-    assert(strength == 128 || strength == 256);
+    assert(strength >= 128 && strength <= 256 && strength % 32 == 0);
     final _passphraseTWString = TWStringImpl.toTWString(passphrase);
     final wallet = TWHDWallet.TWHDWalletCreate(strength, _passphraseTWString);
     TWStringImpl.delete(_passphraseTWString);
