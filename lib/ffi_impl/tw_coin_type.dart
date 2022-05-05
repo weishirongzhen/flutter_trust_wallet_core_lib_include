@@ -5,7 +5,7 @@ part of trust_wallet_core_ffi;
 /// Coin type for Level 2 of BIP44.
 ///
 /// - SeeAlso: https://github.com/satoshilabs/slips/blob/master/slip-0044.md
- class TWCoinType {
+class TWCoinType {
   static const int TWCoinTypeAeternity = 457;
   static const int TWCoinTypeAion = 425;
   static const int TWCoinTypeBinance = 714;
@@ -14,7 +14,7 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeBitcoinCash = 145;
   static const int TWCoinTypeBitcoinGold = 156;
   static const int TWCoinTypeCallisto = 820;
-  static const int TWCoinTypeCardano = 1815;
+  static const int TWCoinTypeCardano = 1815; // Note: Cardano Shelley testnet uses purpose 1852 (not 44) 1852/1815
   static const int TWCoinTypeCosmos = 118;
   static const int TWCoinTypeDash = 5;
   static const int TWCoinTypeDecred = 42;
@@ -53,7 +53,7 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeViacoin = 14;
   static const int TWCoinTypeWanchain = 5718350;
   static const int TWCoinTypeZcash = 133;
-  static const int TWCoinTypeZcoin = 136;
+  static const int TWCoinTypeFiro = 136;
   static const int TWCoinTypeZilliqa = 313;
   static const int TWCoinTypeZelcash = 19167;
   static const int TWCoinTypeRavencoin = 175;
@@ -77,6 +77,14 @@ part of trust_wallet_core_ffi;
   static const int TWCoinTypeECOChain = 10000553;
   static const int TWCoinTypeAvalancheCChain = 10009000;
   static const int TWCoinTypeXDai = 10000100;
+  static const int TWCoinTypeFantom = 10000250;
+  static const int TWCoinTypeCryptoOrg = 394;
+  static const int TWCoinTypeCelo = 52752;
+  static const int TWCoinTypeRonin = 10002020;
+  static const int TWCoinTypeOsmosis = 10000118;
+  static const int TWCoinTypeECash = 899;
+  static const int TWCoinTypeCronosChain = 10000025;
+  static const int TWCoinTypeSmartBitcoinCash = 10000145;
 
   /// Returns the blockchain for a coin type.
   int TWCoinTypeBlockchain(
