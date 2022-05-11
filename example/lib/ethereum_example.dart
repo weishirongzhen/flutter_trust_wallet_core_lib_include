@@ -1,9 +1,20 @@
+/*
+ * @Author: pony@diynova.com
+ * @Date: 2022-05-11 10:37:19
+ * @LastEditors: pony@diynova.com
+ * @LastEditTime: 2022-05-11 17:05:49
+ * @FilePath: /flutter_trust_wallet_core_lib_include/example/lib/ethereum_example.dart
+ * @Description: 
+ */
 import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
+import 'package:flutter_trust_wallet_core/trust_wallet_core_ffi.dart';
 import 'package:flutter_trust_wallet_core_example/base_example.dart';
+import 'package:flutter_trust_wallet_core/protobuf/Ethereum.pb.dart'
+    as Ethereum;
 
 class EthereumExample extends BaseExample {
   final HDWallet wallet;
@@ -44,5 +55,24 @@ class _EthereumExampleState extends BaseExampleState<EthereumExample> {
     final address = AnyAddress.createWithPublicKey(publicKey1, 0);
 
     logger.d("keystore a = ${address.description()}");
+
+    Ethereum.SigningInput input = Ethereum.SigningInput(
+        chainId: [1007],
+        nonce: [100],
+        gasPrice: [100],
+        gasLimit: [100],
+        maxFeePerGas: [0],
+        maxInclusionFeePerGas: [0],
+        toAddress: "0xfaC5482fffe86d33c3b8ADB24F839F5e60aF99d4",
+        privateKey: privakye.data().toList(),
+        transaction: Ethereum.Transaction(
+            transfer: Ethereum.Transaction_Transfer(
+          amount: [0],
+        )));
+    logger.d("input = ${input}");
+    final output = Ethereum.SigningOutput.fromBuffer(
+        AnySigner.sign(input.writeToBuffer(), TWCoinType.TWCoinTypeEthereum)
+            .toList());
+    logger.d("output = ${hex.encode(output.encoded.toList())}");
   }
 }
