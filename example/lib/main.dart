@@ -5,6 +5,7 @@ import 'package:flutter_trust_wallet_core_example/bitcoin_transaction_example.da
 import 'package:flutter_trust_wallet_core_example/ethereum_example.dart';
 import 'package:flutter_trust_wallet_core_example/private_key_is_valid_example.dart';
 import 'package:flutter_trust_wallet_core_example/tron_example.dart';
+import 'package:flutter_trust_wallet_core_example/newchain_example.dart';
 
 List<String> logs = [];
 
@@ -35,7 +36,8 @@ class _ExampleState extends State<Example> {
   void initState() {
     FlutterTrustWalletCore.init();
     super.initState();
-    String mnemonic = "rent craft script crucial item someone dream federal notice page shrug pipe young hover duty"; // 有测试币的 tron地址
+    String mnemonic =
+        "rent craft script crucial item someone dream federal notice page shrug pipe young hover duty"; // 有测试币的 tron地址
     wallet = HDWallet.createWithMnemonic(mnemonic);
   }
 
@@ -95,6 +97,12 @@ class _ExampleState extends State<Example> {
                       return PrivateKeyIsValidExample(wallet);
                     },
                   ),
+                  _exampleItem(
+                    name: 'NewChain',
+                    builder: (_) {
+                      return NewChainExample(wallet);
+                    },
+                  )
                 ],
               ),
             ),
