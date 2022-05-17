@@ -6,7 +6,8 @@ class TWPrivateKeyImpl extends TWPrivateKey {
   }
 
   static Pointer<Void> createWithData(Uint8List bytes) {
-    final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
+    final data =
+        TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     return TWPrivateKey.TWPrivateKeyCreateWithData(data);
   }
 
@@ -26,12 +27,22 @@ class TWPrivateKeyImpl extends TWPrivateKey {
     TWPrivateKey.TWPrivateKeyDelete(pk);
   }
 
-  static Pointer<Void> getPublicKeySecp256k1(Pointer<Void> pk, bool compressed) {
-    return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1(pk, compressed ? 1 : 0);
+  static Pointer<Void> getPublicKeySecp256k1(
+      Pointer<Void> pk, bool compressed) {
+    return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1(
+        pk, compressed ? 1 : 0);
   }
 
   static Pointer<Void> getPublicKeyNist256p1(Pointer<Void> pk) {
     return TWPrivateKey.TWPrivateKeyGetPublicKeyNist256p1(pk);
+  }
+
+  static Pointer<Void> getPublicKeyNist256p1Extended(Pointer<Void> pk) {
+    return TWPrivateKey.TWPrivateKeyGetPublicKeyNist256p1Extended(pk);
+  }
+
+  static Pointer<Void> getPublicKeySecp256k1Extended(Pointer<Void> pk) {
+    return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1Extended(pk);
   }
 
   static Pointer<Void> getPublicKeyNistEd25519(Pointer<Void> pk) {
@@ -50,7 +61,8 @@ class TWPrivateKeyImpl extends TWPrivateKey {
     return TWPrivateKey.TWPrivateKeyGetPublicKeyCurve25519(pk);
   }
 
-  static Pointer<Void> getShareKey(Pointer<Void> pk, Pointer<Void> publicKey, int curve) {
+  static Pointer<Void> getShareKey(
+      Pointer<Void> pk, Pointer<Void> publicKey, int curve) {
     return TWPrivateKey.TWPrivateKeyGetSharedKey(pk, publicKey, curve);
   }
 
@@ -58,11 +70,13 @@ class TWPrivateKeyImpl extends TWPrivateKey {
     return TWPrivateKey.TWPrivateKeySign(pk, digest, curve);
   }
 
-  static Pointer<Void> signAsDER(Pointer<Void> pk, Pointer<Void> digest, int curve) {
+  static Pointer<Void> signAsDER(
+      Pointer<Void> pk, Pointer<Void> digest, int curve) {
     return TWPrivateKey.TWPrivateKeySignAsDER(pk, digest, curve);
   }
 
-  static Pointer<Void> signSchnorr(Pointer<Void> pk, Pointer<Void> message, int curve) {
+  static Pointer<Void> signSchnorr(
+      Pointer<Void> pk, Pointer<Void> message, int curve) {
     return TWPrivateKey.TWPrivateKeySignSchnorr(pk, message, curve);
   }
 }

@@ -2,11 +2,13 @@ part of trust_wallet_core_ffi;
 
 /// trust wallet core
 abstract class TWCurve {
-  static const int TWCurveSECP256k1 = 0;
-  static const int TWCurveED25519 = 1;
-  static const int TWCurveED25519Blake2bNano = 2;
-  static const int TWCurveCurve25519 = 3;
-  static const int TWCurveNIST256p1 = 4;
-  static const int TWCurveED25519Extended = 5;
-  static const int TWCurveNone = 6;
+  static const int TWPublicKeyTypeSECP256k1 = 0;
+  static const int TWPublicKeyTypeSECP256k1Extended = 1;
+  static const int TWPublicKeyTypeNIST256p1 = 2;
+  static const int TWPublicKeyTypeNIST256p1Extended = 3;
+  static const int TWPublicKeyTypeED25519 = 4;
+  static const int TWPublicKeyTypeED25519Blake2b = 5;
+  static const int TWPublicKeyTypeCURVE25519 = 6;
+  static const int TWPublicKeyTypeED25519Extended = 7; // used by Cardano
+  static const int TWCurveNone = 8;
 }

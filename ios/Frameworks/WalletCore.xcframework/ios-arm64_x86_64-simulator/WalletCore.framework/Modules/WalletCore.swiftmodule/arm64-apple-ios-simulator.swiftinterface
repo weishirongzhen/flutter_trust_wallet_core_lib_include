@@ -5494,6 +5494,8 @@ extension WalletCore.TW_Polkadot_Proto_SigningOutput : SwiftProtobuf.Message, Sw
   @objc deinit
   final public func getPublicKeySecp256k1(compressed: Swift.Bool) -> WalletCore.PublicKey
   final public func getPublicKeyNist256p1() -> WalletCore.PublicKey
+  final public func getPublicKeySecp256k1Extended() -> WalletCore.PublicKey
+  final public func getPublicKeyNist256p1Extended() -> WalletCore.PublicKey
   final public func getPublicKeyEd25519() -> WalletCore.PublicKey
   final public func getPublicKeyEd25519Blake2b() -> WalletCore.PublicKey
   final public func getPublicKeyEd25519Extended() -> WalletCore.PublicKey
