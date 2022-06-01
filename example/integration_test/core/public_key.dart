@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_trust_wallet_core/flutter_trust_wallet_core.dart';
 import 'package:flutter_trust_wallet_core/trust_wallet_core_ffi.dart';
-import 'unit8list.dart';
+import '../../lib/unit8list.dart';
 
 void main() {
   group('PublicKey.isValid test of TWPublicKeyTypeSECP256k1', () {
