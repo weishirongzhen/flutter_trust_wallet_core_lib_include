@@ -20,12 +20,12 @@ class _BitcoinAddressExampleState extends BaseExampleState<BitcoinAddressExample
   @override
   void initState() {
     super.initState();
-    int coin = TWCoinType.TWCoinTypeBitcoinTestnet;
+    int coin = TWCoinType.TWCoinTypeBitcoin;
     final privakye2 = widget.wallet.getKey(coin, "m/44'/0'/0'/0/0");
     logger.d(hex.encode(privakye2.data()));
     final publicKey2 = privakye2.getPublicKeySecp256k1(true);
-    logger.d(widget.wallet.getExtendedPublicKey(TWPurpose.TWPurposeBIP44, coin, TWHDVersion.TWHDVersionTPUB));
-    final bitcoinAddress = BitcoinAddress.createWithPublicKey(publicKey2, coin);
+    logger.d(widget.wallet.getExtendedPublicKey(TWPurpose.TWPurposeBIP44, coin, TWHDVersion.TWHDVersionXPUB));
+    final bitcoinAddress = BitcoinAddress.createWithPublicKey(publicKey2, 0);
     logger.d(bitcoinAddress.description());
     final segwitAddress = SegwitAddress.createWithPublicKey(HRP.Bitcoin, publicKey2);
     logger.d(segwitAddress.description());

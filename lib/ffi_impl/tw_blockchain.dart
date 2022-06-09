@@ -34,4 +34,10 @@ abstract class TWBlockchain {
   static const int TWBlockchainFilecoin = 32;
   static const int TWBlockchainElrondNetwork = 33;
   static const int TWBlockchainOasisNetwork = 34;
+  static const int TWBlockchainDecred = 35; // Bitcoin
+  static const int TWBlockchainZcash = 36; // Bitcoin
+  static const int TWBlockchainGroestlcoin = 37; // Bitcoin
+  static const int TWBlockchainThorchain = 38; // Cosmos
+  static const int TWBlockchainRonin = 39; // Ethereum
+  static const int TWBlockchainKusama = 40; // Polkadot
 }

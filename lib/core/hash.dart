@@ -55,14 +55,6 @@ class Hash {
     return TWHashImpl.hashGroestl512(bytes);
   }
 
-  static Uint8List hashXXHash64(Uint8List bytes,int seed) {
-    return TWHashImpl.hashXXHash64(bytes,seed);
-  }
-
-  static Uint8List hashTwoXXHash64Concat(Uint8List bytes) {
-    return TWHashImpl.hashTwoXXHash64Concat(bytes);
-  }
-
   static Uint8List hashSHA256SHA256(Uint8List bytes) {
     return TWHashImpl.hashSHA256SHA256(bytes);
   }

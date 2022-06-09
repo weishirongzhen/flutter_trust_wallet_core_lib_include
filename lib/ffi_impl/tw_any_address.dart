@@ -29,7 +29,7 @@ abstract class TWAnyAddress {
   static late final _TWAnyAddressIsValid_ptr = _lookup<NativeFunction<_c_TWAnyAddressIsValid>>('TWAnyAddressIsValid');
   static late final _dart_TWAnyAddressIsValid _TWAnyAddressIsValid = _TWAnyAddressIsValid_ptr.asFunction<_dart_TWAnyAddressIsValid>();
 
-  /// Creates an address from a string representaion.
+  /// Creates an address from a string representation.
   static Pointer<Void> TWAnyAddressCreateWithString(
     Pointer<Utf8> string,
     int coin,
