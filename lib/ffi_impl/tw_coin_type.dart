@@ -85,6 +85,14 @@ class TWCoinType {
   static const int TWCoinTypeECash = 899;
   static const int TWCoinTypeCronosChain = 10000025;
   static const int TWCoinTypeSmartBitcoinCash = 10000145;
+  static const int TWCoinTypeKuCoinCommunityChain = 10000321;
+  static const int TWCoinTypeBoba = 10000288;
+  static const int TWCoinTypeMetis = 1001088;
+  static const int TWCoinTypeAurora = 1323161554;
+  static const int TWCoinTypeEvmos = 10009001;
+  static const int TWCoinTypeNativeEvmos = 20009001;
+  static const int TWCoinTypeMoonriver = 10001285;
+  static const int TWCoinTypeMoonbeam = 10001284;
 
   /// Returns the blockchain for a coin type.
   int TWCoinTypeBlockchain(
@@ -249,6 +257,18 @@ class TWCoinType {
   late final _TWCoinTypeStaticPrefix_ptr = _lookup<NativeFunction<_c_TWCoinTypeStaticPrefix>>('TWCoinTypeStaticPrefix');
   late final _dart_TWCoinTypeStaticPrefix _TWCoinTypeStaticPrefix = _TWCoinTypeStaticPrefix_ptr.asFunction<_dart_TWCoinTypeStaticPrefix>();
 
+  /// ChainID for this coin type.  Caller must free return object.
+  Pointer<Utf8> TWCoinTypeChainId(
+      int coin,
+      ) {
+    return _TWCoinTypeChainId(
+      coin,
+    );
+  }
+
+  late final _TWCoinTypeChainId_ptr = _lookup<NativeFunction<_c_TWCoinTypeChainId>>('TWCoinTypeChainId');
+  late final _dart_TWCoinTypeChainId _TWCoinTypeChainId = _TWCoinTypeChainId_ptr.asFunction<_dart_TWCoinTypeChainId>();
+
   /// Static prefix for this coin type
   int TWCoinTypeSlip44Id(
     int coin,
@@ -260,6 +280,18 @@ class TWCoinType {
 
   late final _TWCoinTypeSlip44Id_ptr = _lookup<NativeFunction<_c_TWCoinTypeSlip44Id>>('TWCoinTypeSlip44Id');
   late final _dart_TWCoinTypeSlip44Id _TWCoinTypeSlip44Id = _TWCoinTypeSlip44Id_ptr.asFunction<_dart_TWCoinTypeSlip44Id>();
+
+  /// public key type for this coin type
+  int TWCoinTypePublicKeyType(
+      int coin,
+      ) {
+    return _TWCoinTypePublicKeyType(
+      coin,
+    );
+  }
+
+  late final _TWCoinTypePublicKeyType_ptr = _lookup<NativeFunction<_c_TWCoinTypePublicKeyType>>('TWCoinTypePublicKeyType');
+  late final _dart_TWCoinTypePublicKeyType _TWCoinTypePublicKeyType = _TWCoinTypePublicKeyType_ptr.asFunction<_dart_TWCoinTypePublicKeyType>();
 }
 
 typedef _c_TWCoinTypeBlockchain = Int32 Function(
@@ -372,10 +404,26 @@ typedef _dart_TWCoinTypeStaticPrefix = int Function(
   int coin,
 );
 
+typedef _c_TWCoinTypeChainId = Pointer<Utf8> Function(
+    Int32 coin,
+);
+
+typedef _dart_TWCoinTypeChainId = Pointer<Utf8> Function(
+    int coin,
+);
+
 typedef _c_TWCoinTypeSlip44Id = Int32 Function(
   Int32 coin,
 );
 
 typedef _dart_TWCoinTypeSlip44Id = int Function(
   int coin,
+);
+
+typedef _c_TWCoinTypePublicKeyType = Int32 Function(
+    Int32 coin,
+);
+
+typedef _dart_TWCoinTypePublicKeyType = int Function(
+    int coin,
 );

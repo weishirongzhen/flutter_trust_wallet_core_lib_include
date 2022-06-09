@@ -84,6 +84,10 @@ part 'ffi_impl/tw_stored_key.dart';
 
 part 'ffi_impl/tw_string.dart';
 
+part 'ffi_impl/tw_derivation.dart';
+
+part 'ffi_impl/tw_stored_key_encryption_level.dart';
+
 
 part 'dart_impl/tw_string_impl.dart';
 part 'dart_impl/tw_mnemonic_impl.dart';

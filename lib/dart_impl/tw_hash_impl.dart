@@ -86,20 +86,6 @@ class TWHashImpl extends TWHash {
     return TWData.TWDataBytes(hash).asTypedList(TWData.TWDataSize(hash));
   }
 
-  static Uint8List hashXXHash64(Uint8List bytes,int seed) {
-    final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
-    final hash = TWHash.TWHashXXHash64(data,seed);
-    TWData.TWDataDelete(data);
-    return TWData.TWDataBytes(hash).asTypedList(TWData.TWDataSize(hash));
-  }
-
-  static Uint8List hashTwoXXHash64Concat(Uint8List bytes) {
-    final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
-    final hash = TWHash.TWHashTwoXXHash64Concat(data);
-    TWData.TWDataDelete(data);
-    return TWData.TWDataBytes(hash).asTypedList(TWData.TWDataSize(hash));
-  }
-
   static Uint8List hashSHA256SHA256(Uint8List bytes) {
     final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     final hash = TWHash.TWHashSHA256SHA256(data);

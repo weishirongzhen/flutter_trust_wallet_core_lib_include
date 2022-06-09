@@ -1,4 +1,4 @@
-// Copyright © 2017-2021 Trust Wallet.
+// Copyright © 2017-2022 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -101,6 +101,14 @@ enum TWCoinType {
     TWCoinTypeECash = 899,
     TWCoinTypeCronosChain = 10000025,
     TWCoinTypeSmartBitcoinCash = 10000145,
+    TWCoinTypeKuCoinCommunityChain = 10000321,
+    TWCoinTypeBoba = 10000288,
+    TWCoinTypeMetis = 1001088,
+    TWCoinTypeAurora = 1323161554,
+    TWCoinTypeEvmos = 10009001,
+    TWCoinTypeNativeEvmos = 20009001,
+    TWCoinTypeMoonriver = 10001285,
+    TWCoinTypeMoonbeam = 10001284,
 };
 
 /// Returns the blockchain for a coin type.
@@ -157,8 +165,16 @@ uint8_t TWCoinTypeP2shPrefix(enum TWCoinType coin);
 TW_EXPORT_PROPERTY
 uint8_t TWCoinTypeStaticPrefix(enum TWCoinType coin);
 
+/// ChainID for this coin type.  Caller must free return object.
+TW_EXPORT_PROPERTY
+TWString* _Nonnull TWCoinTypeChainId(enum TWCoinType coin);
+
 /// SLIP-0044 id for this coin type
 TW_EXPORT_PROPERTY
 uint32_t TWCoinTypeSlip44Id(enum TWCoinType coin);
+
+/// public key type for this coin type
+TW_EXPORT_PROPERTY
+enum TWPublicKeyType TWCoinTypePublicKeyType(enum TWCoinType coin);
 
 TW_EXTERN_C_END

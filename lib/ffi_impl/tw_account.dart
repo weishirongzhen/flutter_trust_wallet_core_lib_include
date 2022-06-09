@@ -4,13 +4,17 @@ abstract class TWAccount  {
   static Pointer<Void> TWAccountCreate(
     Pointer<Utf8> address,
     int coin,
+    int derivation,
     Pointer<Utf8> derivationPath,
+    Pointer<Utf8> publicKey,
     Pointer<Utf8> extendedPublicKey,
   ) {
     return _TWAccountCreate(
       address,
       coin,
+      derivation,
       derivationPath,
+      publicKey,
       extendedPublicKey,
     );
   }
@@ -39,6 +43,17 @@ abstract class TWAccount  {
 
   late final _TWAccountAddress_ptr = _lookup<NativeFunction<_c_TWAccountAddress>>('TWAccountAddress');
   late final _dart_TWAccountAddress _TWAccountAddress = _TWAccountAddress_ptr.asFunction<_dart_TWAccountAddress>();
+
+  int TWAccountDerivation(
+      Pointer<Void> account,
+      ) {
+    return _TWAccountDerivation(
+      account,
+    );
+  }
+
+  late final _TWAccountDerivation_ptr = _lookup<NativeFunction<_c_TWAccountDerivation>>('TWAccountDerivation');
+  late final _dart_TWAccountDerivation _TWAccountDerivation = _TWAccountDerivation_ptr.asFunction<_dart_TWAccountDerivation>();
 
   Pointer<Utf8> TWAccountDerivationPath(
     Pointer<Void> account,
@@ -77,14 +92,18 @@ abstract class TWAccount  {
 typedef _c_TWAccountCreate = Pointer<Void> Function(
   Pointer<Utf8> address,
   Int32 coin,
+  Int32 derivation,
   Pointer<Utf8> derivationPath,
+  Pointer<Utf8> publicKey,
   Pointer<Utf8> extendedPublicKey,
 );
 
 typedef _dart_TWAccountCreate = Pointer<Void> Function(
   Pointer<Utf8> address,
   int coin,
+  int derivation,
   Pointer<Utf8> derivationPath,
+  Pointer<Utf8> publicKey,
   Pointer<Utf8> extendedPublicKey,
 );
 
@@ -103,6 +122,14 @@ typedef _c_TWAccountAddress = Pointer<Utf8> Function(
 typedef _dart_TWAccountAddress = Pointer<Utf8> Function(
   Pointer<Void> account,
 );
+
+typedef _c_TWAccountDerivation = Int32 Function(
+    Pointer<Void> account,
+    );
+
+typedef _dart_TWAccountDerivation = int Function(
+    Pointer<Void> account,
+    );
 
 typedef _c_TWAccountDerivationPath = Pointer<Utf8> Function(
   Pointer<Void> account,

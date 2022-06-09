@@ -141,30 +141,6 @@ abstract class TWHash  {
   static late final _TWHashGroestl512_ptr = _lookup<NativeFunction<_c_TWHashGroestl512>>('TWHashGroestl512');
   static late final _dart_TWHashGroestl512 _TWHashGroestl512 = _TWHashGroestl512_ptr.asFunction<_dart_TWHashGroestl512>();
 
-  static Pointer<Void> TWHashXXHash64(
-    Pointer<Void> data,
-    int seed,
-  ) {
-    return _TWHashXXHash64(
-      data,
-      seed,
-    );
-  }
-
-  static late final _TWHashXXHash64_ptr = _lookup<NativeFunction<_c_TWHashXXHash64>>('TWHashXXHash64');
-  static late final _dart_TWHashXXHash64 _TWHashXXHash64 = _TWHashXXHash64_ptr.asFunction<_dart_TWHashXXHash64>();
-
-  static Pointer<Void> TWHashTwoXXHash64Concat(
-    Pointer<Void> data,
-  ) {
-    return _TWHashTwoXXHash64Concat(
-      data,
-    );
-  }
-
-  static late final _TWHashTwoXXHash64Concat_ptr = _lookup<NativeFunction<_c_TWHashTwoXXHash64Concat>>('TWHashTwoXXHash64Concat');
-  static late final _dart_TWHashTwoXXHash64Concat _TWHashTwoXXHash64Concat = _TWHashTwoXXHash64Concat_ptr.asFunction<_dart_TWHashTwoXXHash64Concat>();
-
   static Pointer<Void> TWHashSHA256SHA256(
     Pointer<Void> data,
   ) {
@@ -327,24 +303,6 @@ typedef _c_TWHashGroestl512 = Pointer<Void> Function(
 );
 
 typedef _dart_TWHashGroestl512 = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWHashXXHash64 = Pointer<Void> Function(
-  Pointer<Void> data,
-  Uint64 seed,
-);
-
-typedef _dart_TWHashXXHash64 = Pointer<Void> Function(
-  Pointer<Void> data,
-  int seed,
-);
-
-typedef _c_TWHashTwoXXHash64Concat = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWHashTwoXXHash64Concat = Pointer<Void> Function(
   Pointer<Void> data,
 );
 
