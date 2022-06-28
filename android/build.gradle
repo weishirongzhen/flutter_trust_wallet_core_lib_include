@@ -33,7 +33,7 @@ android {
     sourceSets {
         main{
             java.srcDirs += 'src/main/kotlin'
-            jniLibs.srcDirs=["libs"]
+            jniLibs.srcDirs=["src/main/libs"]
         }
     }
     defaultConfig {
@@ -43,5 +43,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-//    implementation(name: 'trustwalletcore', ext: 'aar')
+
 }
