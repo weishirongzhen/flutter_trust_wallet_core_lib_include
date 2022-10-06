@@ -6,7 +6,7 @@ description: Demonstrates how to use the flutter_trust_wallet_core plugin.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: '>=2.14.0 <3.0.0'
 
 dependencies:
   flutter:
@@ -32,6 +32,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
+  ffigen: ^6.1.2
 
 
 # For information on the generic Dart part of this file, see the
@@ -75,3 +76,13 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+ffigen:
+  name: TrustWalletCore
+  ffi-native:
+  # asset: 'assetname' # (optional)
+  description: Bindings to `assets/trust_wallet_core_h_file`.
+  output: 'lib/output/TWAES.dart'
+  headers:
+    entry-points:
+      - 'assets/trust_wallet_core_h_file/TWDATA.h'

@@ -8,8 +8,8 @@ class GroestlcoinAddress {
     if (_pointer.hashCode == 0) throw Exception(["GroestlcoinAddress nativehandle is null"]);
   }
 
-  GroestlcoinAddress.createWithPublicKey(PublicKey publicKey,int prefix) {
-    _pointer = TWGroestlcoinAddressImpl.createWithPublicKey(publicKey._nativehandle, prefix );
+  GroestlcoinAddress.createWithPublicKey(PublicKey publicKey, int prefix) {
+    _pointer = TWGroestlcoinAddressImpl.createWithPublicKey(publicKey._nativehandle, prefix);
     if (_pointer.hashCode == 0) throw Exception(["GroestlcoinAddress nativehandle is null"]);
   }
 
@@ -22,12 +22,11 @@ class GroestlcoinAddress {
     return TWGroestlcoinAddressImpl.isValidString(string);
   }
 
-   String description(Pointer<Void> address){
+  String description(Pointer<Void> address) {
     return TWGroestlcoinAddressImpl.description(address);
   }
 
-   void delete(){
+  void delete() {
     return TWGroestlcoinAddressImpl.delete(_pointer);
   }
-
 }

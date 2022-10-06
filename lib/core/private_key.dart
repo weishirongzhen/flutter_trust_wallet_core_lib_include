@@ -1,7 +1,6 @@
 part of flutter_trust_wallet_core;
 
 class PrivateKey {
-
   static const int PrivateKeySize = 32;
 
   late Pointer<Void> _nativehandle;
@@ -74,7 +73,7 @@ class PrivateKey {
   }
 
   PublicKey getPublicKeyNistEd25519Extended() {
-    final data = TWPrivateKeyImpl.getPublicKeyNistEd25519Extended(_nativehandle);
+    final data = TWPrivateKeyImpl.TWPrivateKeyGetPublicKeyEd25519Cardano(_nativehandle);
     return PublicKey._(data);
   }
 

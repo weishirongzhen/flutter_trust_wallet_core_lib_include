@@ -1,7 +1,12 @@
 part of trust_wallet_core_ffi;
 
+/// CoinTypeConfiguration functions
 abstract class TWCoinTypeConfiguration {
   /// Returns stock symbol of coin
+  ///
+  /// \param type A coin type
+  /// \return A non-null TWString stock symbol of coin
+  /// \note Caller must free returned object
   static Pointer<Utf8> TWCoinTypeConfigurationGetSymbol(
     int type,
   ) {
@@ -15,6 +20,9 @@ abstract class TWCoinTypeConfiguration {
       _TWCoinTypeConfigurationGetSymbol_ptr.asFunction<_dart_TWCoinTypeConfigurationGetSymbol>();
 
   /// Returns max count decimal places for minimal coin unit
+  ///
+  /// \param type A coin type
+  /// \return Returns max count decimal places for minimal coin unit
   static int TWCoinTypeConfigurationGetDecimals(
     int type,
   ) {
@@ -28,6 +36,10 @@ abstract class TWCoinTypeConfiguration {
       _TWCoinTypeConfigurationGetDecimals_ptr.asFunction<_dart_TWCoinTypeConfigurationGetDecimals>();
 
   /// Returns transaction url in blockchain explorer
+  ///
+  /// \param type A coin type
+  /// \param transactionID A transaction identifier
+  /// \return Returns a non-null TWString transaction url in blockchain explorer
   static Pointer<Utf8> TWCoinTypeConfigurationGetTransactionURL(
     int type,
     Pointer<Utf8> transactionID,
@@ -44,6 +56,10 @@ abstract class TWCoinTypeConfiguration {
       _TWCoinTypeConfigurationGetTransactionURL_ptr.asFunction<_dart_TWCoinTypeConfigurationGetTransactionURL>();
 
   /// Returns account url in blockchain explorer
+  ///
+  /// \param type A coin type
+  /// \param accountID an Account identifier
+  /// \return Returns a non-null TWString account url in blockchain explorer
   static Pointer<Utf8> TWCoinTypeConfigurationGetAccountURL(
     int type,
     Pointer<Utf8> accountID,
@@ -59,6 +75,9 @@ abstract class TWCoinTypeConfiguration {
       _TWCoinTypeConfigurationGetAccountURL_ptr.asFunction<_dart_TWCoinTypeConfigurationGetAccountURL>();
 
   /// Returns full name of coin in lower case
+  ///
+  /// \param type A coin type
+  /// \return Returns a non-null TWString, full name of coin in lower case
   static Pointer<Utf8> TWCoinTypeConfigurationGetID(
     int type,
   ) {
@@ -71,6 +90,9 @@ abstract class TWCoinTypeConfiguration {
   static late final _dart_TWCoinTypeConfigurationGetID _TWCoinTypeConfigurationGetID = _TWCoinTypeConfigurationGetID_ptr.asFunction<_dart_TWCoinTypeConfigurationGetID>();
 
   /// Returns full name of coin
+  ///
+  /// \param type A coin type
+  /// \return Returns a non-null TWString, full name of coin
   static Pointer<Utf8> TWCoinTypeConfigurationGetName(
     int type,
   ) {

@@ -1,12 +1,14 @@
 part of trust_wallet_core_ffi;
 
-abstract class TWAES  {
-
-  /// Encrypts a block of data using AES in Cipher Block Chaining (CBC) mode.
+/// AES encryption/decryption methods.
+abstract class TWAES {
+  /// Encrypts a block of Data using AES in Cipher Block Chaining (CBC) mode.
   ///
-  /// \param key encryption key, must be 16, 24, or 32 bytes long.
-  /// \param data data to encrypt.
+  /// \param key encryption key Data, must be 16, 24, or 32 bytes long.
+  /// \param data Data to encrypt.
   /// \param iv initialization vector.
+  /// \param mode padding mode.
+  /// \return encrypted Data.
   static Pointer<Void> TWAESEncryptCBC(
     Pointer<Void> key,
     Pointer<Void> data,
@@ -26,9 +28,11 @@ abstract class TWAES  {
 
   /// Decrypts a block of data using AES in Cipher Block Chaining (CBC) mode.
   ///
-  /// \param key decryption key, must be 16, 24, or 32 bytes long.
-  /// \param data data to decrypt.
-  /// \param iv initialization vector.
+  /// \param key decryption key Data, must be 16, 24, or 32 bytes long.
+  /// \param data Data to decrypt.
+  /// \param iv initialization vector Data.
+  /// \param mode padding mode.
+  /// \return decrypted Data.
   static Pointer<Void> TWAESDecryptCBC(
     Pointer<Void> key,
     Pointer<Void> data,
@@ -48,9 +52,10 @@ abstract class TWAES  {
 
   /// Encrypts a block of data using AES in Counter (CTR) mode.
   ///
-  /// \param key encryption key, must be 16, 24, or 32 bytes long.
-  /// \param data data to encrypt.
-  /// \param iv initialization vector.
+  /// \param key encryption key Data, must be 16, 24, or 32 bytes long.
+  /// \param data Data to encrypt.
+  /// \param iv initialization vector Data.
+  /// \return encrypted Data.
   static Pointer<Void> TWAESEncryptCTR(
     Pointer<Void> key,
     Pointer<Void> data,
@@ -68,9 +73,10 @@ abstract class TWAES  {
 
   /// Decrypts a block of data using AES in Counter (CTR) mode.
   ///
-  /// \param key decryption key, must be 16, 24, or 32 bytes long.
-  /// \param data data to decrypt.
-  /// \param iv initialization vector.
+  /// \param key decryption key Data, must be 16, 24, or 32 bytes long.
+  /// \param data Data to decrypt.
+  /// \param iv initialization vector Data.
+  /// \return decrypted Data.
   static Pointer<Void> TWAESDecryptCTR(
     Pointer<Void> key,
     Pointer<Void> data,

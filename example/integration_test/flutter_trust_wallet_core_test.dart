@@ -6,7 +6,7 @@ import './core/hd_wallet_test.dart' as hdWallet;
 import './core/base58_test.dart' as base58;
 import './core/private_key_test.dart' as private;
 import './core/any_address.test.dart' as address;
-import './core/coin_type_configuration_test.dart' as cointype;
+import './core/coin_type_configuration_test.dart' as coinType;
 
 void main() {
 
@@ -19,6 +19,6 @@ void main() {
   base58.main();
   private.main();
   address.main();
-  cointype.main();
+  coinType.main();
 
 }

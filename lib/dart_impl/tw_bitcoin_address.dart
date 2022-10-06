@@ -1,8 +1,6 @@
 part of trust_wallet_core_ffi;
 
-
 class TWBitCoinAddressImpl extends TWBitcoinAddress {
-
   static Pointer<Void> create({String string = ""}) {
     final _string = TWStringImpl.toTWString(string);
     final address = TWBitcoinAddress.TWBitcoinAddressCreateWithString(_string);
@@ -17,13 +15,13 @@ class TWBitCoinAddressImpl extends TWBitcoinAddress {
     return address;
   }
 
-  static Pointer<Void> createWithPublicKey(Pointer<Void> publicKey,int prefix ) {
+  static Pointer<Void> createWithPublicKey(Pointer<Void> publicKey, int prefix) {
     final address = TWBitcoinAddress.TWBitcoinAddressCreateWithPublicKey(publicKey, prefix);
     return address;
   }
 
-  static bool equal(Pointer<Void> lhs ,Pointer<Void> rhs) {
-    final result = TWBitcoinAddress.TWBitcoinAddressEqual(lhs, rhs) >=1;
+  static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
+    final result = TWBitcoinAddress.TWBitcoinAddressEqual(lhs, rhs) >= 1;
     return result;
   }
 
@@ -41,21 +39,20 @@ class TWBitCoinAddressImpl extends TWBitcoinAddress {
     return result;
   }
 
-  static void delete(Pointer<Void> address){
+  static void delete(Pointer<Void> address) {
     return TWBitcoinAddress.TWBitcoinAddressDelete(address);
   }
 
-  static String description(Pointer<Void> address){
-     return TWStringImpl.toDartString(TWBitcoinAddress.TWBitcoinAddressDescription(address));
+  static String description(Pointer<Void> address) {
+    return TWStringImpl.toDartString(TWBitcoinAddress.TWBitcoinAddressDescription(address));
   }
 
-  static Uint8List keyhash(Pointer<Void> address){
-     final _data = TWBitcoinAddress.TWBitcoinAddressKeyhash(address);
+  static Uint8List keyhash(Pointer<Void> address) {
+    final _data = TWBitcoinAddress.TWBitcoinAddressKeyhash(address);
     return TWData.TWDataBytes(_data).asTypedList(TWData.TWDataSize(_data));
   }
 
-  static int prefix(Pointer<Void> address){
+  static int prefix(Pointer<Void> address) {
     return TWBitcoinAddress.TWBitcoinAddressPrefix(address);
   }
-
 }

@@ -1,7 +1,11 @@
 part of trust_wallet_core_ffi;
 
-abstract class TWEthereumAbi  {
+/// Wrapper class for Ethereum ABI encoding & decoding.
+abstract class TWEthereumAbi {
   /// Encode function to Eth ABI binary
+  ///
+  /// \param fn Non-null Eth abi function
+  /// \return Non-null encoded block of data
   static Pointer<Void> TWEthereumAbiEncode(
     Pointer<Void> fn,
   ) {
@@ -14,6 +18,10 @@ abstract class TWEthereumAbi  {
   static late final _dart_TWEthereumAbiEncode _TWEthereumAbiEncode = _TWEthereumAbiEncode_ptr.asFunction<_dart_TWEthereumAbiEncode>();
 
   /// Decode function output from Eth ABI binary, fill output parameters
+  ///
+  /// \param[in] fn Non-null Eth abi function
+  /// \param[out] encoded Non-null block of data
+  /// \return true if encoded have been filled correctly, false otherwise
   static int TWEthereumAbiDecodeOutput(
     Pointer<Void> fn,
     Pointer<Void> encoded,
@@ -28,6 +36,10 @@ abstract class TWEthereumAbi  {
   static late final _dart_TWEthereumAbiDecodeOutput _TWEthereumAbiDecodeOutput = _TWEthereumAbiDecodeOutput_ptr.asFunction<_dart_TWEthereumAbiDecodeOutput>();
 
   /// Decode function call data to human readable json format, according to input abi json
+  ///
+  /// \param data Non-null block of data
+  /// \param abi Non-null string
+  /// \return Non-null json string function call data
   static Pointer<Utf8> TWEthereumAbiDecodeCall(
     Pointer<Void> data,
     Pointer<Utf8> abi,
@@ -49,33 +61,36 @@ abstract class TWEthereumAbi  {
   /// - message: the message (object).
   /// Throws on error.
   /// Example input:
-  /// R"({
-  /// "types": {
-  /// "EIP712Domain": [
-  /// {"name": "name", "type": "string"},
-  /// {"name": "version", "type": "string"},
-  /// {"name": "chainId", "type": "uint256"},
-  /// {"name": "verifyingContract", "type": "address"}
-  /// ],
-  /// "Person": [
-  /// {"name": "name", "type": "string"},
-  /// {"name": "wallet", "type": "address"}
-  /// ]
-  /// },
-  /// "primaryType": "Person",
-  /// "domain": {
-  /// "name": "Ether Person",
-  /// "version": "1",
-  /// "chainId": 1,
-  /// "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
-  /// },
-  /// "message": {
-  /// "name": "Cow",
-  /// "wallet": "CD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
-  /// }
-  /// })");
+  ///  R"({
+  ///     "types": {
+  ///         "EIP712Domain": [
+  ///             {"name": "name", "type": "string"},
+  ///             {"name": "version", "type": "string"},
+  ///             {"name": "chainId", "type": "uint256"},
+  ///             {"name": "verifyingContract", "type": "address"}
+  ///         ],
+  ///         "Person": [
+  ///             {"name": "name", "type": "string"},
+  ///             {"name": "wallet", "type": "address"}
+  ///         ]
+  ///     },
+  ///     "primaryType": "Person",
+  ///     "domain": {
+  ///         "name": "Ether Person",
+  ///         "version": "1",
+  ///         "chainId": 1,
+  ///         "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+  ///     },
+  ///     "message": {
+  ///         "name": "Cow",
+  ///         "wallet": "CD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
+  ///     }
+  ///  })");
   /// On error, empty Data is returned.
   /// Returned data must be deleted (hint: use WRAPD() macro).
+  ///
+  /// \param messageJson Non-null json abi input
+  /// \return Non-null block of data, encoded abi input
   static Pointer<Void> TWEthereumAbiEncodeTyped(
     Pointer<Utf8> messageJson,
   ) {

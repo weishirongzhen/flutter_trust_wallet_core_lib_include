@@ -6,6 +6,6 @@ framework module SwiftProtobuf {
 }
 
 module SwiftProtobuf.Swift {
-    header "SwiftProtobuf-Swift.h"
-    requires objc
+  header "SwiftProtobuf-Swift.h"
+  requires objc
 }

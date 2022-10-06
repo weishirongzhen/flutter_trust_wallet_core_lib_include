@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package TW.Stellar.Proto;
+option java_package = "wallet.core.jni.proto";
+
+message Asset {
+    // Optional in case of non-native asset; the asset issuer address
+    string issuer = 1;
+
+    // Optional in case of non-native asset; the asset alphanum4 code.
+    string alphanum4 = 2;
+
+    // Note: alphanum12 currently not supported
+}
+
+message OperationCreateAccount {
+    string destination = 1;
+
+    // Amount (*10^7)
+    int64 amount = 2;
+}
+
+message OperationPayment {
+    string destination = 1;
+
+    // Optional, can be left empty for native asset
+    Asset asset = 2;
+
+    // Amount (*10^7)
+    int64 amount = 3;
+}
+
+message OperationChangeTrust {
+    Asset asset = 1;
+
+    // Validity (time bound to), unix time.  Set to (now() + 2 * 365 * 86400) for 2 years; set to 0 for missing.
+    int64 valid_before = 2;
+}
+
+enum ClaimPredicate {
+    Predicate_unconditional = 0;
+    // Rest of predicates not currently supported
+    // See https://github.com/stellar/stellar-protocol/blob/master/core/cap-0023.md
+}
+
+message Claimant {
+    string account = 1;
+    ClaimPredicate predicate = 2;
+}
+
+message OperationCreateClaimableBalance {
+    // Optional, can be left empty for native asset
+    Asset asset = 1;
+
+    // Amount (*10^7)
+    int64 amount = 2;
+
+    repeated Claimant claimants = 3;
+}
+
+message OperationClaimClaimableBalance {
+    // 32-byte balance ID hash
+    bytes balance_id = 1;
+}
+
+message MemoVoid {
+}
+
+message MemoText {
+    string text = 1;
+}
+
+message MemoId {
+    int64 id = 1;
+}
+
+message MemoHash {
+    bytes hash = 1;
+}
+
+// Input data necessary to create a signed transaction.
+message SigningInput {
+    int32 fee = 1;
+
+    int64 sequence = 2;
+
+    string account = 3;
+
+    // Private key.
+    bytes private_key = 4;
+
+    string passphrase = 5;
+
+    oneof operation_oneof {
+        OperationCreateAccount op_create_account = 6;
+        OperationPayment op_payment = 7;
+        OperationChangeTrust op_change_trust = 8;
+        OperationCreateClaimableBalance op_create_claimable_balance = 14;
+        OperationClaimClaimableBalance op_claim_claimable_balance = 15;
+    }
+
+    oneof memo_type_oneof {
+        MemoVoid memo_void = 9;
+        MemoText memo_text = 10;
+        MemoId memo_id = 11;
+        MemoHash memo_hash = 12;
+        MemoHash memo_return_hash = 13;
+    }
+}
+
+// Transaction signing output.
+message SigningOutput {
+    // Signature.
+    string signature = 1;
+}

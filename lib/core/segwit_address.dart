@@ -8,16 +8,16 @@ class SegwitAddress {
     if (_pointer.hashCode == 0) throw Exception(["SegwitAddress nativehandle is null"]);
   }
 
-  SegwitAddress.createWithPublicKey(int hrp,PublicKey publicKey) {
+  SegwitAddress.createWithPublicKey(int hrp, PublicKey publicKey) {
     _pointer = TWSegwitAddressImpl.createWithPublicKey(hrp, publicKey._nativehandle);
     if (_pointer.hashCode == 0) throw Exception(["SegwitAddress nativehandle is null"]);
   }
 
-  static bool equal(){
+  static bool equal() {
     return TWSegwitAddressImpl.equal(_pointer, _pointer);
   }
 
-  static bool isValidString(String address){
+  static bool isValidString(String address) {
     return TWSegwitAddressImpl.isValidString(address);
   }
 

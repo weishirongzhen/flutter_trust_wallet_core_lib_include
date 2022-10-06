@@ -6,6 +6,6 @@ framework module WalletCore {
 }
 
 module WalletCore.Swift {
-    header "WalletCore-Swift.h"
-    requires objc
+  header "WalletCore-Swift.h"
+  requires objc
 }

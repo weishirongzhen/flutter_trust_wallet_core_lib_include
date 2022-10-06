@@ -1,7 +1,6 @@
 part of trust_wallet_core_ffi;
 
 class TWHashImpl extends TWHash {
-
   static Uint8List hashSHA1(Uint8List bytes) {
     final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
     final hash = TWHash.TWHashSHA1(data);
@@ -74,7 +73,7 @@ class TWHashImpl extends TWHash {
 
   static Uint8List hashBLAKE2B(Uint8List bytes, int size) {
     final data = TWData.TWDataCreateWithBytes(bytes.toPointerUint8(), bytes.length);
-    final hash = TWHash.TWHashBlake2b(data,size);
+    final hash = TWHash.TWHashBlake2b(data, size);
     TWData.TWDataDelete(data);
     return TWData.TWDataBytes(hash).asTypedList(TWData.TWDataSize(hash));
   }

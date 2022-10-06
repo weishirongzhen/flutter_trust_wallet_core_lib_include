@@ -8,12 +8,11 @@ class FIOAccount {
     if (_pointer.hashCode == 0) throw Exception(["FIOAccount nativehandle is null"]);
   }
 
-   String description(){
+  String description() {
     return TWFIOAccountImpl.description(_pointer);
   }
 
-   void delete(){
+  void delete() {
     return TWFIOAccountImpl.delete(_pointer);
   }
-
 }

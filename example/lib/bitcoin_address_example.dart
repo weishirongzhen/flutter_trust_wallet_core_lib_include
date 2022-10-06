@@ -28,9 +28,10 @@ class _BitcoinAddressExampleState extends BaseExampleState<BitcoinAddressExample
     final bitcoinAddress = BitcoinAddress.createWithPublicKey(publicKey2, 0);
     logger.d(bitcoinAddress.description());
     final segwitAddress = SegwitAddress.createWithPublicKey(HRP.Bitcoin, publicKey2);
+    final segwitAddressTestnet = SegwitAddress.createWithPublicKey(HRP.BitcoinTestnet, publicKey2);
     logger.d(segwitAddress.description());
+    logger.d(segwitAddressTestnet.description());
     final address2 = AnyAddress.createWithPublicKey(publicKey2, 0);
-    logger.d("address2  = ${address2.description()}");
 
     final pubKeyHash = Hash.hashSHA256RIPEMD(publicKey2.data());
     final bitcoinScript = BitcoinScript.buildPayToWitnessPubkeyHash(pubKeyHash);

@@ -25,11 +25,11 @@ class HDVersion {
   static const int TWHDVersionDGUB = 0x02facafd;
   static const int TWHDVersionDGPV = 0x02fac398;
 
-  bool isPublic(int version){
+  bool isPublic(int version) {
     return TWHDVersionImpl.isPublic(version);
   }
 
-  bool isPrivate(int version){
+  bool isPrivate(int version) {
     return TWHDVersionImpl.isPrivate(version);
   }
 }

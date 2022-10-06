@@ -13,11 +13,11 @@ class RippleXAddress {
     if (_pointer.hashCode == 0) throw Exception(["RippleXAddress nativehandle is null"]);
   }
 
-  static bool equal(){
+  static bool equal() {
     return TWRippleXAddressImpl.equal(_pointer, _pointer);
   }
 
-  static bool isValidString(String address){
+  static bool isValidString(String address) {
     return TWRippleXAddressImpl.isValidString(address);
   }
 

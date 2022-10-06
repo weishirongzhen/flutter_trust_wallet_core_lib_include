@@ -20,9 +20,10 @@ enum TWDerivation {
     TWDerivationCustom = 1, // custom, for any coin
     TWDerivationBitcoinSegwit = 2,
     TWDerivationBitcoinLegacy = 3,
-    TWDerivationBitcoinTestnetLegacy = 4,
-    TWDerivationLitecoinLegacy = 5,
-    TWDerivationSolanaSolana = 6,
+    TWDerivationBitcoinTestnetSegwit = 4,
+    TWDerivationBitcoinTestnetLegacy = 5,
+    TWDerivationLitecoinLegacy = 6,
+    TWDerivationSolanaSolana = 7,
 };
 
 TW_EXTERN_C_END

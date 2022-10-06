@@ -42,8 +42,8 @@ class TWPrivateKeyImpl extends TWPrivateKey {
     return TWPrivateKey.TWPrivateKeyGetPublicKeyEd25519Blake2b(pk);
   }
 
-  static Pointer<Void> getPublicKeyNistEd25519Extended(Pointer<Void> pk) {
-    return TWPrivateKey.TWPrivateKeyGetPublicKeyEd25519Extended(pk);
+  static Pointer<Void> TWPrivateKeyGetPublicKeyEd25519Cardano(Pointer<Void> pk) {
+    return TWPrivateKey.TWPrivateKeyGetPublicKeyEd25519Cardano(pk);
   }
 
   static Pointer<Void> getPublicKeyCurve25519(Pointer<Void> pk) {

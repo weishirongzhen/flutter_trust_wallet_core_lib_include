@@ -6,7 +6,7 @@ class AnySigner {
   }
 
   static String signJSON(String string, Uint8List bytes, int coin) {
-    return TWAnySignerImpl.signJSON(string,bytes, coin);
+    return TWAnySignerImpl.signJSON(string, bytes, coin);
   }
 
   static bool supportsJSON(int coin) {

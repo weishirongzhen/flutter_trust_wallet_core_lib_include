@@ -13,24 +13,24 @@ class BitcoinAddress {
     if (_pointer.hashCode == 0) throw Exception(["BitcoinAddress nativehandle is null"]);
   }
 
-  BitcoinAddress.createWithPublicKey(PublicKey publicKey,int prefix) {
+  BitcoinAddress.createWithPublicKey(PublicKey publicKey, int prefix) {
     _pointer = TWBitCoinAddressImpl.createWithPublicKey(publicKey._nativehandle, prefix);
     if (_pointer.hashCode == 0) throw Exception(["BitcoinAddress nativehandle is null"]);
   }
 
-  static bool equal(){
+  static bool equal() {
     return TWBitCoinAddressImpl.equal(_pointer, _pointer);
   }
 
-  static bool isValid(Uint8List data){
+  static bool isValid(Uint8List data) {
     return TWBitCoinAddressImpl.isValid(data);
   }
 
   static bool isValidString(String string) {
     return TWBitCoinAddressImpl.isValidString(string);
-}
+  }
 
-  int prefix(){
+  int prefix() {
     return TWBitCoinAddressImpl.prefix(_pointer);
   }
 
@@ -45,5 +45,4 @@ class BitcoinAddress {
   void delete() {
     TWBitCoinAddressImpl.delete(_pointer);
   }
-
 }

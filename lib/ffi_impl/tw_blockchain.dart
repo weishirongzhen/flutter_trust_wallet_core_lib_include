@@ -40,4 +40,6 @@ abstract class TWBlockchain {
   static const int TWBlockchainThorchain = 38; // Cosmos
   static const int TWBlockchainRonin = 39; // Ethereum
   static const int TWBlockchainKusama = 40; // Polkadot
+  static const int TWBlockchainNervos = 41; //
+  static const int TWBlockchainEverscale = 42; //
 }

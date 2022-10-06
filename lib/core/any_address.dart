@@ -8,16 +8,12 @@ class AnyAddress {
   }
 
   AnyAddress.createWithPublicKey(PublicKey publicKey, int cpinType) {
-
     _pointer = TWAnyAddressImpl.createWithPublicKey(publicKey._nativehandle, cpinType);
   }
 
-
-  static bool isValid(String address, int coinType){
-
+  static bool isValid(String address, int coinType) {
     return TWAnyAddressImpl.isValid(address, coinType);
   }
-
 
   Uint8List data() {
     return TWAnyAddressImpl.data(_pointer);

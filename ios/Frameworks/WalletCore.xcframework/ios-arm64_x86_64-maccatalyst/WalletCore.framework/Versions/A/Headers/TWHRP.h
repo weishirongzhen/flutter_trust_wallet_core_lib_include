@@ -30,6 +30,7 @@ enum TWHRP {
     TWHRPBitcoinCash     /* "bitcoincash" */,
     TWHRPBitcoinGold     /* "btg" */,
     TWHRPIoTeX     /* "io" */,
+    TWHRPNervos     /* "ckb" */,
     TWHRPZilliqa     /* "zil" */,
     TWHRPTerra     /* "terra" */,
     TWHRPCryptoOrg     /* "cro" */,
@@ -45,6 +46,7 @@ enum TWHRP {
     TWHRPCardano     /* "addr" */,
     TWHRPQtum     /* "qc" */,
     TWHRPOsmosis     /* "osmo" */,
+    TWHRPTerraV2     /* "terra" */,
     TWHRPNativeEvmos     /* "evmos" */,
 };
 
@@ -59,6 +61,7 @@ static const char *_Nonnull HRP_COSMOS = "cosmos";
 static const char *_Nonnull HRP_BITCOINCASH = "bitcoincash";
 static const char *_Nonnull HRP_BITCOINGOLD = "btg";
 static const char *_Nonnull HRP_IOTEX = "io";
+static const char *_Nonnull HRP_NERVOS = "ckb";
 static const char *_Nonnull HRP_ZILLIQA = "zil";
 static const char *_Nonnull HRP_TERRA = "terra";
 static const char *_Nonnull HRP_CRYPTOORG = "cro";
@@ -74,6 +77,7 @@ static const char *_Nonnull HRP_HARMONY = "one";
 static const char *_Nonnull HRP_CARDANO = "addr";
 static const char *_Nonnull HRP_QTUM = "qc";
 static const char *_Nonnull HRP_OSMOSIS = "osmo";
+static const char *_Nonnull HRP_TERRAV2 = "terra";
 static const char *_Nonnull HRP_NATIVEEVMOS = "evmos";
 
 const char *_Nullable stringForHRP(enum TWHRP hrp);

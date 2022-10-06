@@ -1,8 +1,11 @@
 part of trust_wallet_core_ffi;
 
-abstract class TWEthereumAbiValue  {
-  /// Returned data must be deleted (hint: use WRAPD() macro).
-  /// Encode a type according to Ethereum ABI, into 32 bytes. Values are padded by 0 on the left, unless specified otherwise.
+/// Represents Ethereum ABI value
+abstract class TWEthereumAbiValue {
+  /// Encode a bool according to Ethereum ABI, into 32 bytes.  Values are padded by 0 on the left, unless specified otherwise
+  ///
+  /// \param value a boolean value
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeBool(
     int value,
   ) {
@@ -14,6 +17,10 @@ abstract class TWEthereumAbiValue  {
   static late final _TWEthereumAbiValueEncodeBool_ptr = _lookup<NativeFunction<_c_TWEthereumAbiValueEncodeBool>>('TWEthereumAbiValueEncodeBool');
   static late final _dart_TWEthereumAbiValueEncodeBool _TWEthereumAbiValueEncodeBool = _TWEthereumAbiValueEncodeBool_ptr.asFunction<_dart_TWEthereumAbiValueEncodeBool>();
 
+  /// Encode a int32 according to Ethereum ABI, into 32 bytes. Values are padded by 0 on the left, unless specified otherwise
+  ///
+  /// \param value a int32 value
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeInt32(
     int value,
   ) {
@@ -25,6 +32,10 @@ abstract class TWEthereumAbiValue  {
   static late final _TWEthereumAbiValueEncodeInt32_ptr = _lookup<NativeFunction<_c_TWEthereumAbiValueEncodeInt32>>('TWEthereumAbiValueEncodeInt32');
   static late final _dart_TWEthereumAbiValueEncodeInt32 _TWEthereumAbiValueEncodeInt32 = _TWEthereumAbiValueEncodeInt32_ptr.asFunction<_dart_TWEthereumAbiValueEncodeInt32>();
 
+  /// Encode a uint32 according to Ethereum ABI, into 32 bytes.  Values are padded by 0 on the left, unless specified otherwise
+  ///
+  /// \param value a uint32 value
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeUInt32(
     int value,
   ) {
@@ -36,7 +47,10 @@ abstract class TWEthereumAbiValue  {
   static late final _TWEthereumAbiValueEncodeUInt32_ptr = _lookup<NativeFunction<_c_TWEthereumAbiValueEncodeUInt32>>('TWEthereumAbiValueEncodeUInt32');
   static late final _dart_TWEthereumAbiValueEncodeUInt32 _TWEthereumAbiValueEncodeUInt32 = _TWEthereumAbiValueEncodeUInt32_ptr.asFunction<_dart_TWEthereumAbiValueEncodeUInt32>();
 
-  /// Encode an int256.  Input value is represented as a 32-byte value
+  /// Encode a int256 according to Ethereum ABI, into 32 bytes.  Values are padded by 0 on the left, unless specified otherwise
+  ///
+  /// \param value a int256 value stored in a block of data
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeInt256(
     Pointer<Void> value,
   ) {
@@ -48,7 +62,10 @@ abstract class TWEthereumAbiValue  {
   static late final _TWEthereumAbiValueEncodeInt256_ptr = _lookup<NativeFunction<_c_TWEthereumAbiValueEncodeInt256>>('TWEthereumAbiValueEncodeInt256');
   static late final _dart_TWEthereumAbiValueEncodeInt256 _TWEthereumAbiValueEncodeInt256 = _TWEthereumAbiValueEncodeInt256_ptr.asFunction<_dart_TWEthereumAbiValueEncodeInt256>();
 
-  /// Encode an uint256.  Input value is represented as a 32-byte binary value
+  /// Encode an int256 according to Ethereum ABI, into 32 bytes.  Values are padded by 0 on the left, unless specified otherwise
+  ///
+  /// \param value a int256 value stored in a block of data
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeUInt256(
     Pointer<Void> value,
   ) {
@@ -61,7 +78,10 @@ abstract class TWEthereumAbiValue  {
   static late final _dart_TWEthereumAbiValueEncodeUInt256 _TWEthereumAbiValueEncodeUInt256 =
       _TWEthereumAbiValueEncodeUInt256_ptr.asFunction<_dart_TWEthereumAbiValueEncodeUInt256>();
 
-  /// Encode the 20 bytes of an address
+  /// Encode an address according to Ethereum ABI, 20 bytes of the address.
+  ///
+  /// \param value an address value stored in a block of data
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeAddress(
     Pointer<Void> value,
   ) {
@@ -74,7 +94,10 @@ abstract class TWEthereumAbiValue  {
   static late final _dart_TWEthereumAbiValueEncodeAddress _TWEthereumAbiValueEncodeAddress =
       _TWEthereumAbiValueEncodeAddress_ptr.asFunction<_dart_TWEthereumAbiValueEncodeAddress>();
 
-  /// Encode a string by encoding its hash
+  /// Encode a string according to Ethereum ABI by encoding its hash.
+  ///
+  /// \param value a string value
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeString(
     Pointer<Utf8> value,
   ) {
@@ -87,6 +110,9 @@ abstract class TWEthereumAbiValue  {
   static late final _dart_TWEthereumAbiValueEncodeString _TWEthereumAbiValueEncodeString = _TWEthereumAbiValueEncodeString_ptr.asFunction<_dart_TWEthereumAbiValueEncodeString>();
 
   /// Encode a number of bytes, up to 32 bytes, padded on the right.  Longer arrays are truncated.
+  ///
+  /// \param value bunch of bytes
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeBytes(
     Pointer<Void> value,
   ) {
@@ -99,6 +125,9 @@ abstract class TWEthereumAbiValue  {
   static late final _dart_TWEthereumAbiValueEncodeBytes _TWEthereumAbiValueEncodeBytes = _TWEthereumAbiValueEncodeBytes_ptr.asFunction<_dart_TWEthereumAbiValueEncodeBytes>();
 
   /// Encode a dynamic number of bytes by encoding its hash
+  ///
+  /// \param value bunch of bytes
+  /// \return Encoded value stored in a block of data
   static Pointer<Void> TWEthereumAbiValueEncodeBytesDyn(
     Pointer<Void> value,
   ) {
@@ -112,6 +141,9 @@ abstract class TWEthereumAbiValue  {
       _TWEthereumAbiValueEncodeBytesDyn_ptr.asFunction<_dart_TWEthereumAbiValueEncodeBytesDyn>();
 
   /// Decodes input data (bytes longer than 32 will be truncated) as uint256
+  ///
+  /// \param input Data to be decoded
+  /// \return Non-null decoded string value
   static Pointer<Utf8> TWEthereumAbiValueDecodeUInt256(
     Pointer<Void> input,
   ) {
@@ -125,9 +157,13 @@ abstract class TWEthereumAbiValue  {
       _TWEthereumAbiValueDecodeUInt256_ptr.asFunction<_dart_TWEthereumAbiValueDecodeUInt256>();
 
   /// Decode an arbitrary type, return value as string
+  ///
+  /// \param input Data to be decoded
+  /// \param type the underlying type that need to be decoded
+  /// \return Non-null decoded string value
   static Pointer<Utf8> TWEthereumAbiValueDecodeValue(
     Pointer<Void> input,
-      Pointer<Utf8> string,
+    Pointer<Utf8> string,
   ) {
     return _TWEthereumAbiValueDecodeValue(
       input,
@@ -139,6 +175,10 @@ abstract class TWEthereumAbiValue  {
   static late final _dart_TWEthereumAbiValueDecodeValue _TWEthereumAbiValueDecodeValue = _TWEthereumAbiValueDecodeValue_ptr.asFunction<_dart_TWEthereumAbiValueDecodeValue>();
 
   /// Decode an array of given simple types.  Return a '\n'-separated string of elements
+  ///
+  /// \param input Data to be decoded
+  /// \param type the underlying type that need to be decoded
+  /// \return Non-null decoded string value
   static Pointer<Utf8> TWEthereumAbiValueDecodeArray(
     Pointer<Void> input,
     Pointer<Utf8> type,
@@ -235,12 +275,12 @@ typedef _dart_TWEthereumAbiValueDecodeUInt256 = Pointer<Utf8> Function(
 
 typedef _c_TWEthereumAbiValueDecodeValue = Pointer<Utf8> Function(
   Pointer<Void> input,
-    Pointer<Utf8> string,
+  Pointer<Utf8> string,
 );
 
 typedef _dart_TWEthereumAbiValueDecodeValue = Pointer<Utf8> Function(
   Pointer<Void> input,
-    Pointer<Utf8> string,
+  Pointer<Utf8> string,
 );
 
 typedef _c_TWEthereumAbiValueDecodeArray = Pointer<Utf8> Function(
