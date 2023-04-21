@@ -33,7 +33,11 @@ abstract class TWHDVersion {
   static const int TWHDVersionDGUB = 0x02facafd;
   static const int TWHDVersionDGPV = 0x02fac398;
 
-  static int TWHDVersionIsPublic(
+  /// Determine if the HD Version is public
+  ///
+  /// \param version HD version
+  /// \return true if the version is public, false otherwise
+  static bool TWHDVersionIsPublic(
     int version,
   ) {
     return _TWHDVersionIsPublic(
@@ -41,10 +45,14 @@ abstract class TWHDVersion {
     );
   }
 
-  static late final _TWHDVersionIsPublic_ptr = _lookup<NativeFunction<_c_TWHDVersionIsPublic>>('TWHDVersionIsPublic');
-  static late final _dart_TWHDVersionIsPublic _TWHDVersionIsPublic = _TWHDVersionIsPublic_ptr.asFunction<_dart_TWHDVersionIsPublic>();
+  static late final _TWHDVersionIsPublicPtr = _lookup<NativeFunction<Bool Function(Int32)>>('TWHDVersionIsPublic');
+  static late final _TWHDVersionIsPublic = _TWHDVersionIsPublicPtr.asFunction<bool Function(int)>();
 
-  static int TWHDVersionIsPrivate(
+  /// Determine if the HD Version is private
+  ///
+  /// \param version HD version
+  /// \return true if the version is private, false otherwise
+  static bool TWHDVersionIsPrivate(
     int version,
   ) {
     return _TWHDVersionIsPrivate(
@@ -52,22 +60,6 @@ abstract class TWHDVersion {
     );
   }
 
-  static late final _TWHDVersionIsPrivate_ptr = _lookup<NativeFunction<_c_TWHDVersionIsPrivate>>('TWHDVersionIsPrivate');
-  static late final _dart_TWHDVersionIsPrivate _TWHDVersionIsPrivate = _TWHDVersionIsPrivate_ptr.asFunction<_dart_TWHDVersionIsPrivate>();
+  static late final _TWHDVersionIsPrivatePtr = _lookup<NativeFunction<Bool Function(Int32)>>('TWHDVersionIsPrivate');
+  static late final _TWHDVersionIsPrivate = _TWHDVersionIsPrivatePtr.asFunction<bool Function(int)>();
 }
-
-typedef _c_TWHDVersionIsPublic = Int32 Function(
-  Int32 version,
-);
-
-typedef _dart_TWHDVersionIsPublic = int Function(
-  int version,
-);
-
-typedef _c_TWHDVersionIsPrivate = Int32 Function(
-  Int32 version,
-);
-
-typedef _dart_TWHDVersionIsPrivate = int Function(
-  int version,
-);

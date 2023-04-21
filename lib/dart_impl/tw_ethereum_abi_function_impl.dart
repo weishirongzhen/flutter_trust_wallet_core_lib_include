@@ -13,119 +13,119 @@ class TWEthereumAbiFunctionImpl extends TWEthereumAbiFunction {
     return TWStringImpl.toDartString(TWEthereumAbiFunction.TWEthereumAbiFunctionGetType(fn));
   }
 
-  static int addParamUInt8(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamUInt8(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUInt8(fn, val, isOutput);
   }
 
-  static int addParamUInt16(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamUInt16(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUInt16(fn, val, isOutput);
   }
 
-  static int addParamUInt32(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamUInt32(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUInt32(fn, val, isOutput);
   }
 
-  static int addParamUInt64(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamUInt64(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUInt64(fn, val, isOutput);
   }
 
-  static int addParamUInt256(Pointer<Void> fn, Uint8List data, int isOutput) {
+  static int addParamUInt256(Pointer<Void> fn, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUInt256(fn, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamUIntN(Pointer<Void> fn, int bits, Uint8List data, int isOutput) {
+  static int addParamUIntN(Pointer<Void> fn, int bits, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamUIntN(fn, bits, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamInt8(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamInt8(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamInt8(fn, val, isOutput);
   }
 
-  static int addParamInt16(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamInt16(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamInt16(fn, val, isOutput);
   }
 
-  static int addParamInt64(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamInt64(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamInt64(fn, val, isOutput);
   }
 
-  static int addParamInt256(Pointer<Void> fn, Uint8List data, int isOutput) {
+  static int addParamInt256(Pointer<Void> fn, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamInt256(fn, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamIntN(Pointer<Void> fn, int bits, Uint8List data, int isOutput) {
+  static int addParamIntN(Pointer<Void> fn, int bits, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamIntN(fn, bits, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamBool(Pointer<Void> fn, int val, int isOutput) {
+  static int addParamBool(Pointer<Void> fn, bool val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamBool(fn, val, isOutput);
   }
 
-  static int addParamString(Pointer<Void> fn, String string, int isOutput) {
+  static int addParamString(Pointer<Void> fn, String string, bool isOutput) {
     final _address = TWStringImpl.toTWString(string);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamString(fn, _address, isOutput);
     TWStringImpl.delete(_address);
     return result;
   }
 
-  static int addParamAddress(Pointer<Void> fn, Uint8List data, int isOutput) {
+  static int addParamAddress(Pointer<Void> fn, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamAddress(fn, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamBytes(Pointer<Void> fn, Uint8List data, int isOutput) {
+  static int addParamBytes(Pointer<Void> fn, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamBytes(fn, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamBytesFix(Pointer<Void> fn, int size, Uint8List data, int isOutput) {
+  static int addParamBytesFix(Pointer<Void> fn, int size, Uint8List data, bool isOutput) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
     final result = TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamBytesFix(fn, size, _data, isOutput);
     TWData.TWDataDelete(_data);
     return result;
   }
 
-  static int addParamArray(Pointer<Void> fn, int isOutput) {
+  static int addParamArray(Pointer<Void> fn, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddParamArray(fn, isOutput);
   }
 
-  static int getParamUInt8(Pointer<Void> fn, int val, int isOutput) {
+  static int getParamUInt8(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamUInt8(fn, val, isOutput);
   }
 
-  static int getParamUInt64(Pointer<Void> fn, int val, int isOutput) {
+  static int getParamUInt64(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamUInt64(fn, val, isOutput);
   }
 
-  static int getParamUInt256(Pointer<Void> fn, int val, int isOutput) {
+  static int getParamUInt256(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamUInt64(fn, val, isOutput);
   }
 
-  static bool getParamBool(Pointer<Void> fn, int val, int isOutput) {
-    return TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamBool(fn, val, isOutput) >= 1;
+  static bool getParamBool(Pointer<Void> fn, int val, bool isOutput) {
+    return TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamBool(fn, val, isOutput) ;
   }
 
-  static String getParamString(Pointer<Void> fn, int val, int isOutput) {
+  static String getParamString(Pointer<Void> fn, int val, bool isOutput) {
     return TWStringImpl.toDartString(TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamString(fn, val, isOutput));
   }
 
-  static Uint8List getParamAddress(Pointer<Void> fn, int val, int isOutput) {
+  static Uint8List getParamAddress(Pointer<Void> fn, int val, bool isOutput) {
     final addressData = TWEthereumAbiFunction.TWEthereumAbiFunctionGetParamAddress(fn, val, isOutput);
     return TWData.TWDataBytes(addressData).asTypedList(TWData.TWDataSize(addressData));
   }
@@ -190,7 +190,7 @@ class TWEthereumAbiFunctionImpl extends TWEthereumAbiFunction {
     return result;
   }
 
-  static int addInArrayParamBool(Pointer<Void> fn, int val, int isOutput) {
+  static int addInArrayParamBool(Pointer<Void> fn, int val, bool isOutput) {
     return TWEthereumAbiFunction.TWEthereumAbiFunctionAddInArrayParamBool(fn, val, isOutput);
   }
 

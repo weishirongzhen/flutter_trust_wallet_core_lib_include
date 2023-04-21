@@ -14,13 +14,13 @@ class TWGroestlcoinAddressImpl extends TWGroestlcoinAddress {
   }
 
   static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
-    final result = TWGroestlcoinAddress.TWGroestlcoinAddressEqual(lhs, rhs) >= 1;
+    final result = TWGroestlcoinAddress.TWGroestlcoinAddressEqual(lhs, rhs) ;
     return result;
   }
 
   static bool isValidString(String string) {
     final _string = TWStringImpl.toTWString(string);
-    final result = TWGroestlcoinAddress.TWGroestlcoinAddressIsValidString(_string) >= 1;
+    final result = TWGroestlcoinAddress.TWGroestlcoinAddressIsValidString(_string) ;
     TWStringImpl.delete(_string);
     return result;
   }

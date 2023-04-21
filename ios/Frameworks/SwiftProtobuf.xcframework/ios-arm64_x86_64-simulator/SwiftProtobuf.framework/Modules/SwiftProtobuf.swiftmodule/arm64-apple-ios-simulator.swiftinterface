@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-compiler-version: Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SwiftProtobuf
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Dispatch
@@ -134,9 +134,9 @@ public enum BinaryDelimited {
       get
     }
   }
-  public static func serialize(message: SwiftProtobuf.Message, to stream: Foundation.OutputStream, partial: Swift.Bool = false) throws
-  public static func parse<M>(messageType: M.Type, from stream: Foundation.InputStream, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws -> M where M : SwiftProtobuf.Message
-  public static func merge<M>(into message: inout M, from stream: Foundation.InputStream, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where M : SwiftProtobuf.Message
+  public static func serialize(message: any SwiftProtobuf.Message, to stream: Foundation.OutputStream, partial: Swift.Bool = false) throws
+  public static func parse<M>(messageType: M.Type, from stream: Foundation.InputStream, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws -> M where M : SwiftProtobuf.Message
+  public static func merge<M>(into message: inout M, from stream: Foundation.InputStream, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where M : SwiftProtobuf.Message
 }
 public enum BinaryEncodingError : Swift.Error {
   case anyTranscodeFailure
@@ -205,11 +205,11 @@ public protocol Decoder {
   mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : SwiftProtobuf.MapValueType
   mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : SwiftProtobuf.Enum, ValueType.RawValue == Swift.Int
   mutating func decodeMapField<KeyType, ValueType>(fieldType: SwiftProtobuf._ProtobufMessageMap<KeyType, ValueType>.Type, value: inout SwiftProtobuf._ProtobufMessageMap<KeyType, ValueType>.BaseType) throws where KeyType : SwiftProtobuf.MapKeyType, ValueType : Swift.Hashable, ValueType : SwiftProtobuf.Message
-  mutating func decodeExtensionField(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) throws
-  mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type) throws
+  mutating func decodeExtensionField(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: any SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) throws
+  mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: any SwiftProtobuf.Message.Type) throws
 }
 extension SwiftProtobuf.Decoder {
-  public mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: SwiftProtobuf.Message.Type) throws
+  public mutating func decodeExtensionFieldsAsMessageSet(values: inout SwiftProtobuf.ExtensionFieldValueSet, messageType: any SwiftProtobuf.Message.Type) throws
 }
 public struct Google_Protobuf_FileDescriptorSet {
   public var file: [SwiftProtobuf.Google_Protobuf_FileDescriptorProto]
@@ -1604,8 +1604,8 @@ extension SwiftProtobuf.ExtensibleMessage {
 }
 public protocol AnyExtensionField : Swift.CustomDebugStringConvertible {
   func hash(into hasher: inout Swift.Hasher)
-  var protobufExtension: SwiftProtobuf.AnyMessageExtension { get }
-  func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  var protobufExtension: any SwiftProtobuf.AnyMessageExtension { get }
+  func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   mutating func decodeExtensionField<T>(decoder: inout T) throws where T : SwiftProtobuf.Decoder
   func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   var isInitialized: Swift.Bool { get }
@@ -1618,23 +1618,23 @@ extension SwiftProtobuf.AnyExtensionField {
 public protocol ExtensionField : Swift.Hashable, SwiftProtobuf.AnyExtensionField {
   associatedtype ValueType
   var value: Self.ValueType { get set }
-  init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: Self.ValueType)
-  init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: Self.ValueType)
+  init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
 }
 public struct OptionalExtensionField<T> : SwiftProtobuf.ExtensionField where T : SwiftProtobuf.FieldType {
   public typealias BaseType = T.BaseType
   public typealias ValueType = SwiftProtobuf.OptionalExtensionField<T>.BaseType
   public var value: SwiftProtobuf.OptionalExtensionField<T>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.OptionalExtensionField<T>, rhs: SwiftProtobuf.OptionalExtensionField<T>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalExtensionField<T>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalExtensionField<T>.ValueType)
   public var debugDescription: Swift.String {
     get
   }
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1644,16 +1644,16 @@ public struct RepeatedExtensionField<T> : SwiftProtobuf.ExtensionField where T :
   public typealias BaseType = T.BaseType
   public typealias ValueType = [SwiftProtobuf.RepeatedExtensionField<T>.BaseType]
   public var value: SwiftProtobuf.RepeatedExtensionField<T>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.RepeatedExtensionField<T>, rhs: SwiftProtobuf.RepeatedExtensionField<T>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedExtensionField<T>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedExtensionField<T>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public var debugDescription: Swift.String {
     get
   }
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1663,16 +1663,16 @@ public struct PackedExtensionField<T> : SwiftProtobuf.ExtensionField where T : S
   public typealias BaseType = T.BaseType
   public typealias ValueType = [SwiftProtobuf.PackedExtensionField<T>.BaseType]
   public var value: SwiftProtobuf.PackedExtensionField<T>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.PackedExtensionField<T>, rhs: SwiftProtobuf.PackedExtensionField<T>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.PackedExtensionField<T>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.PackedExtensionField<T>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public var debugDescription: Swift.String {
     get
   }
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1682,16 +1682,16 @@ public struct OptionalEnumExtensionField<E> : SwiftProtobuf.ExtensionField where
   public typealias BaseType = E
   public typealias ValueType = E
   public var value: SwiftProtobuf.OptionalEnumExtensionField<E>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.OptionalEnumExtensionField<E>, rhs: SwiftProtobuf.OptionalEnumExtensionField<E>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalEnumExtensionField<E>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalEnumExtensionField<E>.ValueType)
   public var debugDescription: Swift.String {
     get
   }
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1701,16 +1701,16 @@ public struct RepeatedEnumExtensionField<E> : SwiftProtobuf.ExtensionField where
   public typealias BaseType = E
   public typealias ValueType = [E]
   public var value: SwiftProtobuf.RepeatedEnumExtensionField<E>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.RepeatedEnumExtensionField<E>, rhs: SwiftProtobuf.RepeatedEnumExtensionField<E>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedEnumExtensionField<E>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedEnumExtensionField<E>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public var debugDescription: Swift.String {
     get
   }
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1720,16 +1720,16 @@ public struct PackedEnumExtensionField<E> : SwiftProtobuf.ExtensionField where E
   public typealias BaseType = E
   public typealias ValueType = [E]
   public var value: SwiftProtobuf.PackedEnumExtensionField<E>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.PackedEnumExtensionField<E>, rhs: SwiftProtobuf.PackedEnumExtensionField<E>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.PackedEnumExtensionField<E>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.PackedEnumExtensionField<E>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public var debugDescription: Swift.String {
     get
   }
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var hashValue: Swift.Int {
     get
@@ -1739,16 +1739,16 @@ public struct OptionalMessageExtensionField<M> : SwiftProtobuf.ExtensionField wh
   public typealias BaseType = M
   public typealias ValueType = SwiftProtobuf.OptionalMessageExtensionField<M>.BaseType
   public var value: SwiftProtobuf.OptionalMessageExtensionField<M>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.OptionalMessageExtensionField<M>, rhs: SwiftProtobuf.OptionalMessageExtensionField<M>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalMessageExtensionField<M>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalMessageExtensionField<M>.ValueType)
   public var debugDescription: Swift.String {
     get
   }
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -1761,16 +1761,16 @@ public struct RepeatedMessageExtensionField<M> : SwiftProtobuf.ExtensionField wh
   public typealias BaseType = M
   public typealias ValueType = [SwiftProtobuf.RepeatedMessageExtensionField<M>.BaseType]
   public var value: SwiftProtobuf.RepeatedMessageExtensionField<M>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.RepeatedMessageExtensionField<M>, rhs: SwiftProtobuf.RepeatedMessageExtensionField<M>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedMessageExtensionField<M>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedMessageExtensionField<M>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public var debugDescription: Swift.String {
     get
   }
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -1783,16 +1783,16 @@ public struct OptionalGroupExtensionField<G> : SwiftProtobuf.ExtensionField wher
   public typealias BaseType = G
   public typealias ValueType = SwiftProtobuf.OptionalGroupExtensionField<G>.BaseType
   public var value: G
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.OptionalGroupExtensionField<G>, rhs: SwiftProtobuf.OptionalGroupExtensionField<G>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalGroupExtensionField<G>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.OptionalGroupExtensionField<G>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
   public var debugDescription: Swift.String {
     get
   }
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -1805,16 +1805,16 @@ public struct RepeatedGroupExtensionField<G> : SwiftProtobuf.ExtensionField wher
   public typealias BaseType = G
   public typealias ValueType = [SwiftProtobuf.RepeatedGroupExtensionField<G>.BaseType]
   public var value: SwiftProtobuf.RepeatedGroupExtensionField<G>.ValueType
-  public var protobufExtension: SwiftProtobuf.AnyMessageExtension
+  public var protobufExtension: any SwiftProtobuf.AnyMessageExtension
   public static func == (lhs: SwiftProtobuf.RepeatedGroupExtensionField<G>, rhs: SwiftProtobuf.RepeatedGroupExtensionField<G>) -> Swift.Bool
-  public init(protobufExtension: SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedGroupExtensionField<G>.ValueType)
+  public init(protobufExtension: any SwiftProtobuf.AnyMessageExtension, value: SwiftProtobuf.RepeatedGroupExtensionField<G>.ValueType)
   public func hash(into hasher: inout Swift.Hasher)
   public var debugDescription: Swift.String {
     get
   }
-  public func isEqual(other: SwiftProtobuf.AnyExtensionField) -> Swift.Bool
+  public func isEqual(other: any SwiftProtobuf.AnyExtensionField) -> Swift.Bool
   public mutating func decodeExtensionField<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
-  public init?<D>(protobufExtension: SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
+  public init?<D>(protobufExtension: any SwiftProtobuf.AnyMessageExtension, decoder: inout D) throws where D : SwiftProtobuf.Decoder
   public func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   public var isInitialized: Swift.Bool {
     get
@@ -1828,7 +1828,7 @@ public struct ExtensionFieldValueSet : Swift.Hashable {
   public init()
   public func hash(into hasher: inout Swift.Hasher)
   public func traverse<V>(visitor: inout V, start: Swift.Int, end: Swift.Int) throws where V : SwiftProtobuf.Visitor
-  public subscript(index: Swift.Int) -> SwiftProtobuf.AnyExtensionField? {
+  public subscript(index: Swift.Int) -> (any SwiftProtobuf.AnyExtensionField)? {
     get
     set
   }
@@ -1840,8 +1840,8 @@ public struct ExtensionFieldValueSet : Swift.Hashable {
   }
 }
 public protocol ExtensionMap {
-  subscript(messageType: SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> SwiftProtobuf.AnyMessageExtension? { get }
-  func fieldNumberForProto(messageType: SwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
+  subscript(messageType: any SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> (any SwiftProtobuf.AnyMessageExtension)? { get }
+  func fieldNumberForProto(messageType: any SwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
 }
 public struct Google_Protobuf_FieldMask {
   public var paths: [Swift.String]
@@ -2043,16 +2043,16 @@ public struct ProtobufBytes : SwiftProtobuf.FieldType, SwiftProtobuf.MapValueTyp
 }
 public let defaultAnyTypeURLPrefix: Swift.String
 extension SwiftProtobuf.Google_Protobuf_Any {
-  public init(message: SwiftProtobuf.Message, partial: Swift.Bool = false, typePrefix: Swift.String = defaultAnyTypeURLPrefix) throws
-  public init(textFormatString: Swift.String, extensions: SwiftProtobuf.ExtensionMap? = nil) throws
+  public init(message: any SwiftProtobuf.Message, partial: Swift.Bool = false, typePrefix: Swift.String = defaultAnyTypeURLPrefix) throws
+  public init(textFormatString: Swift.String, extensions: (any SwiftProtobuf.ExtensionMap)? = nil) throws
   public func isA<M>(_ type: M.Type) -> Swift.Bool where M : SwiftProtobuf.Message
   public func hash(into hasher: inout Swift.Hasher)
 }
 extension SwiftProtobuf.Google_Protobuf_Any {
   @discardableResult
-  public static func register(messageType: SwiftProtobuf.Message.Type) -> Swift.Bool
-  public static func messageType(forTypeURL url: Swift.String) -> SwiftProtobuf.Message.Type?
-  public static func messageType(forMessageName name: Swift.String) -> SwiftProtobuf.Message.Type?
+  public static func register(messageType: any SwiftProtobuf.Message.Type) -> Swift.Bool
+  public static func messageType(forTypeURL url: Swift.String) -> (any SwiftProtobuf.Message.Type)?
+  public static func messageType(forMessageName name: Swift.String) -> (any SwiftProtobuf.Message.Type)?
 }
 extension SwiftProtobuf.Google_Protobuf_Duration {
   public init(seconds: Swift.Int64 = 0, nanos: Swift.Int32 = 0)
@@ -2208,8 +2208,8 @@ extension SwiftProtobuf.Google_Protobuf_BytesValue {
 }
 public enum Internal {
   public static let emptyData: Foundation.Data
-  public static func areAllInitialized(_ listOfMessages: [SwiftProtobuf.Message]) -> Swift.Bool
-  public static func areAllInitialized<K>(_ mapToMessages: [K : SwiftProtobuf.Message]) -> Swift.Bool where K : Swift.Hashable
+  public static func areAllInitialized(_ listOfMessages: [any SwiftProtobuf.Message]) -> Swift.Bool
+  public static func areAllInitialized<K>(_ mapToMessages: [K : any SwiftProtobuf.Message]) -> Swift.Bool where K : Swift.Hashable
 }
 public enum JSONDecodingError : Swift.Error {
   case failure
@@ -2265,7 +2265,7 @@ public protocol Message : Swift.CustomDebugStringConvertible {
   mutating func decodeMessage<D>(decoder: inout D) throws where D : SwiftProtobuf.Decoder
   func traverse<V>(visitor: inout V) throws where V : SwiftProtobuf.Visitor
   func hash(into hasher: inout Swift.Hasher)
-  func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
+  func isEqualTo(message: any SwiftProtobuf.Message) -> Swift.Bool
 }
 extension SwiftProtobuf.Message {
   public var isInitialized: Swift.Bool {
@@ -2281,67 +2281,67 @@ public protocol _MessageImplementationBase : Swift.Hashable, SwiftProtobuf.Messa
   func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
 }
 extension SwiftProtobuf._MessageImplementationBase {
-  public func isEqualTo(message: SwiftProtobuf.Message) -> Swift.Bool
+  public func isEqualTo(message: any SwiftProtobuf.Message) -> Swift.Bool
   public static func == (lhs: Self, rhs: Self) -> Swift.Bool
   public func _protobuf_generated_isEqualTo(other: Self) -> Swift.Bool
 }
 extension SwiftProtobuf.Message {
-  public init(unpackingAny: SwiftProtobuf.Google_Protobuf_Any, extensions: SwiftProtobuf.ExtensionMap? = nil, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws
+  public init(unpackingAny: SwiftProtobuf.Google_Protobuf_Any, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws
 }
 extension SwiftProtobuf.Message {
   public func serializedData(partial: Swift.Bool = false) throws -> Foundation.Data
-  @inlinable public init(serializedData data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
+  @inlinable public init(serializedData data: Foundation.Data, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
     self.init()
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
-  @inlinable public init<Bytes>(contiguousBytes bytes: Bytes, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
+  @inlinable public init<Bytes>(contiguousBytes bytes: Bytes, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
     self.init()
     try merge(contiguousBytes: bytes, extensions: extensions, partial: partial, options: options)
   }
-  @inlinable public mutating func merge(serializedData data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
+  @inlinable public mutating func merge(serializedData data: Foundation.Data, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws {
     try merge(contiguousBytes: data, extensions: extensions, partial: partial, options: options)
   }
-  @inlinable public mutating func merge<Bytes>(contiguousBytes bytes: Bytes, extensions: SwiftProtobuf.ExtensionMap? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
+  @inlinable public mutating func merge<Bytes>(contiguousBytes bytes: Bytes, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, partial: Swift.Bool = false, options: SwiftProtobuf.BinaryDecodingOptions = BinaryDecodingOptions()) throws where Bytes : Foundation.ContiguousBytes {
     try bytes.withUnsafeBytes { (body: UnsafeRawBufferPointer) in
       try _merge(rawBuffer: body, extensions: extensions, partial: partial, options: options)
     }
   }
   @usableFromInline
-  internal mutating func _merge(rawBuffer body: Swift.UnsafeRawBufferPointer, extensions: SwiftProtobuf.ExtensionMap?, partial: Swift.Bool, options: SwiftProtobuf.BinaryDecodingOptions) throws
+  internal mutating func _merge(rawBuffer body: Swift.UnsafeRawBufferPointer, extensions: (any SwiftProtobuf.ExtensionMap)?, partial: Swift.Bool, options: SwiftProtobuf.BinaryDecodingOptions) throws
 }
 extension SwiftProtobuf.Message {
   public func jsonString(options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Swift.String
   public func jsonUTF8Data(options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Foundation.Data
   public init(jsonString: Swift.String, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
-  public init(jsonString: Swift.String, extensions: SwiftProtobuf.ExtensionMap? = nil, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  public init(jsonString: Swift.String, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
   public init(jsonUTF8Data: Foundation.Data, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
-  public init(jsonUTF8Data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap? = nil, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
+  public init(jsonUTF8Data: Foundation.Data, extensions: (any SwiftProtobuf.ExtensionMap)? = nil, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws
 }
 extension SwiftProtobuf.Message {
   public static func jsonString<C>(from collection: C, options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Swift.String where Self == C.Element, C : Swift.Collection
   public static func jsonUTF8Data<C>(from collection: C, options: SwiftProtobuf.JSONEncodingOptions = JSONEncodingOptions()) throws -> Foundation.Data where Self == C.Element, C : Swift.Collection
   public static func array(fromJSONString jsonString: Swift.String, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
-  public static func array(fromJSONString jsonString: Swift.String, extensions: SwiftProtobuf.ExtensionMap = SimpleExtensionMap(), options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
+  public static func array(fromJSONString jsonString: Swift.String, extensions: any SwiftProtobuf.ExtensionMap = SimpleExtensionMap(), options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
   public static func array(fromJSONUTF8Data jsonUTF8Data: Foundation.Data, options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
-  public static func array(fromJSONUTF8Data jsonUTF8Data: Foundation.Data, extensions: SwiftProtobuf.ExtensionMap = SimpleExtensionMap(), options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
+  public static func array(fromJSONUTF8Data jsonUTF8Data: Foundation.Data, extensions: any SwiftProtobuf.ExtensionMap = SimpleExtensionMap(), options: SwiftProtobuf.JSONDecodingOptions = JSONDecodingOptions()) throws -> [Self]
 }
 extension SwiftProtobuf.Message {
   public func textFormatString() -> Swift.String
   public func textFormatString(options: SwiftProtobuf.TextFormatEncodingOptions) -> Swift.String
-  public init(textFormatString: Swift.String, extensions: SwiftProtobuf.ExtensionMap? = nil) throws
+  public init(textFormatString: Swift.String, extensions: (any SwiftProtobuf.ExtensionMap)? = nil) throws
 }
 public protocol AnyMessageExtension {
   var fieldNumber: Swift.Int { get }
   var fieldName: Swift.String { get }
-  var messageType: SwiftProtobuf.Message.Type { get }
-  func _protobuf_newField<D>(decoder: inout D) throws -> SwiftProtobuf.AnyExtensionField? where D : SwiftProtobuf.Decoder
+  var messageType: any SwiftProtobuf.Message.Type { get }
+  func _protobuf_newField<D>(decoder: inout D) throws -> (any SwiftProtobuf.AnyExtensionField)? where D : SwiftProtobuf.Decoder
 }
 public class MessageExtension<FieldType, MessageType> : SwiftProtobuf.AnyMessageExtension where FieldType : SwiftProtobuf.ExtensionField, MessageType : SwiftProtobuf.Message {
   final public let fieldNumber: Swift.Int
   final public let fieldName: Swift.String
-  final public let messageType: SwiftProtobuf.Message.Type
+  final public let messageType: any SwiftProtobuf.Message.Type
   public init(_protobuf_fieldNumber: Swift.Int, fieldName: Swift.String)
-  public func _protobuf_newField<D>(decoder: inout D) throws -> SwiftProtobuf.AnyExtensionField? where D : SwiftProtobuf.Decoder
+  public func _protobuf_newField<D>(decoder: inout D) throws -> (any SwiftProtobuf.AnyExtensionField)? where D : SwiftProtobuf.Decoder
   @objc deinit
 }
 public struct _NameMap : Swift.ExpressibleByDictionaryLiteral {
@@ -2382,20 +2382,20 @@ public protocol _ProtoNameProviding {
 public struct SimpleExtensionMap : SwiftProtobuf.ExtensionMap, Swift.ExpressibleByArrayLiteral, Swift.CustomDebugStringConvertible {
   public typealias Element = SwiftProtobuf.AnyMessageExtension
   public init()
-  public init(arrayLiteral: SwiftProtobuf.SimpleExtensionMap.Element...)
+  public init(arrayLiteral: any SwiftProtobuf.AnyMessageExtension...)
   public init(_ others: SwiftProtobuf.SimpleExtensionMap...)
-  public subscript(messageType: SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> SwiftProtobuf.AnyMessageExtension? {
+  public subscript(messageType: any SwiftProtobuf.Message.Type, fieldNumber: Swift.Int) -> (any SwiftProtobuf.AnyMessageExtension)? {
     get
   }
-  public func fieldNumberForProto(messageType: SwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
-  public mutating func insert(_ newValue: SwiftProtobuf.SimpleExtensionMap.Element)
-  public mutating func insert(contentsOf: [SwiftProtobuf.SimpleExtensionMap.Element])
+  public func fieldNumberForProto(messageType: any SwiftProtobuf.Message.Type, protoFieldName: Swift.String) -> Swift.Int?
+  public mutating func insert(_ newValue: any SwiftProtobuf.AnyMessageExtension)
+  public mutating func insert(contentsOf: [any SwiftProtobuf.AnyMessageExtension])
   public mutating func formUnion(_ other: SwiftProtobuf.SimpleExtensionMap)
   public func union(_ other: SwiftProtobuf.SimpleExtensionMap) -> SwiftProtobuf.SimpleExtensionMap
   public var debugDescription: Swift.String {
     get
   }
-  public typealias ArrayLiteralElement = SwiftProtobuf.SimpleExtensionMap.Element
+  public typealias ArrayLiteralElement = any SwiftProtobuf.AnyMessageExtension
 }
 public struct Google_Protobuf_SourceContext {
   public var fileName: Swift.String

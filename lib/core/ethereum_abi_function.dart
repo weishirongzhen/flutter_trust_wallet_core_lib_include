@@ -16,95 +16,95 @@ class EthereumAbiFunction {
     return TWEthereumAbiFunctionImpl.getType(_pointer);
   }
 
-  int addParamUInt8(int val, int isOutput) {
+  int addParamUInt8(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUInt8(_pointer, val, isOutput);
   }
 
-  int addParamUInt16(int val, int isOutput) {
+  int addParamUInt16(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUInt16(_pointer, val, isOutput);
   }
 
-  int addParamUInt32(int val, int isOutput) {
+  int addParamUInt32(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUInt32(_pointer, val, isOutput);
   }
 
-  int addParamUInt64(int val, int isOutput) {
+  int addParamUInt64(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUInt64(_pointer, val, isOutput);
   }
 
-  int addParamUInt256(Uint8List data, int isOutput) {
+  int addParamUInt256(Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUInt256(_pointer, data, isOutput);
   }
 
-  int addParamUIntN(int bits, Uint8List data, int isOutput) {
+  int addParamUIntN(int bits, Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamUIntN(_pointer, bits, data, isOutput);
   }
 
-  int addParamInt8(int val, int isOutput) {
+  int addParamInt8(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamInt8(_pointer, val, isOutput);
   }
 
-  int addParamInt16(int val, int isOutput) {
+  int addParamInt16(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamInt16(_pointer, val, isOutput);
   }
 
-  int addParamInt64(int val, int isOutput) {
+  int addParamInt64(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamInt64(_pointer, val, isOutput);
   }
 
-  int addParamInt256(Uint8List data, int isOutput) {
+  int addParamInt256(Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamInt256(_pointer, data, isOutput);
   }
 
-  int addParamIntN(int bits, Uint8List data, int isOutput) {
+  int addParamIntN(int bits, Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamIntN(_pointer, bits, data, isOutput);
   }
 
-  int addParamBool(int val, int isOutput) {
+  int addParamBool(bool val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamBool(_pointer, val, isOutput);
   }
 
-  int addParamString(String string, int isOutput) {
+  int addParamString(String string, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamString(_pointer, string, isOutput);
   }
 
-  int addParamAddress(Uint8List data, int isOutput) {
+  int addParamAddress(Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamAddress(_pointer, data, isOutput);
   }
 
-  int addParamBytes(Uint8List data, int isOutput) {
+  int addParamBytes(Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamBytes(_pointer, data, isOutput);
   }
 
-  int addParamBytesFix(int size, Uint8List data, int isOutput) {
+  int addParamBytesFix(int size, Uint8List data, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamBytesFix(_pointer, size, data, isOutput);
   }
 
-  int addParamArray(Pointer<Void> _pointer, int isOutput) {
+  int addParamArray(Pointer<Void> _pointer, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addParamArray(_pointer, isOutput);
   }
 
-  int getParamUInt8(int val, int isOutput) {
+  int getParamUInt8(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamUInt8(_pointer, val, isOutput);
   }
 
-  int getParamUInt64(int val, int isOutput) {
+  int getParamUInt64(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamUInt64(_pointer, val, isOutput);
   }
 
-  int getParamUInt256(int val, int isOutput) {
+  int getParamUInt256(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamUInt256(_pointer, val, isOutput);
   }
 
-  bool getParamBool(int val, int isOutput) {
+  bool getParamBool(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamBool(_pointer, val, isOutput);
   }
 
-  String getParamString(int val, int isOutput) {
+  String getParamString(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamString(_pointer, val, isOutput);
   }
 
-  Uint8List getParamAddress(int val, int isOutput) {
+  Uint8List getParamAddress(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.getParamAddress(_pointer, val, isOutput);
   }
 
@@ -156,7 +156,7 @@ class EthereumAbiFunction {
     return TWEthereumAbiFunctionImpl.addInArrayParamIntN(_pointer, arrayIdx, val, data);
   }
 
-  int addInArrayParamBool(int val, int isOutput) {
+  int addInArrayParamBool(int val, bool isOutput) {
     return TWEthereumAbiFunctionImpl.addInArrayParamBool(_pointer, val, isOutput);
   }
 

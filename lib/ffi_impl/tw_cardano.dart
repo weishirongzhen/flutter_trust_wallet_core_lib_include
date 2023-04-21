@@ -1,7 +1,7 @@
 part of trust_wallet_core_ffi;
 
 /// Cardano helper functions
-class TWCardano {
+abstract class TWCardano {
   /// Calculates the minimum ADA amount needed for a UTXO.
   ///
   /// \see reference https://docs.cardano.org/native-tokens/minimum-ada-value-requirement
@@ -15,8 +15,30 @@ class TWCardano {
     );
   }
 
-  static late final _TWCardanoMinAdaAmount_ptr = _lookup<NativeFunction<_c_TWCardanoMinAdaAmount>>('TWCardanoMinAdaAmount');
-  static late final _dart_TWCardanoMinAdaAmount _TWCardanoMinAdaAmount = _TWCardanoMinAdaAmount_ptr.asFunction<_dart_TWCardanoMinAdaAmount>();
+  static late final _TWCardanoMinAdaAmountPtr = _lookup<NativeFunction<Uint64 Function(Pointer<Void>)>>('TWCardanoMinAdaAmount');
+  static late final _TWCardanoMinAdaAmount = _TWCardanoMinAdaAmountPtr.asFunction<int Function(Pointer<Void>)>();
+
+  /// Calculates the minimum ADA amount needed for an output.
+  ///
+  /// \see reference https://docs.cardano.org/native-tokens/minimum-ada-value-requirement
+  /// \param toAddress valid destination address, as string.
+  /// \param tokenBundle serialized data of TW.Cardano.Proto.TokenBundle.
+  /// \param coinsPerUtxoByte cost per one byte of a serialized UTXO.
+  /// \return the minimum ADA amount.
+  static int TWCardanoOutputMinAdaAmount(
+    Pointer<Utf8> toAddress,
+    Pointer<Void> tokenBundle,
+    int coinsPerUtxoByte,
+  ) {
+    return _TWCardanoOutputMinAdaAmount(
+      toAddress,
+      tokenBundle,
+      coinsPerUtxoByte,
+    );
+  }
+
+  static late final _TWCardanoOutputMinAdaAmountPtr = _lookup<NativeFunction<Uint64 Function(Pointer<Utf8>, Pointer<Void>, Uint64)>>('TWCardanoOutputMinAdaAmount');
+  static late final _TWCardanoOutputMinAdaAmount = _TWCardanoOutputMinAdaAmountPtr.asFunction<int Function(Pointer<Utf8>, Pointer<Void>, int)>();
 
   /// Return the staking address associated to (contained in) this address. Must be a Base address.
   /// Empty string is returned on error. Result must be freed.
@@ -30,22 +52,6 @@ class TWCardano {
     );
   }
 
-  static late final _TWCardanoGetStakingAddress_ptr = _lookup<NativeFunction<_c_TWCardanoGetStakingAddress>>('TWCardanoGetStakingAddress');
-  static late final _dart_TWCardanoGetStakingAddress _TWCardanoGetStakingAddress = _TWCardanoGetStakingAddress_ptr.asFunction<_dart_TWCardanoGetStakingAddress>();
+  static late final _TWCardanoGetStakingAddressPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Utf8>)>>('TWCardanoGetStakingAddress');
+  static late final _TWCardanoGetStakingAddress = _TWCardanoGetStakingAddressPtr.asFunction<Pointer<Utf8> Function(Pointer<Utf8>)>();
 }
-
-typedef _c_TWCardanoMinAdaAmount = Uint64 Function(
-  Pointer<Void> tokenBundle,
-);
-
-typedef _dart_TWCardanoMinAdaAmount = int Function(
-  Pointer<Void> tokenBundle,
-);
-
-typedef _c_TWCardanoGetStakingAddress = Pointer<Utf8> Function(
-  Pointer<Utf8> baseAddress,
-);
-
-typedef _dart_TWCardanoGetStakingAddress = Pointer<Utf8> Function(
-  Pointer<Utf8> baseAddress,
-);

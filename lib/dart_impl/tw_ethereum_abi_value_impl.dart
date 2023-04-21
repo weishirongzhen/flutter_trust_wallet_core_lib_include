@@ -1,7 +1,7 @@
 part of trust_wallet_core_ffi;
 
 class TWEthereumAbiValueImpl extends TWEthereumAbiValue {
-  static Uint8List encodeBool(int value) {
+  static Uint8List encodeBool(bool value) {
     final result = TWEthereumAbiValue.TWEthereumAbiValueEncodeBool(value);
     return TWData.TWDataBytes(result).asTypedList(TWData.TWDataSize(result));
   }

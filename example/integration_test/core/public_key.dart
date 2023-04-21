@@ -128,21 +128,4 @@ void main() {
     });
   });
 
-  group('PublicKey.isValid test of TWPublicKeyTypeED25519Extended', () {
-    test('PrivateKey.isValid will be true', () {
-      final privateKey = PrivateKey.isValid(
-          Utils.string2Uint8List(
-              '8eaf04151687736326c9fea17e25fc5287613693c912909cb226aa4794f26a48'),
-          TWPublicKeyType.TWPublicKeyTypeED25519Extended);
-      expect(privateKey, true);
-    });
-
-    test('PrivateKey.isValid will be false', () {
-      final privateKey = PrivateKey.isValid(
-          Utils.string2Uint8List(
-              '02beff0e5d6f6e6e6d573d3044f3e2bfb353400375dc281da3337468d4aa527908'),
-          TWPublicKeyType.TWPublicKeyTypeED25519Extended);
-      expect(privateKey, false);
-    });
-  });
 }

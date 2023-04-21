@@ -7,7 +7,7 @@ class EhereumAbiValue {
     _pointer = pointer;
   }
 
-  static Uint8List encodeBool(int value) {
+  static Uint8List encodeBool(bool value) {
     return TWEthereumAbiValueImpl.encodeBool(value);
   }
 

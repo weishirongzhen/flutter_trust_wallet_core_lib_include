@@ -101,7 +101,7 @@ class TWStoredKeyImpl extends TWStoredKey {
   }
 
   static bool isMnemonic(Pointer<Void> storedKey) {
-    return TWStoredKey.TWStoredKeyIsMnemonic(storedKey) > 0;
+    return TWStoredKey.TWStoredKeyIsMnemonic(storedKey);
   }
 
   static void delete(Pointer<Void> storedKey) {
@@ -126,20 +126,22 @@ class TWStoredKeyImpl extends TWStoredKey {
     TWStoredKey.TWStoredKeyRemoveAccountForCoin(storedKey, coin);
   }
 
-  static void addAccount(Pointer<Void> storedKey, String address, int coin, String derivationPath, String extetndedPublicKey) {
+  static void addAccount(Pointer<Void> storedKey, String address, int coin, String derivationPath, String publicKey, String extetndedPublicKey) {
     final _address = TWStringImpl.toTWString(address);
     final _derivationPath = TWStringImpl.toTWString(derivationPath);
     final _extetndedPublicKey = TWStringImpl.toTWString(extetndedPublicKey);
-    TWStoredKey.TWStoredKeyAddAccount(storedKey, _address, coin, _derivationPath, _extetndedPublicKey);
+    final _publicKey = TWStringImpl.toTWString(publicKey);
+    TWStoredKey.TWStoredKeyAddAccount(storedKey, _address, coin, _derivationPath, _publicKey, _extetndedPublicKey);
 
     TWStringImpl.delete(_address);
     TWStringImpl.delete(_derivationPath);
+    TWStringImpl.delete(_publicKey);
     TWStringImpl.delete(_extetndedPublicKey);
   }
 
   static bool store(Pointer<Void> storedKey, String path) {
     final _path = TWStringImpl.toTWString(path);
-    final _isStore = TWStoredKey.TWStoredKeyStore(storedKey, _path) > 0;
+    final _isStore = TWStoredKey.TWStoredKeyStore(storedKey, _path);
     TWStringImpl.delete(_path);
     return _isStore;
   }
@@ -148,6 +150,6 @@ class TWStoredKeyImpl extends TWStoredKey {
     final _password = TWData.TWDataCreateWithBytes(password.toPointerUint8(), password.length);
     final _isOk = TWStoredKey.TWStoredKeyFixAddresses(storedKey, _password);
     TWData.TWDataDelete(_password);
-    return _isOk > 0;
+    return _isOk;
   }
 }

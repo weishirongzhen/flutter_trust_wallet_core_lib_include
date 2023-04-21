@@ -17,13 +17,13 @@ class TWSegwitAddressImpl extends TWSegwitAddress {
   }
 
   static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
-    final result = TWSegwitAddress.TWSegwitAddressEqual(lhs, rhs) >= 1;
+    final result = TWSegwitAddress.TWSegwitAddressEqual(lhs, rhs) ;
     return result;
   }
 
   static bool isValidString(String string) {
     final _string = TWStringImpl.toTWString(string);
-    final result = TWSegwitAddress.TWSegwitAddressIsValidString(_string) >= 1;
+    final result = TWSegwitAddress.TWSegwitAddressIsValidString(_string) ;
     TWStringImpl.delete(_string);
     return result;
   }

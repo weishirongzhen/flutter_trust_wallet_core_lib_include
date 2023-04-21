@@ -17,8 +17,8 @@ abstract class TWAnySigner {
     );
   }
 
-  static late final _TWAnySignerSign_ptr = _lookup<NativeFunction<_c_TWAnySignerSign>>('TWAnySignerSign');
-  static late final _dart_TWAnySignerSign _TWAnySignerSign = _TWAnySignerSign_ptr.asFunction<_dart_TWAnySignerSign>();
+  static late final _TWAnySignerSignPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Int32)>>('TWAnySignerSign');
+  static late final _TWAnySignerSign = _TWAnySignerSignPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 
   /// Signs a transaction specified by the JSON representation of signing input, coin type and a private key, returning the JSON representation of the signing output.
   ///
@@ -38,14 +38,14 @@ abstract class TWAnySigner {
     );
   }
 
-  static late final _TWAnySignerSignJSON_ptr = _lookup<NativeFunction<_c_TWAnySignerSignJSON>>('TWAnySignerSignJSON');
-  static late final _dart_TWAnySignerSignJSON _TWAnySignerSignJSON = _TWAnySignerSignJSON_ptr.asFunction<_dart_TWAnySignerSignJSON>();
+  static late final _TWAnySignerSignJSONPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Utf8>, Pointer<Void>, Int32)>>('TWAnySignerSignJSON');
+  static late final _TWAnySignerSignJSON = _TWAnySignerSignJSONPtr.asFunction<Pointer<Utf8> Function(Pointer<Utf8>, Pointer<Void>, int)>();
 
   /// Check if AnySigner supports signing JSON representation of signing input.
   ///
   /// \param coin The given coin type to sign the transaction for.
   /// \return true if AnySigner supports signing JSON representation of signing input for a given coin.
-  static int TWAnySignerSupportsJSON(
+  static bool TWAnySignerSupportsJSON(
     int coin,
   ) {
     return _TWAnySignerSupportsJSON(
@@ -53,8 +53,8 @@ abstract class TWAnySigner {
     );
   }
 
-  static late final _TWAnySignerSupportsJSON_ptr = _lookup<NativeFunction<_c_TWAnySignerSupportsJSON>>('TWAnySignerSupportsJSON');
-  static late final _dart_TWAnySignerSupportsJSON _TWAnySignerSupportsJSON = _TWAnySignerSupportsJSON_ptr.asFunction<_dart_TWAnySignerSupportsJSON>();
+  static late final _TWAnySignerSupportsJSONPtr = _lookup<NativeFunction<Bool Function(Int32)>>('TWAnySignerSupportsJSON');
+  static late final _TWAnySignerSupportsJSON = _TWAnySignerSupportsJSONPtr.asFunction<bool Function(int)>();
 
   /// Plans a transaction (for UTXO chains only).
   ///
@@ -71,46 +71,6 @@ abstract class TWAnySigner {
     );
   }
 
-  static late final _TWAnySignerPlan_ptr = _lookup<NativeFunction<_c_TWAnySignerPlan>>('TWAnySignerPlan');
-  static late final _dart_TWAnySignerPlan _TWAnySignerPlan = _TWAnySignerPlan_ptr.asFunction<_dart_TWAnySignerPlan>();
+  static late final _TWAnySignerPlanPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Int32)>>('TWAnySignerPlan');
+  static late final _TWAnySignerPlan = _TWAnySignerPlanPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 }
-
-typedef _c_TWAnySignerSign = Pointer<Void> Function(
-  Pointer<Void> input,
-  Int32 coin,
-);
-
-typedef _dart_TWAnySignerSign = Pointer<Void> Function(
-  Pointer<Void> input,
-  int coin,
-);
-
-typedef _c_TWAnySignerSignJSON = Pointer<Utf8> Function(
-  Pointer<Utf8> json,
-  Pointer<Void> key,
-  Int32 coin,
-);
-
-typedef _dart_TWAnySignerSignJSON = Pointer<Utf8> Function(
-  Pointer<Utf8> json,
-  Pointer<Void> key,
-  int coin,
-);
-
-typedef _c_TWAnySignerSupportsJSON = Int32 Function(
-  Int32 coin,
-);
-
-typedef _dart_TWAnySignerSupportsJSON = int Function(
-  int coin,
-);
-
-typedef _c_TWAnySignerPlan = Pointer<Void> Function(
-  Pointer<Void> input,
-  Int32 coin,
-);
-
-typedef _dart_TWAnySignerPlan = Pointer<Void> Function(
-  Pointer<Void> input,
-  int coin,
-);

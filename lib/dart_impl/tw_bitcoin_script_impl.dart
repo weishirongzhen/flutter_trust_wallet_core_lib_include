@@ -17,7 +17,7 @@ class TWBitcoinScriptImpl extends TWBitcoinScript {
   }
 
   static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
-    return TWBitcoinScript.TWBitcoinScriptEqual(lhs, rhs) >= 1;
+    return TWBitcoinScript.TWBitcoinScriptEqual(lhs, rhs) ;
   }
 
   static Pointer<Void> buildPayToPublicKey(Uint8List bytes) {
@@ -81,19 +81,19 @@ class TWBitcoinScriptImpl extends TWBitcoinScript {
   }
 
   static bool isPayToScriptHash(Pointer<Void> script) {
-    return TWBitcoinScript.TWBitcoinScriptIsPayToScriptHash(script) >= 1;
+    return TWBitcoinScript.TWBitcoinScriptIsPayToScriptHash(script) ;
   }
 
   static bool isPayToWitnessScriptHash(Pointer<Void> script) {
-    return TWBitcoinScript.TWBitcoinScriptIsPayToWitnessScriptHash(script) >= 1;
+    return TWBitcoinScript.TWBitcoinScriptIsPayToWitnessScriptHash(script) ;
   }
 
   static bool isPayToWitnessPublicKeyHash(Pointer<Void> script) {
-    return TWBitcoinScript.TWBitcoinScriptIsPayToWitnessPublicKeyHash(script) >= 1;
+    return TWBitcoinScript.TWBitcoinScriptIsPayToWitnessPublicKeyHash(script) ;
   }
 
   static bool isWitnessProgram(Pointer<Void> script) {
-    return TWBitcoinScript.TWBitcoinScriptIsWitnessProgram(script) >= 1;
+    return TWBitcoinScript.TWBitcoinScriptIsWitnessProgram(script) ;
   }
 
   static void delete(Pointer<Void> address) {

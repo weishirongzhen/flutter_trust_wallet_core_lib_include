@@ -23,8 +23,8 @@ abstract class TWAES {
     );
   }
 
-  static late final _TWAESEncryptCBC_ptr = _lookup<NativeFunction<_c_TWAESEncryptCBC>>('TWAESEncryptCBC');
-  static late final _dart_TWAESEncryptCBC _TWAESEncryptCBC = _TWAESEncryptCBC_ptr.asFunction<_dart_TWAESEncryptCBC>();
+  static late final _TWAESEncryptCBCPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>, Int32)>>('TWAESEncryptCBC');
+  static late final _TWAESEncryptCBC = _TWAESEncryptCBCPtr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>, int)>();
 
   /// Decrypts a block of data using AES in Cipher Block Chaining (CBC) mode.
   ///
@@ -47,8 +47,8 @@ abstract class TWAES {
     );
   }
 
-  static late final _TWAESDecryptCBC_ptr = _lookup<NativeFunction<_c_TWAESDecryptCBC>>('TWAESDecryptCBC');
-  static late final _dart_TWAESDecryptCBC _TWAESDecryptCBC = _TWAESDecryptCBC_ptr.asFunction<_dart_TWAESDecryptCBC>();
+  static late final _TWAESDecryptCBCPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>, Int32)>>('TWAESDecryptCBC');
+  static late final _TWAESDecryptCBC = _TWAESDecryptCBCPtr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>, int)>();
 
   /// Encrypts a block of data using AES in Counter (CTR) mode.
   ///
@@ -68,8 +68,8 @@ abstract class TWAES {
     );
   }
 
-  static late final _TWAESEncryptCTR_ptr = _lookup<NativeFunction<_c_TWAESEncryptCTR>>('TWAESEncryptCTR');
-  static late final _dart_TWAESEncryptCTR _TWAESEncryptCTR = _TWAESEncryptCTR_ptr.asFunction<_dart_TWAESEncryptCTR>();
+  static late final _TWAESEncryptCTRPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>)>>('TWAESEncryptCTR');
+  static late final _TWAESEncryptCTR = _TWAESEncryptCTRPtr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>)>();
 
   /// Decrypts a block of data using AES in Counter (CTR) mode.
   ///
@@ -89,58 +89,6 @@ abstract class TWAES {
     );
   }
 
-  static late final _TWAESDecryptCTR_ptr = _lookup<NativeFunction<_c_TWAESDecryptCTR>>('TWAESDecryptCTR');
-  static late final _dart_TWAESDecryptCTR _TWAESDecryptCTR = _TWAESDecryptCTR_ptr.asFunction<_dart_TWAESDecryptCTR>();
+  static late final _TWAESDecryptCTRPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>)>>('TWAESDecryptCTR');
+  static late final _TWAESDecryptCTR = _TWAESDecryptCTRPtr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Pointer<Void>)>();
 }
-
-typedef _c_TWAESEncryptCBC = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-  Int32 mode,
-);
-
-typedef _dart_TWAESEncryptCBC = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-  int mode,
-);
-
-typedef _c_TWAESDecryptCBC = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-  Int32 mode,
-);
-
-typedef _dart_TWAESDecryptCBC = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-  int mode,
-);
-
-typedef _c_TWAESEncryptCTR = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-);
-
-typedef _dart_TWAESEncryptCTR = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-);
-
-typedef _c_TWAESDecryptCTR = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-);
-
-typedef _dart_TWAESDecryptCTR = Pointer<Void> Function(
-  Pointer<Void> key,
-  Pointer<Void> data,
-  Pointer<Void> iv,
-);

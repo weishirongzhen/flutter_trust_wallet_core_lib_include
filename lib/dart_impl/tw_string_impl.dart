@@ -1,5 +1,6 @@
 part of trust_wallet_core_ffi;
 
+
 class TWStringImpl extends TWString {
   /// It must be deleted at the end.
   static Pointer<Utf8> toTWString(String value) {
@@ -19,6 +20,6 @@ class TWStringImpl extends TWString {
   }
 
   static bool twStringEqual(Pointer<Utf8> lhs, Pointer<Utf8> rhs) {
-    return TWString.TWStringEqual(lhs, rhs) >= 1;
+    return TWString.TWStringEqual(lhs, rhs) ;
   }
 }

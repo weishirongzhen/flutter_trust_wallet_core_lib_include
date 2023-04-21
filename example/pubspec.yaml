@@ -76,13 +76,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-ffigen:
-  name: TrustWalletCore
-  ffi-native:
-  # asset: 'assetname' # (optional)
-  description: Bindings to `assets/trust_wallet_core_h_file`.
-  output: 'lib/output/TWAES.dart'
-  headers:
-    entry-points:
-      - 'assets/trust_wallet_core_h_file/TWDATA.h'

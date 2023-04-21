@@ -1,4 +1,4 @@
-// Copyright © 2017-2022 Trust Wallet.
+// Copyright © 2017-2023 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -11,12 +11,18 @@
 #include "TWCurve.h"
 #include "TWHDVersion.h"
 #include "TWHRP.h"
-#include "TWPrivateKey.h"
 #include "TWPurpose.h"
 #include "TWString.h"
 #include "TWDerivation.h"
+#include "TWPublicKeyType.h"
 
 TW_EXTERN_C_BEGIN
+
+/// Represents a private key.
+struct TWPrivateKey;
+
+/// Represents a public key.
+struct TWPublicKey;
 
 /// Coin type for Level 2 of BIP44.
 ///
@@ -38,6 +44,7 @@ enum TWCoinType {
     TWCoinTypeDigiByte = 20,
     TWCoinTypeDogecoin = 3,
     TWCoinTypeEOS = 194,
+    TWCoinTypeWAX = 14001,
     TWCoinTypeEthereum = 60,
     TWCoinTypeEthereumClassic = 61,
     TWCoinTypeFIO = 235,
@@ -62,7 +69,7 @@ enum TWCoinType {
     TWCoinTypeStellar = 148,
     TWCoinTypeTezos = 1729,
     TWCoinTypeTheta = 500,
-    TWCoinTypeThunderToken = 1001,
+    TWCoinTypeThunderCore = 1001,
     TWCoinTypeNEO = 888,
     TWCoinTypeTomoChain = 889,
     TWCoinTypeTron = 195,
@@ -82,7 +89,7 @@ enum TWCoinType {
     TWCoinTypeKusama = 434,
     TWCoinTypePolkadot = 354,
     TWCoinTypeFilecoin = 461,
-    TWCoinTypeElrond = 508,
+    TWCoinTypeMultiversX = 508,
     TWCoinTypeBandChain = 494,
     TWCoinTypeSmartChainLegacy = 10000714,
     TWCoinTypeSmartChain = 20000714,
@@ -91,6 +98,7 @@ enum TWCoinType {
     TWCoinTypeTHORChain = 931,
     TWCoinTypeBluzelle = 483,
     TWCoinTypeOptimism = 10000070,
+    TWCoinTypeZksync = 10000324,
     TWCoinTypeArbitrum = 10042221,
     TWCoinTypeECOChain = 10000553,
     TWCoinTypeAvalancheCChain = 10009000,
@@ -117,6 +125,33 @@ enum TWCoinType {
     TWCoinTypeOKXChain = 996,
     TWCoinTypeNervos = 309,
     TWCoinTypeEverscale = 396,
+    TWCoinTypeAptos = 637,
+    TWCoinTypeHedera = 3030,
+    TWCoinTypeSecret = 529,
+    TWCoinTypeNativeInjective = 10000060,
+    TWCoinTypeAgoric = 564,
+    TWCoinTypeTON = 607,
+    TWCoinTypeSui = 784,
+    TWCoinTypeStargaze = 20000118,
+    TWCoinTypePolygonzkEVM = 10001101,
+    TWCoinTypeJuno = 30000118,
+    TWCoinTypeStride = 40000118,
+    TWCoinTypeAxelar = 50000118,
+    TWCoinTypeCrescent = 60000118,
+    TWCoinTypeKujira = 70000118,
+    TWCoinTypeIoTeXEVM = 10004689,
+    TWCoinTypeNativeCanto = 10007700,
+    TWCoinTypeComdex = 80000118,
+    TWCoinTypeNeutron = 90000118,
+    TWCoinTypeSommelier = 11000118,
+    TWCoinTypeFetchAI = 12000118,
+    TWCoinTypeMars = 13000118,
+    TWCoinTypeUmee = 14000118,
+    TWCoinTypeCoreum = 10000990,
+    TWCoinTypeQuasar = 15000118,
+    TWCoinTypePersistence = 16000118,
+    TWCoinTypeAkash = 17000118,
+    TWCoinTypeNoble = 18000118,
 };
 
 /// Returns the blockchain for a coin type.
@@ -237,6 +272,13 @@ TWString* _Nonnull TWCoinTypeChainId(enum TWCoinType coin);
 /// \return SLIP-0044 id for the given coin type
 TW_EXPORT_PROPERTY
 uint32_t TWCoinTypeSlip44Id(enum TWCoinType coin);
+
+/// SS58Prefix for this coin type
+///
+/// \param coin A coin type
+/// \return SS58Prefix for the given coin type
+TW_EXPORT_PROPERTY
+uint32_t TWCoinTypeSS58Prefix(enum TWCoinType coin);
 
 /// public key type for this coin type
 ///

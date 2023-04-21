@@ -1,4 +1,4 @@
-// Copyright © 2017-2020 Trust Wallet.
+// Copyright © 2017-2023 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -26,6 +26,7 @@ FOUNDATION_EXPORT const unsigned char WalletCoreVersionString[];
 #include "TWBase58.h"
 #include "TWBase64.h"
 #include "TWBitcoinAddress.h"
+#include "TWBitcoinMessageSigner.h"
 #include "TWBitcoinScript.h"
 #include "TWBitcoinSigHashType.h"
 #include "TWBlockchain.h"
@@ -37,11 +38,15 @@ FOUNDATION_EXPORT const unsigned char WalletCoreVersionString[];
 #include "TWDerivation.h"
 #include "TWDerivationPath.h"
 #include "TWDerivationPathIndex.h"
+#include "TWEthereum.h"
 #include "TWEthereumAbi.h"
 #include "TWEthereumAbiFunction.h"
 #include "TWEthereumAbiValue.h"
 #include "TWEthereumChainID.h"
+#include "TWEthereumMessageSigner.h"
 #include "TWFIOAccount.h"
+#include "TWFilecoinAddressConverter.h"
+#include "TWFilecoinAddressType.h"
 #include "TWGroestlcoinAddress.h"
 #include "TWHDVersion.h"
 #include "TWHDWallet.h"
@@ -60,10 +65,15 @@ FOUNDATION_EXPORT const unsigned char WalletCoreVersionString[];
 #include "TWSS58AddressType.h"
 #include "TWSegwitAddress.h"
 #include "TWSolanaAddress.h"
+#include "TWStarkExMessageSigner.h"
+#include "TWStarkWare.h"
 #include "TWStellarMemoType.h"
 #include "TWStellarPassphrase.h"
 #include "TWStellarVersionByte.h"
 #include "TWStoredKey.h"
+#include "TWStoredKeyEncryption.h"
 #include "TWStoredKeyEncryptionLevel.h"
 #include "TWTHORChainSwap.h"
+#include "TWTezosMessageSigner.h"
 #include "TWTransactionCompiler.h"
+#include "TWTronMessageSigner.h"

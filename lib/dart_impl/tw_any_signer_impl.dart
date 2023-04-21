@@ -18,7 +18,7 @@ class TWAnySignerImpl extends TWAnySigner {
   }
 
   static bool supportsJSON(int coin) {
-    return TWAnySigner.TWAnySignerSupportsJSON(coin) >= 1;
+    return TWAnySigner.TWAnySignerSupportsJSON(coin);
   }
 
   static Uint8List signerPlan(Uint8List bytes, int coin) {

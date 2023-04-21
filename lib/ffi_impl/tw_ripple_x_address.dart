@@ -7,7 +7,7 @@ abstract class TWRippleXAddress {
   /// \param lhs left non-null pointer to a Ripple Address
   /// \param rhs right non-null pointer to a Ripple Address
   /// \return true if both address are equal, false otherwise
-  static int TWRippleXAddressEqual(
+  static bool TWRippleXAddressEqual(
     Pointer<Void> lhs,
     Pointer<Void> rhs,
   ) {
@@ -17,14 +17,14 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressEqual_ptr = _lookup<NativeFunction<_c_TWRippleXAddressEqual>>('TWRippleXAddressEqual');
-  static late final _dart_TWRippleXAddressEqual _TWRippleXAddressEqual = _TWRippleXAddressEqual_ptr.asFunction<_dart_TWRippleXAddressEqual>();
+  static late final _TWRippleXAddressEqualPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>, Pointer<Void>)>>('TWRippleXAddressEqual');
+  static late final _TWRippleXAddressEqual = _TWRippleXAddressEqualPtr.asFunction<bool Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Determines if the string is a valid Ripple address.
   ///
   /// \param string Non-null pointer to a string that represent the Ripple Address to be checked
   /// \return true if the given address is a valid Ripple address, false otherwise
-  static int TWRippleXAddressIsValidString(
+  static bool TWRippleXAddressIsValidString(
     Pointer<Utf8> string,
   ) {
     return _TWRippleXAddressIsValidString(
@@ -32,8 +32,8 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressIsValidString_ptr = _lookup<NativeFunction<_c_TWRippleXAddressIsValidString>>('TWRippleXAddressIsValidString');
-  static late final _dart_TWRippleXAddressIsValidString _TWRippleXAddressIsValidString = _TWRippleXAddressIsValidString_ptr.asFunction<_dart_TWRippleXAddressIsValidString>();
+  static late final _TWRippleXAddressIsValidStringPtr = _lookup<NativeFunction<Bool Function(Pointer<Utf8>)>>('TWRippleXAddressIsValidString');
+  static late final _TWRippleXAddressIsValidString = _TWRippleXAddressIsValidStringPtr.asFunction<bool Function(Pointer<Utf8>)>();
 
   /// Creates an address from a string representation.
   ///
@@ -48,9 +48,8 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressCreateWithString_ptr = _lookup<NativeFunction<_c_TWRippleXAddressCreateWithString>>('TWRippleXAddressCreateWithString');
-  static late final _dart_TWRippleXAddressCreateWithString _TWRippleXAddressCreateWithString =
-      _TWRippleXAddressCreateWithString_ptr.asFunction<_dart_TWRippleXAddressCreateWithString>();
+  static late final _TWRippleXAddressCreateWithStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWRippleXAddressCreateWithString');
+  static late final _TWRippleXAddressCreateWithString = _TWRippleXAddressCreateWithStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Creates an address from a public key and destination tag.
   ///
@@ -68,9 +67,8 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressCreateWithPublicKey_ptr = _lookup<NativeFunction<_c_TWRippleXAddressCreateWithPublicKey>>('TWRippleXAddressCreateWithPublicKey');
-  static late final _dart_TWRippleXAddressCreateWithPublicKey _TWRippleXAddressCreateWithPublicKey =
-      _TWRippleXAddressCreateWithPublicKey_ptr.asFunction<_dart_TWRippleXAddressCreateWithPublicKey>();
+  static late final _TWRippleXAddressCreateWithPublicKeyPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Uint32)>>('TWRippleXAddressCreateWithPublicKey');
+  static late final _TWRippleXAddressCreateWithPublicKey = _TWRippleXAddressCreateWithPublicKeyPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 
   /// Delete the given ripple address
   ///
@@ -83,8 +81,8 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressDelete_ptr = _lookup<NativeFunction<_c_TWRippleXAddressDelete>>('TWRippleXAddressDelete');
-  static late final _dart_TWRippleXAddressDelete _TWRippleXAddressDelete = _TWRippleXAddressDelete_ptr.asFunction<_dart_TWRippleXAddressDelete>();
+  static late final _TWRippleXAddressDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWRippleXAddressDelete');
+  static late final _TWRippleXAddressDelete = _TWRippleXAddressDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Returns the address string representation.
   ///
@@ -98,8 +96,8 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressDescription_ptr = _lookup<NativeFunction<_c_TWRippleXAddressDescription>>('TWRippleXAddressDescription');
-  static late final _dart_TWRippleXAddressDescription _TWRippleXAddressDescription = _TWRippleXAddressDescription_ptr.asFunction<_dart_TWRippleXAddressDescription>();
+  static late final _TWRippleXAddressDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWRippleXAddressDescription');
+  static late final _TWRippleXAddressDescription = _TWRippleXAddressDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 
   /// Returns the destination tag.
   ///
@@ -113,66 +111,6 @@ abstract class TWRippleXAddress {
     );
   }
 
-  static late final _TWRippleXAddressTag_ptr = _lookup<NativeFunction<_c_TWRippleXAddressTag>>('TWRippleXAddressTag');
-  static late final _dart_TWRippleXAddressTag _TWRippleXAddressTag = _TWRippleXAddressTag_ptr.asFunction<_dart_TWRippleXAddressTag>();
+  static late final _TWRippleXAddressTagPtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWRippleXAddressTag');
+  static late final _TWRippleXAddressTag = _TWRippleXAddressTagPtr.asFunction<int Function(Pointer<Void>)>();
 }
-
-typedef _c_TWRippleXAddressEqual = Int32 Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _dart_TWRippleXAddressEqual = int Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _c_TWRippleXAddressIsValidString = Int32 Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWRippleXAddressIsValidString = int Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWRippleXAddressCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWRippleXAddressCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWRippleXAddressCreateWithPublicKey = Pointer<Void> Function(
-  Pointer<Void> publicKey,
-  Int32 tag,
-);
-
-typedef _dart_TWRippleXAddressCreateWithPublicKey = Pointer<Void> Function(
-  Pointer<Void> publicKey,
-  int tag,
-);
-
-typedef _c_TWRippleXAddressDelete = Void Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWRippleXAddressDelete = void Function(
-  Pointer<Void> address,
-);
-
-typedef _c_TWRippleXAddressDescription = Pointer<Utf8> Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWRippleXAddressDescription = Pointer<Utf8> Function(
-  Pointer<Void> address,
-);
-
-typedef _c_TWRippleXAddressTag = Int32 Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWRippleXAddressTag = int Function(
-  Pointer<Void> address,
-);

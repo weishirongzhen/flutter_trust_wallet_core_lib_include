@@ -4,7 +4,7 @@ class TWPublicKeyImpl extends TWPublicKey {
   static bool isValid(Uint8List data, int publicKeyType) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
 
-    final result = TWPublicKey.TWPublicKeyIsValid(_data, publicKeyType) >= 1;
+    final result = TWPublicKey.TWPublicKeyIsValid(_data, publicKeyType) ;
 
     TWData.TWDataDelete(_data);
     return result;
@@ -35,7 +35,7 @@ class TWPublicKeyImpl extends TWPublicKey {
   }
 
   static bool isCompressed(Pointer<Void> publicKey) {
-    return TWPublicKey.TWPublicKeyIsCompressed(publicKey) >= 1;
+    return TWPublicKey.TWPublicKeyIsCompressed(publicKey) ;
   }
 
   static Pointer<Void> compressed(Pointer<Void> publicKey) {
@@ -61,7 +61,7 @@ class TWPublicKeyImpl extends TWPublicKey {
   static bool verify(Pointer<Void> publicKey, Uint8List signature, Uint8List message) {
     final _signatureData = TWData.TWDataCreateWithBytes(signature.toPointerUint8(), signature.length);
     final _messageData = TWData.TWDataCreateWithBytes(message.toPointerUint8(), message.length);
-    final result = TWPublicKey.TWPublicKeyVerify(publicKey, _signatureData, _messageData) >= 1;
+    final result = TWPublicKey.TWPublicKeyVerify(publicKey, _signatureData, _messageData) ;
     TWData.TWDataDelete(_signatureData);
     TWData.TWDataDelete(_messageData);
     return result;
@@ -70,7 +70,7 @@ class TWPublicKeyImpl extends TWPublicKey {
   static bool verifyZilliqaSchnorr(Pointer<Void> publicKey, Uint8List signature, Uint8List message) {
     final _signatureData = TWData.TWDataCreateWithBytes(signature.toPointerUint8(), signature.length);
     final _messageData = TWData.TWDataCreateWithBytes(message.toPointerUint8(), message.length);
-    final result = TWPublicKey.TWPublicKeyVerifyZilliqaSchnorr(publicKey, _signatureData, _messageData) >= 1;
+    final result = TWPublicKey.TWPublicKeyVerifyZilliqaSchnorr(publicKey, _signatureData, _messageData) ;
     TWData.TWDataDelete(_signatureData);
     TWData.TWDataDelete(_messageData);
     return result;

@@ -1,7 +1,4 @@
-import 'dart:ffi';
-import 'dart:typed_data';
-
-import 'package:ffi/ffi.dart';
+part of flutter_trust_wallet_core;
 
 extension Uint8ListBlobConversion on Uint8List {
   Pointer<Uint8> toPointerUint8() {

@@ -1,5 +1,6 @@
 part of trust_wallet_core_ffi;
 
+/// Blockchain enum type
 abstract class TWBlockchain {
   static const int TWBlockchainBitcoin = 0;
   static const int TWBlockchainEthereum = 1;
@@ -42,4 +43,8 @@ abstract class TWBlockchain {
   static const int TWBlockchainKusama = 40; // Polkadot
   static const int TWBlockchainNervos = 41; //
   static const int TWBlockchainEverscale = 42; //
+  static const int TWBlockchainAptos = 43; // Aptos
+  static const int TWBlockchainHedera = 44; // Hedera
+  static const int TWBlockchainTheOpenNetwork = 45;
+  static const int TWBlockchainSui = 46;
 }

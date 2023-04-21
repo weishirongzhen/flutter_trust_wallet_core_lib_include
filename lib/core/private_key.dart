@@ -45,8 +45,8 @@ class PrivateKey {
         return getPublicKeyCurve25519();
       case TWCurve.TWCurveNIST256p1:
         return getPublicKeyNist256p1();
-      case TWCurve.TWCurveED25519Extended:
-        return getPublicKeyNistEd25519Extended();
+      case TWCurve.TWCurveED25519ExtendedCardano:
+        return getPublicKeyEd25519Cardano();
       default:
         return getPublicKeySecp256k1(compressed);
     }
@@ -72,7 +72,7 @@ class PrivateKey {
     return PublicKey._(data);
   }
 
-  PublicKey getPublicKeyNistEd25519Extended() {
+  PublicKey getPublicKeyEd25519Cardano() {
     final data = TWPrivateKeyImpl.TWPrivateKeyGetPublicKeyEd25519Cardano(_nativehandle);
     return PublicKey._(data);
   }
@@ -97,15 +97,15 @@ class PrivateKey {
 
   Uint8List signAsDER(Uint8List digest, int curve) {
     final digestPoint = TWData.TWDataCreateWithBytes(digest.toPointerUint8(), digest.length);
-    final data = TWPrivateKeyImpl.signAsDER(_nativehandle, digestPoint, curve);
+    final data = TWPrivateKeyImpl.signAsDER(_nativehandle, digestPoint);
     final res = TWData.TWDataBytes(data).asTypedList(TWData.TWDataSize(data));
     TWData.TWDataDelete(digestPoint);
     return res;
   }
 
-  Uint8List signSchnorr(Uint8List digest, int curve) {
+  Uint8List signZilliqaSchnorr(Uint8List digest) {
     final digestPoint = TWData.TWDataCreateWithBytes(digest.toPointerUint8(), digest.length);
-    final data = TWPrivateKeyImpl.signSchnorr(_nativehandle, digestPoint, curve);
+    final data = TWPrivateKeyImpl.signZilliqaSchnorr(_nativehandle, digestPoint);
     final res = TWData.TWDataBytes(data).asTypedList(TWData.TWDataSize(data));
     TWData.TWDataDelete(digestPoint);
     return res;

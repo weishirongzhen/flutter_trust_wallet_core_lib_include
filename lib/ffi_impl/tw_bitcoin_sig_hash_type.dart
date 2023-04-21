@@ -13,7 +13,7 @@ abstract class TWBitcoinSigHashType {
   ///
   /// \param type sig hash type
   /// \return true if the sigh hash type is single, false otherwise
-  static int TWBitcoinSigHashTypeIsSingle(
+  static bool TWBitcoinSigHashTypeIsSingle(
     int type,
   ) {
     return _TWBitcoinSigHashTypeIsSingle(
@@ -21,14 +21,14 @@ abstract class TWBitcoinSigHashType {
     );
   }
 
-  static late final _TWBitcoinSigHashTypeIsSingle_ptr = _lookup<NativeFunction<_c_TWBitcoinSigHashTypeIsSingle>>('TWBitcoinSigHashTypeIsSingle');
-  static late final _dart_TWBitcoinSigHashTypeIsSingle _TWBitcoinSigHashTypeIsSingle = _TWBitcoinSigHashTypeIsSingle_ptr.asFunction<_dart_TWBitcoinSigHashTypeIsSingle>();
+  static late final _TWBitcoinSigHashTypeIsSinglePtr = _lookup<NativeFunction<Bool Function(Int32)>>('TWBitcoinSigHashTypeIsSingle');
+  static late final _TWBitcoinSigHashTypeIsSingle = _TWBitcoinSigHashTypeIsSinglePtr.asFunction<bool Function(int)>();
 
   /// Determines if the given sig hash is none
   ///
   /// \param type sig hash type
   /// \return true if the sigh hash type is none, false otherwise
-  static int TWBitcoinSigHashTypeIsNone(
+  static bool TWBitcoinSigHashTypeIsNone(
     int type,
   ) {
     return _TWBitcoinSigHashTypeIsNone(
@@ -36,22 +36,6 @@ abstract class TWBitcoinSigHashType {
     );
   }
 
-  static late final _TWBitcoinSigHashTypeIsNone_ptr = _lookup<NativeFunction<_c_TWBitcoinSigHashTypeIsNone>>('TWBitcoinSigHashTypeIsNone');
-  static late final _dart_TWBitcoinSigHashTypeIsNone _TWBitcoinSigHashTypeIsNone = _TWBitcoinSigHashTypeIsNone_ptr.asFunction<_dart_TWBitcoinSigHashTypeIsNone>();
+  static late final _TWBitcoinSigHashTypeIsNonePtr = _lookup<NativeFunction<Bool Function(Int32)>>('TWBitcoinSigHashTypeIsNone');
+  static late final _TWBitcoinSigHashTypeIsNone = _TWBitcoinSigHashTypeIsNonePtr.asFunction<bool Function(int)>();
 }
-
-typedef _c_TWBitcoinSigHashTypeIsSingle = Int32 Function(
-  Int32 type,
-);
-
-typedef _dart_TWBitcoinSigHashTypeIsSingle = int Function(
-  int type,
-);
-
-typedef _c_TWBitcoinSigHashTypeIsNone = Int32 Function(
-  Int32 type,
-);
-
-typedef _dart_TWBitcoinSigHashTypeIsNone = int Function(
-  int type,
-);

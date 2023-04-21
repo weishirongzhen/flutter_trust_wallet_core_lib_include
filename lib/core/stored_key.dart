@@ -87,8 +87,8 @@ class StoredKey {
     TWStoredKeyImpl.removeAccountForCoin(_nativehandle, coin);
   }
 
-  void addAccount(String address, int coin, String derivationPath, String extetndedPublicKey) {
-    TWStoredKeyImpl.addAccount(_nativehandle, address, coin, derivationPath, extetndedPublicKey);
+  void addAccount(String address, int coin, String derivationPath, String publicKey, String extetndedPublicKey) {
+    TWStoredKeyImpl.addAccount(_nativehandle, address, coin, derivationPath, publicKey, extetndedPublicKey);
   }
 
   bool store(String path) {

@@ -14,13 +14,13 @@ class TWRippleXAddressImpl extends TWRippleXAddress {
   }
 
   static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
-    final result = TWRippleXAddress.TWRippleXAddressEqual(lhs, rhs) >= 1;
+    final result = TWRippleXAddress.TWRippleXAddressEqual(lhs, rhs) ;
     return result;
   }
 
   static bool isValidString(String string) {
     final _string = TWStringImpl.toTWString(string);
-    final result = TWRippleXAddress.TWRippleXAddressIsValidString(_string) >= 1;
+    final result = TWRippleXAddress.TWRippleXAddressIsValidString(_string) ;
     TWStringImpl.delete(_string);
     return result;
   }

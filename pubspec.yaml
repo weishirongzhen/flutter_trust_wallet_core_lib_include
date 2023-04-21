@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   ffi: ^2.0.1
   protobuf: ^2.1.0
-  fixnum: ^1.0.1
+  fixnum: ^1.1.0
 dev_dependencies:
   integration_test:
     sdk: flutter
@@ -67,3 +67,12 @@ flutter:
   #
   # For details regarding fonts in packages, see
   # https://flutter.dev/custom-fonts/#from-packages
+ffigen:
+  name: TrustWalletCore
+  description: Bindings to `gen/headers/**.h
+  output:
+    bindings: 'gen/ffigen_output/generated_bindings.dart'
+  headers:
+    entry-points:
+      - 'gen/headers/**.h'
+  compiler-opts: '-I/opt/homebrew/opt/llvm/  -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/ -Wno-nullability-completeness'

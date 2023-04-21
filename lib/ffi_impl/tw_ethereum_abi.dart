@@ -14,15 +14,15 @@ abstract class TWEthereumAbi {
     );
   }
 
-  static late final _TWEthereumAbiEncode_ptr = _lookup<NativeFunction<_c_TWEthereumAbiEncode>>('TWEthereumAbiEncode');
-  static late final _dart_TWEthereumAbiEncode _TWEthereumAbiEncode = _TWEthereumAbiEncode_ptr.asFunction<_dart_TWEthereumAbiEncode>();
+  static late final _TWEthereumAbiEncodePtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWEthereumAbiEncode');
+  static late final _TWEthereumAbiEncode = _TWEthereumAbiEncodePtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Decode function output from Eth ABI binary, fill output parameters
   ///
   /// \param[in] fn Non-null Eth abi function
   /// \param[out] encoded Non-null block of data
   /// \return true if encoded have been filled correctly, false otherwise
-  static int TWEthereumAbiDecodeOutput(
+  static bool TWEthereumAbiDecodeOutput(
     Pointer<Void> fn,
     Pointer<Void> encoded,
   ) {
@@ -32,8 +32,8 @@ abstract class TWEthereumAbi {
     );
   }
 
-  static late final _TWEthereumAbiDecodeOutput_ptr = _lookup<NativeFunction<_c_TWEthereumAbiDecodeOutput>>('TWEthereumAbiDecodeOutput');
-  static late final _dart_TWEthereumAbiDecodeOutput _TWEthereumAbiDecodeOutput = _TWEthereumAbiDecodeOutput_ptr.asFunction<_dart_TWEthereumAbiDecodeOutput>();
+  static late final _TWEthereumAbiDecodeOutputPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>, Pointer<Void>)>>('TWEthereumAbiDecodeOutput');
+  static late final _TWEthereumAbiDecodeOutput = _TWEthereumAbiDecodeOutputPtr.asFunction<bool Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Decode function call data to human readable json format, according to input abi json
   ///
@@ -50,8 +50,8 @@ abstract class TWEthereumAbi {
     );
   }
 
-  static late final _TWEthereumAbiDecodeCall_ptr = _lookup<NativeFunction<_c_TWEthereumAbiDecodeCall>>('TWEthereumAbiDecodeCall');
-  static late final _dart_TWEthereumAbiDecodeCall _TWEthereumAbiDecodeCall = _TWEthereumAbiDecodeCall_ptr.asFunction<_dart_TWEthereumAbiDecodeCall>();
+  static late final _TWEthereumAbiDecodeCallPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>, Pointer<Utf8>)>>('TWEthereumAbiDecodeCall');
+  static late final _TWEthereumAbiDecodeCall = _TWEthereumAbiDecodeCallPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>, Pointer<Utf8>)>();
 
   /// Compute the hash of a struct, used for signing, according to EIP712 ("v4").
   /// Input is a Json object (as string), with following fields:
@@ -61,31 +61,31 @@ abstract class TWEthereumAbi {
   /// - message: the message (object).
   /// Throws on error.
   /// Example input:
-  ///  R"({
-  ///     "types": {
-  ///         "EIP712Domain": [
-  ///             {"name": "name", "type": "string"},
-  ///             {"name": "version", "type": "string"},
-  ///             {"name": "chainId", "type": "uint256"},
-  ///             {"name": "verifyingContract", "type": "address"}
-  ///         ],
-  ///         "Person": [
-  ///             {"name": "name", "type": "string"},
-  ///             {"name": "wallet", "type": "address"}
-  ///         ]
-  ///     },
-  ///     "primaryType": "Person",
-  ///     "domain": {
-  ///         "name": "Ether Person",
-  ///         "version": "1",
-  ///         "chainId": 1,
-  ///         "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
-  ///     },
-  ///     "message": {
-  ///         "name": "Cow",
-  ///         "wallet": "CD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
-  ///     }
-  ///  })");
+  /// R"({
+  /// "types": {
+  /// "EIP712Domain": [
+  /// {"name": "name", "type": "string"},
+  /// {"name": "version", "type": "string"},
+  /// {"name": "chainId", "type": "uint256"},
+  /// {"name": "verifyingContract", "type": "address"}
+  /// ],
+  /// "Person": [
+  /// {"name": "name", "type": "string"},
+  /// {"name": "wallet", "type": "address"}
+  /// ]
+  /// },
+  /// "primaryType": "Person",
+  /// "domain": {
+  /// "name": "Ether Person",
+  /// "version": "1",
+  /// "chainId": 1,
+  /// "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+  /// },
+  /// "message": {
+  /// "name": "Cow",
+  /// "wallet": "CD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
+  /// }
+  /// })");
   /// On error, empty Data is returned.
   /// Returned data must be deleted (hint: use WRAPD() macro).
   ///
@@ -99,42 +99,6 @@ abstract class TWEthereumAbi {
     );
   }
 
-  static late final _TWEthereumAbiEncodeTyped_ptr = _lookup<NativeFunction<_c_TWEthereumAbiEncodeTyped>>('TWEthereumAbiEncodeTyped');
-  static late final _dart_TWEthereumAbiEncodeTyped _TWEthereumAbiEncodeTyped = _TWEthereumAbiEncodeTyped_ptr.asFunction<_dart_TWEthereumAbiEncodeTyped>();
+  static late final _TWEthereumAbiEncodeTypedPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWEthereumAbiEncodeTyped');
+  static late final _TWEthereumAbiEncodeTyped = _TWEthereumAbiEncodeTypedPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 }
-
-typedef _c_TWEthereumAbiEncode = Pointer<Void> Function(
-  Pointer<Void> fn,
-);
-
-typedef _dart_TWEthereumAbiEncode = Pointer<Void> Function(
-  Pointer<Void> fn,
-);
-
-typedef _c_TWEthereumAbiDecodeOutput = Int32 Function(
-  Pointer<Void> fn,
-  Pointer<Void> encoded,
-);
-
-typedef _dart_TWEthereumAbiDecodeOutput = int Function(
-  Pointer<Void> fn,
-  Pointer<Void> encoded,
-);
-
-typedef _c_TWEthereumAbiDecodeCall = Pointer<Utf8> Function(
-  Pointer<Void> data,
-  Pointer<Utf8> abi,
-);
-
-typedef _dart_TWEthereumAbiDecodeCall = Pointer<Utf8> Function(
-  Pointer<Void> data,
-  Pointer<Utf8> abi,
-);
-
-typedef _c_TWEthereumAbiEncodeTyped = Pointer<Void> Function(
-  Pointer<Utf8> messageJson,
-);
-
-typedef _dart_TWEthereumAbiEncodeTyped = Pointer<Void> Function(
-  Pointer<Utf8> messageJson,
-);

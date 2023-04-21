@@ -19,7 +19,7 @@ class TWPrivateKeyImpl extends TWPrivateKey {
   }
 
   static bool isValid(Pointer<Void> data, int curve) {
-    return TWPrivateKey.TWPrivateKeyIsValid(data, curve) >= 1;
+    return TWPrivateKey.TWPrivateKeyIsValid(data, curve) ;
   }
 
   static void delete(Pointer<Void> pk) {
@@ -27,7 +27,7 @@ class TWPrivateKeyImpl extends TWPrivateKey {
   }
 
   static Pointer<Void> getPublicKeySecp256k1(Pointer<Void> pk, bool compressed) {
-    return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1(pk, compressed ? 1 : 0);
+    return TWPrivateKey.TWPrivateKeyGetPublicKeySecp256k1(pk, compressed);
   }
 
   static Pointer<Void> getPublicKeyNist256p1(Pointer<Void> pk) {
@@ -58,11 +58,12 @@ class TWPrivateKeyImpl extends TWPrivateKey {
     return TWPrivateKey.TWPrivateKeySign(pk, digest, curve);
   }
 
-  static Pointer<Void> signAsDER(Pointer<Void> pk, Pointer<Void> digest, int curve) {
-    return TWPrivateKey.TWPrivateKeySignAsDER(pk, digest, curve);
+  static Pointer<Void> signAsDER(Pointer<Void> pk, Pointer<Void> digest) {
+    return TWPrivateKey.TWPrivateKeySignAsDER(pk, digest);
   }
 
-  static Pointer<Void> signSchnorr(Pointer<Void> pk, Pointer<Void> message, int curve) {
-    return TWPrivateKey.TWPrivateKeySignSchnorr(pk, message, curve);
+  static Pointer<Void> signZilliqaSchnorr(Pointer<Void> pk, Pointer<Void> digest) {
+    return TWPrivateKey.TWPrivateKeySignZilliqaSchnorr(pk, digest);
   }
+
 }

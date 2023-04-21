@@ -7,7 +7,7 @@ abstract class TWBitcoinAddress {
   /// \param lhs The first address to compare.
   /// \param rhs The second address to compare.
   /// \return bool indicating the addresses are equal.
-  static int TWBitcoinAddressEqual(
+  static bool TWBitcoinAddressEqual(
     Pointer<Void> lhs,
     Pointer<Void> rhs,
   ) {
@@ -17,14 +17,14 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressEqual_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressEqual>>('TWBitcoinAddressEqual');
-  static late final _dart_TWBitcoinAddressEqual _TWBitcoinAddressEqual = _TWBitcoinAddressEqual_ptr.asFunction<_dart_TWBitcoinAddressEqual>();
+  static late final _TWBitcoinAddressEqualPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>, Pointer<Void>)>>('TWBitcoinAddressEqual');
+  static late final _TWBitcoinAddressEqual = _TWBitcoinAddressEqualPtr.asFunction<bool Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Determines if the data is a valid Bitcoin address.
   ///
   /// \param data data to validate.
   /// \return bool indicating if the address data is valid.
-  static int TWBitcoinAddressIsValid(
+  static bool TWBitcoinAddressIsValid(
     Pointer<Void> data,
   ) {
     return _TWBitcoinAddressIsValid(
@@ -32,14 +32,14 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressIsValid_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressIsValid>>('TWBitcoinAddressIsValid');
-  static late final _dart_TWBitcoinAddressIsValid _TWBitcoinAddressIsValid = _TWBitcoinAddressIsValid_ptr.asFunction<_dart_TWBitcoinAddressIsValid>();
+  static late final _TWBitcoinAddressIsValidPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWBitcoinAddressIsValid');
+  static late final _TWBitcoinAddressIsValid = _TWBitcoinAddressIsValidPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Determines if the string is a valid Bitcoin address.
   ///
   /// \param string string to validate.
   /// \return bool indicating if the address string is valid.
-  static int TWBitcoinAddressIsValidString(
+  static bool TWBitcoinAddressIsValidString(
     Pointer<Utf8> string,
   ) {
     return _TWBitcoinAddressIsValidString(
@@ -47,8 +47,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressIsValidString_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressIsValidString>>('TWBitcoinAddressIsValidString');
-  static late final _dart_TWBitcoinAddressIsValidString _TWBitcoinAddressIsValidString = _TWBitcoinAddressIsValidString_ptr.asFunction<_dart_TWBitcoinAddressIsValidString>();
+  static late final _TWBitcoinAddressIsValidStringPtr = _lookup<NativeFunction<Bool Function(Pointer<Utf8>)>>('TWBitcoinAddressIsValidString');
+  static late final _TWBitcoinAddressIsValidString = _TWBitcoinAddressIsValidStringPtr.asFunction<bool Function(Pointer<Utf8>)>();
 
   /// Initializes an address from a Base58 sring. Must be deleted with TWBitcoinAddressDelete after use.
   ///
@@ -62,9 +62,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressCreateWithString_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressCreateWithString>>('TWBitcoinAddressCreateWithString');
-  static late final _dart_TWBitcoinAddressCreateWithString _TWBitcoinAddressCreateWithString =
-      _TWBitcoinAddressCreateWithString_ptr.asFunction<_dart_TWBitcoinAddressCreateWithString>();
+  static late final _TWBitcoinAddressCreateWithStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWBitcoinAddressCreateWithString');
+  static late final _TWBitcoinAddressCreateWithString = _TWBitcoinAddressCreateWithStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Initializes an address from raw data.
   ///
@@ -78,8 +77,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressCreateWithData_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressCreateWithData>>('TWBitcoinAddressCreateWithData');
-  static late final _dart_TWBitcoinAddressCreateWithData _TWBitcoinAddressCreateWithData = _TWBitcoinAddressCreateWithData_ptr.asFunction<_dart_TWBitcoinAddressCreateWithData>();
+  static late final _TWBitcoinAddressCreateWithDataPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinAddressCreateWithData');
+  static late final _TWBitcoinAddressCreateWithData = _TWBitcoinAddressCreateWithDataPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Initializes an address from a public key and a prefix byte.
   ///
@@ -96,9 +95,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressCreateWithPublicKey_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressCreateWithPublicKey>>('TWBitcoinAddressCreateWithPublicKey');
-  static late final _dart_TWBitcoinAddressCreateWithPublicKey _TWBitcoinAddressCreateWithPublicKey =
-      _TWBitcoinAddressCreateWithPublicKey_ptr.asFunction<_dart_TWBitcoinAddressCreateWithPublicKey>();
+  static late final _TWBitcoinAddressCreateWithPublicKeyPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Uint8)>>('TWBitcoinAddressCreateWithPublicKey');
+  static late final _TWBitcoinAddressCreateWithPublicKey = _TWBitcoinAddressCreateWithPublicKeyPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 
   /// Deletes a legacy Bitcoin address.
   ///
@@ -111,8 +109,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressDelete_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressDelete>>('TWBitcoinAddressDelete');
-  static late final _dart_TWBitcoinAddressDelete _TWBitcoinAddressDelete = _TWBitcoinAddressDelete_ptr.asFunction<_dart_TWBitcoinAddressDelete>();
+  static late final _TWBitcoinAddressDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWBitcoinAddressDelete');
+  static late final _TWBitcoinAddressDelete = _TWBitcoinAddressDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Returns the address in Base58 string representation.
   ///
@@ -125,8 +123,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressDescription_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressDescription>>('TWBitcoinAddressDescription');
-  static late final _dart_TWBitcoinAddressDescription _TWBitcoinAddressDescription = _TWBitcoinAddressDescription_ptr.asFunction<_dart_TWBitcoinAddressDescription>();
+  static late final _TWBitcoinAddressDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWBitcoinAddressDescription');
+  static late final _TWBitcoinAddressDescription = _TWBitcoinAddressDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 
   /// Returns the address prefix.
   ///
@@ -139,8 +137,8 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressPrefix_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressPrefix>>('TWBitcoinAddressPrefix');
-  static late final _dart_TWBitcoinAddressPrefix _TWBitcoinAddressPrefix = _TWBitcoinAddressPrefix_ptr.asFunction<_dart_TWBitcoinAddressPrefix>();
+  static late final _TWBitcoinAddressPrefixPtr = _lookup<NativeFunction<Uint8 Function(Pointer<Void>)>>('TWBitcoinAddressPrefix');
+  static late final _TWBitcoinAddressPrefix = _TWBitcoinAddressPrefixPtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the key hash data.
   ///
@@ -153,90 +151,6 @@ abstract class TWBitcoinAddress {
     );
   }
 
-  static late final _TWBitcoinAddressKeyhash_ptr = _lookup<NativeFunction<_c_TWBitcoinAddressKeyhash>>('TWBitcoinAddressKeyhash');
-  static late final _dart_TWBitcoinAddressKeyhash _TWBitcoinAddressKeyhash = _TWBitcoinAddressKeyhash_ptr.asFunction<_dart_TWBitcoinAddressKeyhash>();
+  static late final _TWBitcoinAddressKeyhashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinAddressKeyhash');
+  static late final _TWBitcoinAddressKeyhash = _TWBitcoinAddressKeyhashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 }
-
-typedef _c_TWBitcoinAddressEqual = Int32 Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _dart_TWBitcoinAddressEqual = int Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _c_TWBitcoinAddressIsValid = Int32 Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWBitcoinAddressIsValid = int Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWBitcoinAddressIsValidString = Int32 Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWBitcoinAddressIsValidString = int Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWBitcoinAddressCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWBitcoinAddressCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWBitcoinAddressCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWBitcoinAddressCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWBitcoinAddressCreateWithPublicKey = Pointer<Void> Function(
-  Pointer<Void> publicKey,
-  Int32 prefix,
-);
-
-typedef _dart_TWBitcoinAddressCreateWithPublicKey = Pointer<Void> Function(
-  Pointer<Void> publicKey,
-  int prefix,
-);
-
-typedef _c_TWBitcoinAddressDelete = Void Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWBitcoinAddressDelete = void Function(
-  Pointer<Void> address,
-);
-
-typedef _c_TWBitcoinAddressDescription = Pointer<Utf8> Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWBitcoinAddressDescription = Pointer<Utf8> Function(
-  Pointer<Void> address,
-);
-
-typedef _c_TWBitcoinAddressPrefix = Int32 Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWBitcoinAddressPrefix = int Function(
-  Pointer<Void> address,
-);
-
-typedef _c_TWBitcoinAddressKeyhash = Pointer<Void> Function(
-  Pointer<Void> address,
-);
-
-typedef _dart_TWBitcoinAddressKeyhash = Pointer<Void> Function(
-  Pointer<Void> address,
-);

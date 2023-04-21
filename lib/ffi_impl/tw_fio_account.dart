@@ -15,8 +15,8 @@ abstract class TWFIOAccount {
     );
   }
 
-  static late final _TWFIOAccountCreateWithString_ptr = _lookup<NativeFunction<_c_TWFIOAccountCreateWithString>>('TWFIOAccountCreateWithString');
-  static late final _dart_TWFIOAccountCreateWithString _TWFIOAccountCreateWithString = _TWFIOAccountCreateWithString_ptr.asFunction<_dart_TWFIOAccountCreateWithString>();
+  static late final _TWFIOAccountCreateWithStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWFIOAccountCreateWithString');
+  static late final _TWFIOAccountCreateWithString = _TWFIOAccountCreateWithStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Delete a FIO Account
   ///
@@ -29,8 +29,8 @@ abstract class TWFIOAccount {
     );
   }
 
-  static late final _TWFIOAccountDelete_ptr = _lookup<NativeFunction<_c_TWFIOAccountDelete>>('TWFIOAccountDelete');
-  static late final _dart_TWFIOAccountDelete _TWFIOAccountDelete = _TWFIOAccountDelete_ptr.asFunction<_dart_TWFIOAccountDelete>();
+  static late final _TWFIOAccountDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWFIOAccountDelete');
+  static late final _TWFIOAccountDelete = _TWFIOAccountDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Returns the short account string representation.
   ///
@@ -44,30 +44,6 @@ abstract class TWFIOAccount {
     );
   }
 
-  static late final _TWFIOAccountDescription_ptr = _lookup<NativeFunction<_c_TWFIOAccountDescription>>('TWFIOAccountDelete');
-  static late final _dart_TWFIOAccountDescription _TWFIOAccountDescription = _TWFIOAccountDescription_ptr.asFunction<_dart_TWFIOAccountDescription>();
+  static late final _TWFIOAccountDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWFIOAccountDescription');
+  static late final _TWFIOAccountDescription = _TWFIOAccountDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 }
-
-typedef _c_TWFIOAccountCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWFIOAccountCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWFIOAccountDelete = Void Function(
-  Pointer<Void> account,
-);
-
-typedef _dart_TWFIOAccountDelete = void Function(
-  Pointer<Void> account,
-);
-
-typedef _c_TWFIOAccountDescription = Pointer<Utf8> Function(
-  Pointer<Void> account,
-);
-
-typedef _dart_TWFIOAccountDescription = Pointer<Utf8> Function(
-  Pointer<Void> account,
-);

@@ -21,20 +21,20 @@ class TWBitCoinAddressImpl extends TWBitcoinAddress {
   }
 
   static bool equal(Pointer<Void> lhs, Pointer<Void> rhs) {
-    final result = TWBitcoinAddress.TWBitcoinAddressEqual(lhs, rhs) >= 1;
+    final result = TWBitcoinAddress.TWBitcoinAddressEqual(lhs, rhs) ;
     return result;
   }
 
   static bool isValid(Uint8List data) {
     final _data = TWData.TWDataCreateWithBytes(data.toPointerUint8(), data.length);
-    final result = TWBitcoinAddress.TWBitcoinAddressIsValid(_data) >= 1;
+    final result = TWBitcoinAddress.TWBitcoinAddressIsValid(_data) ;
     TWData.TWDataDelete(_data);
     return result;
   }
 
   static bool isValidString(String string) {
     final _string = TWStringImpl.toTWString(string);
-    final result = TWBitcoinAddress.TWBitcoinAddressIsValidString(_string) >= 1;
+    final result = TWBitcoinAddress.TWBitcoinAddressIsValidString(_string) ;
     TWStringImpl.delete(_string);
     return result;
   }

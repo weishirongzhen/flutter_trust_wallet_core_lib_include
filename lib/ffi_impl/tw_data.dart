@@ -4,7 +4,7 @@ part of trust_wallet_core_ffi;
 ///
 /// The implementantion of these methods should be language-specific to minimize translation overhead. For instance it
 /// should be a `jbyteArray` for Java and an `NSData` for Swift.
-class TWData {
+abstract class TWData {
   /// Creates a block of data from a byte array.
   ///
   /// \param bytes Non-null raw bytes buffer
@@ -20,8 +20,8 @@ class TWData {
     );
   }
 
-  static late final _TWDataCreateWithBytes_ptr = _lookup<NativeFunction<_c_TWDataCreateWithBytes>>('TWDataCreateWithBytes');
-  static late final _dart_TWDataCreateWithBytes _TWDataCreateWithBytes = _TWDataCreateWithBytes_ptr.asFunction<_dart_TWDataCreateWithBytes>();
+  static late final _TWDataCreateWithBytesPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Uint8>, Size)>>('TWDataCreateWithBytes');
+  static late final _TWDataCreateWithBytes = _TWDataCreateWithBytesPtr.asFunction<Pointer<Void> Function(Pointer<Uint8>, int)>();
 
   /// Creates an uninitialized block of data with the provided size.
   ///
@@ -35,8 +35,8 @@ class TWData {
     );
   }
 
-  late final _TWDataCreateWithSize_ptr = _lookup<NativeFunction<_c_TWDataCreateWithSize>>('TWDataCreateWithSize');
-  late final _dart_TWDataCreateWithSize _TWDataCreateWithSize = _TWDataCreateWithSize_ptr.asFunction<_dart_TWDataCreateWithSize>();
+  static late final _TWDataCreateWithSizePtr = _lookup<NativeFunction<Pointer<Void> Function(Size)>>('TWDataCreateWithSize');
+  static late final _TWDataCreateWithSize = _TWDataCreateWithSizePtr.asFunction<Pointer<Void> Function(int)>();
 
   /// Creates a block of data by copying another block of data.
   ///
@@ -50,8 +50,8 @@ class TWData {
     );
   }
 
-  static late final _TWDataCreateWithData_ptr = _lookup<NativeFunction<_c_TWDataCreateWithData>>('TWDataCreateWithData');
-  static late final _dart_TWDataCreateWithData _TWDataCreateWithData = _TWDataCreateWithData_ptr.asFunction<_dart_TWDataCreateWithData>();
+  static late final _TWDataCreateWithDataPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWDataCreateWithData');
+  static late final _TWDataCreateWithData = _TWDataCreateWithDataPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Creates a block of data from a hexadecimal string.  Odd length is invalid (intended grouping to bytes is not obvious).
   ///
@@ -65,8 +65,8 @@ class TWData {
     );
   }
 
-  late final _TWDataCreateWithHexString_ptr = _lookup<NativeFunction<_c_TWDataCreateWithHexString>>('TWDataCreateWithHexString');
-  late final _dart_TWDataCreateWithHexString _TWDataCreateWithHexString = _TWDataCreateWithHexString_ptr.asFunction<_dart_TWDataCreateWithHexString>();
+  static late final _TWDataCreateWithHexStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWDataCreateWithHexString');
+  static late final _TWDataCreateWithHexString = _TWDataCreateWithHexStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Returns the size in bytes.
   ///
@@ -80,8 +80,8 @@ class TWData {
     );
   }
 
-  static late final _TWDataSize_ptr = _lookup<NativeFunction<_c_TWDataSize>>('TWDataSize');
-  static late final _dart_TWDataSize _TWDataSize = _TWDataSize_ptr.asFunction<_dart_TWDataSize>();
+  static late final _TWDataSizePtr = _lookup<NativeFunction<Size Function(Pointer<Void>)>>('TWDataSize');
+  static late final _TWDataSize = _TWDataSizePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the raw pointer to the contents of data.
   ///
@@ -95,8 +95,8 @@ class TWData {
     );
   }
 
-  static late final _TWDataBytes_ptr = _lookup<NativeFunction<_c_TWDataBytes>>('TWDataBytes');
-  static late final _dart_TWDataBytes _TWDataBytes = _TWDataBytes_ptr.asFunction<_dart_TWDataBytes>();
+  static late final _TWDataBytesPtr = _lookup<NativeFunction<Pointer<Uint8> Function(Pointer<Void>)>>('TWDataBytes');
+  static late final _TWDataBytes = _TWDataBytesPtr.asFunction<Pointer<Uint8> Function(Pointer<Void>)>();
 
   /// Returns the byte at the provided index.
   ///
@@ -113,8 +113,8 @@ class TWData {
     );
   }
 
-  late final _TWDataGet_ptr = _lookup<NativeFunction<_c_TWDataGet>>('TWDataGet');
-  late final _dart_TWDataGet _TWDataGet = _TWDataGet_ptr.asFunction<_dart_TWDataGet>();
+  static late final _TWDataGetPtr = _lookup<NativeFunction<Uint8 Function(Pointer<Void>, Size)>>('TWDataGet');
+  static late final _TWDataGet = _TWDataGetPtr.asFunction<int Function(Pointer<Void>, int)>();
 
   /// Sets the byte at the provided index.
   ///
@@ -133,8 +133,8 @@ class TWData {
     );
   }
 
-  late final _TWDataSet_ptr = _lookup<NativeFunction<_c_TWDataSet>>('TWDataSet');
-  late final _dart_TWDataSet _TWDataSet = _TWDataSet_ptr.asFunction<_dart_TWDataSet>();
+  static late final _TWDataSetPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Size, Uint8)>>('TWDataSet');
+  static late final _TWDataSet = _TWDataSetPtr.asFunction<void Function(Pointer<Void>, int, int)>();
 
   /// Copies a range of bytes into the provided buffer.
   ///
@@ -142,7 +142,7 @@ class TWData {
   /// \param start starting index of the range - index need to be < TWDataSize(data)
   /// \param size size of the range we want to copy - size need to be < TWDataSize(data) - start
   /// \param output The output buffer where we want to copy the data.
-  void TWDataCopyBytes(
+  static void TWDataCopyBytes(
     Pointer<Void> data,
     int start,
     int size,
@@ -156,8 +156,8 @@ class TWData {
     );
   }
 
-  late final _TWDataCopyBytes_ptr = _lookup<NativeFunction<_c_TWDataCopyBytes>>('TWDataCopyBytes');
-  late final _dart_TWDataCopyBytes _TWDataCopyBytes = _TWDataCopyBytes_ptr.asFunction<_dart_TWDataCopyBytes>();
+  static late final _TWDataCopyBytesPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Size, Size, Pointer<Uint8>)>>('TWDataCopyBytes');
+  static late final _TWDataCopyBytes = _TWDataCopyBytesPtr.asFunction<void Function(Pointer<Void>, int, int, Pointer<Uint8>)>();
 
   /// Replaces a range of bytes with the contents of the provided buffer.
   ///
@@ -165,7 +165,7 @@ class TWData {
   /// \param start starting index of the range - index need to be < TWDataSize(data)
   /// \param size size of the range we want to replace - size need to be < TWDataSize(data) - start
   /// \param bytes The buffer that will replace the range of data
-  void TWDataReplaceBytes(
+  static void TWDataReplaceBytes(
     Pointer<Void> data,
     int start,
     int size,
@@ -179,15 +179,15 @@ class TWData {
     );
   }
 
-  late final _TWDataReplaceBytes_ptr = _lookup<NativeFunction<_c_TWDataReplaceBytes>>('TWDataReplaceBytes');
-  late final _dart_TWDataReplaceBytes _TWDataReplaceBytes = _TWDataReplaceBytes_ptr.asFunction<_dart_TWDataReplaceBytes>();
+  static late final _TWDataReplaceBytesPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Size, Size, Pointer<Uint8>)>>('TWDataReplaceBytes');
+  static late final _TWDataReplaceBytes = _TWDataReplaceBytesPtr.asFunction<void Function(Pointer<Void>, int, int, Pointer<Uint8>)>();
 
   /// Appends data from a byte array.
   ///
   /// \param data A non-null valid block of data
   /// \param bytes Non-null byte array
   /// \param size The size of the byte array
-  void TWDataAppendBytes(
+  static void TWDataAppendBytes(
     Pointer<Void> data,
     Pointer<Uint8> bytes,
     int size,
@@ -199,14 +199,14 @@ class TWData {
     );
   }
 
-  late final _TWDataAppendBytes_ptr = _lookup<NativeFunction<_c_TWDataAppendBytes>>('TWDataAppendBytes');
-  late final _dart_TWDataAppendBytes _TWDataAppendBytes = _TWDataAppendBytes_ptr.asFunction<_dart_TWDataAppendBytes>();
+  static late final _TWDataAppendBytesPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Uint8>, Size)>>('TWDataAppendBytes');
+  static late final _TWDataAppendBytes = _TWDataAppendBytesPtr.asFunction<void Function(Pointer<Void>, Pointer<Uint8>, int)>();
 
   /// Appends a single byte.
   ///
   /// \param data A non-null valid block of data
   /// \param byte A single byte
-  void TWDataAppendByte(
+  static void TWDataAppendByte(
     Pointer<Void> data,
     int byte,
   ) {
@@ -216,14 +216,14 @@ class TWData {
     );
   }
 
-  late final _TWDataAppendByte_ptr = _lookup<NativeFunction<_c_TWDataAppendByte>>('TWDataAppendByte');
-  late final _dart_TWDataAppendByte _TWDataAppendByte = _TWDataAppendByte_ptr.asFunction<_dart_TWDataAppendByte>();
+  static late final _TWDataAppendBytePtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Uint8)>>('TWDataAppendByte');
+  static late final _TWDataAppendByte = _TWDataAppendBytePtr.asFunction<void Function(Pointer<Void>, int)>();
 
   /// Appends a block of data.
   ///
   /// \param data A non-null valid block of data
   /// \param append A non-null valid block of data
-  void TWDataAppendData(
+  static void TWDataAppendData(
     Pointer<Void> data,
     Pointer<Void> append,
   ) {
@@ -233,13 +233,13 @@ class TWData {
     );
   }
 
-  late final _TWDataAppendData_ptr = _lookup<NativeFunction<_c_TWDataAppendData>>('TWDataAppendData');
-  late final _dart_TWDataAppendData _TWDataAppendData = _TWDataAppendData_ptr.asFunction<_dart_TWDataAppendData>();
+  static late final _TWDataAppendDataPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Void>)>>('TWDataAppendData');
+  static late final _TWDataAppendData = _TWDataAppendDataPtr.asFunction<void Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Reverse the bytes.
   ///
   /// \param data A non-null valid block of data
-  void TWDataReverse(
+  static void TWDataReverse(
     Pointer<Void> data,
   ) {
     return _TWDataReverse(
@@ -247,13 +247,13 @@ class TWData {
     );
   }
 
-  late final _TWDataReverse_ptr = _lookup<NativeFunction<_c_TWDataReverse>>('TWDataReverse');
-  late final _dart_TWDataReverse _TWDataReverse = _TWDataReverse_ptr.asFunction<_dart_TWDataReverse>();
+  static late final _TWDataReversePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDataReverse');
+  static late final _TWDataReverse = _TWDataReversePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Sets all bytes to the given value.
   ///
   /// \param data A non-null valid block of data
-  void TWDataReset(
+  static void TWDataReset(
     Pointer<Void> data,
   ) {
     return _TWDataReset(
@@ -261,8 +261,8 @@ class TWData {
     );
   }
 
-  late final _TWDataReset_ptr = _lookup<NativeFunction<_c_TWDataReset>>('TWDataReset');
-  late final _dart_TWDataReset _TWDataReset = _TWDataReset_ptr.asFunction<_dart_TWDataReset>();
+  static late final _TWDataResetPtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDataReset');
+  static late final _TWDataReset = _TWDataResetPtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Deletes a block of data created with a `TWDataCreate*` method.
   ///
@@ -275,15 +275,15 @@ class TWData {
     );
   }
 
-  static late final _TWDataDelete_ptr = _lookup<NativeFunction<_c_TWDataDelete>>('TWDataDelete');
-  static late final _dart_TWDataDelete _TWDataDelete = _TWDataDelete_ptr.asFunction<_dart_TWDataDelete>();
+  static late final _TWDataDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDataDelete');
+  static late final _TWDataDelete = _TWDataDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Determines whether two data blocks are equal.
   ///
   /// \param lhs left non null block of data to be compared
   /// \param rhs right non null block of data to be compared
   /// \return true if both block of data are equal, false otherwise
-  int TWDataEqual(
+  static bool TWDataEqual(
     Pointer<Void> lhs,
     Pointer<Void> rhs,
   ) {
@@ -293,172 +293,6 @@ class TWData {
     );
   }
 
-  late final _TWDataEqual_ptr = _lookup<NativeFunction<_c_TWDataEqual>>('TWDataEqual');
-  late final _dart_TWDataEqual _TWDataEqual = _TWDataEqual_ptr.asFunction<_dart_TWDataEqual>();
+  static late final _TWDataEqualPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>, Pointer<Void>)>>('TWDataEqual');
+  static late final _TWDataEqual = _TWDataEqualPtr.asFunction<bool Function(Pointer<Void>, Pointer<Void>)>();
 }
-
-typedef _c_TWDataCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  IntPtr size,
-);
-
-typedef _dart_TWDataCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  int size,
-);
-
-typedef _c_TWDataCreateWithSize = Pointer<Void> Function(
-  IntPtr size,
-);
-
-typedef _dart_TWDataCreateWithSize = Pointer<Void> Function(
-  int size,
-);
-
-typedef _c_TWDataCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataCreateWithHexString = Pointer<Void> Function(
-  Pointer<Utf8> hex,
-);
-
-typedef _dart_TWDataCreateWithHexString = Pointer<Void> Function(
-  Pointer<Utf8> hex,
-);
-
-typedef _c_TWDataSize = IntPtr Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataSize = int Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataBytes = Pointer<Uint8> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataBytes = Pointer<Uint8> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataGet = IntPtr Function(
-  Pointer<Void> data,
-  IntPtr index,
-);
-
-typedef _dart_TWDataGet = int Function(
-  Pointer<Void> data,
-  int index,
-);
-
-typedef _c_TWDataSet = Void Function(
-  Pointer<Void> data,
-  IntPtr index,
-  IntPtr byte,
-);
-
-typedef _dart_TWDataSet = void Function(
-  Pointer<Void> data,
-  int index,
-  int byte,
-);
-
-typedef _c_TWDataCopyBytes = Void Function(
-  Pointer<Void> data,
-  IntPtr start,
-  IntPtr size,
-  Pointer<Uint8> output,
-);
-
-typedef _dart_TWDataCopyBytes = void Function(
-  Pointer<Void> data,
-  int start,
-  int size,
-  Pointer<Uint8> output,
-);
-
-typedef _c_TWDataReplaceBytes = Void Function(
-  Pointer<Void> data,
-  IntPtr start,
-  IntPtr size,
-  Pointer<Uint8> bytes,
-);
-
-typedef _dart_TWDataReplaceBytes = void Function(
-  Pointer<Void> data,
-  int start,
-  int size,
-  Pointer<Uint8> bytes,
-);
-
-typedef _c_TWDataAppendBytes = Void Function(
-  Pointer<Void> data,
-  Pointer<Uint8> bytes,
-  IntPtr size,
-);
-
-typedef _dart_TWDataAppendBytes = void Function(
-  Pointer<Void> data,
-  Pointer<Uint8> bytes,
-  int size,
-);
-
-typedef _c_TWDataAppendByte = Void Function(
-  Pointer<Void> data,
-  IntPtr byte,
-);
-
-typedef _dart_TWDataAppendByte = void Function(
-  Pointer<Void> data,
-  int byte,
-);
-
-typedef _c_TWDataAppendData = Void Function(
-  Pointer<Void> data,
-  Pointer<Void> append,
-);
-
-typedef _dart_TWDataAppendData = void Function(
-  Pointer<Void> data,
-  Pointer<Void> append,
-);
-
-typedef _c_TWDataReverse = Void Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataReverse = void Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataReset = Void Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataReset = void Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataDelete = Void Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataDelete = void Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataEqual = Uint8 Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _dart_TWDataEqual = int Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);

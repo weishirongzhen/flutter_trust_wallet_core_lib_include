@@ -15,13 +15,13 @@ abstract class TWNEARAccount {
     );
   }
 
-  static late final _TWNEARAccountCreateWithString_ptr = _lookup<NativeFunction<_c_TWNEARAccountCreateWithString>>('TWNEARAccountCreateWithString');
-  static late final _dart_TWNEARAccountCreateWithString _TWNEARAccountCreateWithString = _TWNEARAccountCreateWithString_ptr.asFunction<_dart_TWNEARAccountCreateWithString>();
+  static late final _TWNEARAccountCreateWithStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWNEARAccountCreateWithString');
+  static late final _TWNEARAccountCreateWithString = _TWNEARAccountCreateWithStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Delete the given Near Account
   ///
   /// \param account Pointer to a non-null NEAR Account
-  void TWNEARAccountDelete(
+  static void TWNEARAccountDelete(
     Pointer<Void> account,
   ) {
     return _TWNEARAccountDelete(
@@ -29,14 +29,14 @@ abstract class TWNEARAccount {
     );
   }
 
-  late final _TWNEARAccountDelete_ptr = _lookup<NativeFunction<_c_TWNEARAccountDelete>>('TWNEARAccountDelete');
-  late final _dart_TWNEARAccountDelete _TWNEARAccountDelete = _TWNEARAccountDelete_ptr.asFunction<_dart_TWNEARAccountDelete>();
+  static late final _TWNEARAccountDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWNEARAccountDelete');
+  static late final _TWNEARAccountDelete = _TWNEARAccountDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Returns the user friendly string representation.
   ///
   /// \param account Pointer to a non-null NEAR Account
   /// \return Non-null string account description
-  Pointer<Utf8> TWNEARAccountDescription(
+  static Pointer<Utf8> TWNEARAccountDescription(
     Pointer<Void> account,
   ) {
     return _TWNEARAccountDescription(
@@ -44,30 +44,6 @@ abstract class TWNEARAccount {
     );
   }
 
-  late final _TWNEARAccountDescription_ptr = _lookup<NativeFunction<_c_TWNEARAccountDescription>>('TWNEARAccountDescription');
-  late final _dart_TWNEARAccountDescription _TWNEARAccountDescription = _TWNEARAccountDescription_ptr.asFunction<_dart_TWNEARAccountDescription>();
+  static late final _TWNEARAccountDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWNEARAccountDescription');
+  static late final _TWNEARAccountDescription = _TWNEARAccountDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 }
-
-typedef _c_TWNEARAccountCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWNEARAccountCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _c_TWNEARAccountDelete = Void Function(
-  Pointer<Void> account,
-);
-
-typedef _dart_TWNEARAccountDelete = void Function(
-  Pointer<Void> account,
-);
-
-typedef _c_TWNEARAccountDescription = Pointer<Utf8> Function(
-  Pointer<Void> account,
-);
-
-typedef _dart_TWNEARAccountDescription = Pointer<Utf8> Function(
-  Pointer<Void> account,
-);

@@ -23,8 +23,8 @@ abstract class TWPBKDF2 {
     );
   }
 
-  static late final _TWPBKDF2HmacSha256_ptr = _lookup<NativeFunction<_c_TWPBKDF2HmacSha256>>('TWPBKDF2HmacSha256');
-  static late final _dart_TWPBKDF2HmacSha256 _TWPBKDF2HmacSha256 = _TWPBKDF2HmacSha256_ptr.asFunction<_dart_TWPBKDF2HmacSha256>();
+  static late final _TWPBKDF2HmacSha256Ptr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Uint32, Uint32)>>('TWPBKDF2HmacSha256');
+  static late final _TWPBKDF2HmacSha256 = _TWPBKDF2HmacSha256Ptr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, int, int)>();
 
   /// Derives a key from a password and a salt using PBKDF2 + Sha512.
   ///
@@ -47,34 +47,6 @@ abstract class TWPBKDF2 {
     );
   }
 
-  static late final _TWPBKDF2HmacSha512_ptr = _lookup<NativeFunction<_c_TWPBKDF2HmacSha512>>('TWPBKDF2HmacSha512');
-  static late final _dart_TWPBKDF2HmacSha512 _TWPBKDF2HmacSha512 = _TWPBKDF2HmacSha512_ptr.asFunction<_dart_TWPBKDF2HmacSha512>();
+  static late final _TWPBKDF2HmacSha512Ptr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, Uint32, Uint32)>>('TWPBKDF2HmacSha512');
+  static late final _TWPBKDF2HmacSha512 = _TWPBKDF2HmacSha512Ptr.asFunction<Pointer<Void> Function(Pointer<Void>, Pointer<Void>, int, int)>();
 }
-
-typedef _c_TWPBKDF2HmacSha256 = Pointer<Void> Function(
-  Pointer<Void> password,
-  Pointer<Void> salt,
-  Int64 iterations,
-  Int64 dkLen,
-);
-
-typedef _dart_TWPBKDF2HmacSha256 = Pointer<Void> Function(
-  Pointer<Void> password,
-  Pointer<Void> salt,
-  int iterations,
-  int dkLen,
-);
-
-typedef _c_TWPBKDF2HmacSha512 = Pointer<Void> Function(
-  Pointer<Void> password,
-  Pointer<Void> salt,
-  Int64 iterations,
-  Int64 dkLen,
-);
-
-typedef _dart_TWPBKDF2HmacSha512 = Pointer<Void> Function(
-  Pointer<Void> password,
-  Pointer<Void> salt,
-  int iterations,
-  int dkLen,
-);

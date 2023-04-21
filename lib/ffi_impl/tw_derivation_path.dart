@@ -1,7 +1,7 @@
 part of trust_wallet_core_ffi;
 
 /// Represents a BIP44 DerivationPath in C++.
-class TWDerivationPath {
+abstract class TWDerivationPath {
   /// Creates a new DerivationPath with a purpose, coin, account, change and address.
   /// Must be deleted with TWDerivationPathDelete after use.
   ///
@@ -27,8 +27,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathCreate_ptr = _lookup<NativeFunction<_c_TWDerivationPathCreate>>('TWDerivationPathCreate');
-  static late final _dart_TWDerivationPathCreate _TWDerivationPathCreate = _TWDerivationPathCreate_ptr.asFunction<_dart_TWDerivationPathCreate>();
+  static late final _TWDerivationPathCreatePtr = _lookup<NativeFunction<Pointer<Void> Function(Int32, Uint32, Uint32, Uint32, Uint32)>>('TWDerivationPathCreate');
+  static late final _TWDerivationPathCreate = _TWDerivationPathCreatePtr.asFunction<Pointer<Void> Function(int, int, int, int, int)>();
 
   /// Creates a new DerivationPath with a string
   ///
@@ -42,9 +42,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathCreateWithString_ptr = _lookup<NativeFunction<_c_TWDerivationPathCreateWithString>>('TWDerivationPathCreateWithString');
-  static late final _dart_TWDerivationPathCreateWithString _TWDerivationPathCreateWithString =
-      _TWDerivationPathCreateWithString_ptr.asFunction<_dart_TWDerivationPathCreateWithString>();
+  static late final _TWDerivationPathCreateWithStringPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>)>>('TWDerivationPathCreateWithString');
+  static late final _TWDerivationPathCreateWithString = _TWDerivationPathCreateWithStringPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>)>();
 
   /// Deletes a DerivationPath.
   ///
@@ -57,15 +56,15 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathDelete_ptr = _lookup<NativeFunction<_c_TWDerivationPathDelete>>('TWDerivationPathDelete');
-  static late final _dart_TWDerivationPathDelete _TWDerivationPathDelete = _TWDerivationPathDelete_ptr.asFunction<_dart_TWDerivationPathDelete>();
+  static late final _TWDerivationPathDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDerivationPathDelete');
+  static late final _TWDerivationPathDelete = _TWDerivationPathDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Returns the index component of a DerivationPath.
   ///
   /// \param path DerivationPath to get the index of.
   /// \param index The index component of the DerivationPath.
   /// \return DerivationPathIndex or null if index is invalid.
-  void TWDerivationPathIndexAt(
+  static Pointer<Void> TWDerivationPathIndexAt(
     Pointer<Void> path,
     int index,
   ) {
@@ -75,8 +74,8 @@ class TWDerivationPath {
     );
   }
 
-  late final _TWDerivationPathIndexAt_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexAt>>('TWDerivationPathIndexAt');
-  late final _dart_TWDerivationPathIndexAt _TWDerivationPathIndexAt = _TWDerivationPathIndexAt_ptr.asFunction<_dart_TWDerivationPathIndexAt>();
+  static late final _TWDerivationPathIndexAtPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Uint32)>>('TWDerivationPathIndexAt');
+  static late final _TWDerivationPathIndexAt = _TWDerivationPathIndexAtPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 
   /// Returns the indices count of a DerivationPath.
   ///
@@ -90,14 +89,14 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathIndicesCount_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndicesCount>>('TWDerivationPathIndicesCount');
-  static late final _dart_TWDerivationPathIndicesCount _TWDerivationPathIndicesCount = _TWDerivationPathIndicesCount_ptr.asFunction<_dart_TWDerivationPathIndicesCount>();
+  static late final _TWDerivationPathIndicesCountPtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathIndicesCount');
+  static late final _TWDerivationPathIndicesCount = _TWDerivationPathIndicesCountPtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the purpose enum of a DerivationPath.
   ///
   /// \param path DerivationPath to get the purpose of.
   /// \return DerivationPathPurpose.
-  Pointer<Void> TWDerivationPathPurpose(
+  static int TWDerivationPathPurpose(
     Pointer<Void> path,
   ) {
     return _TWDerivationPathPurpose(
@@ -105,8 +104,8 @@ class TWDerivationPath {
     );
   }
 
-  late final _TWDerivationPathPurpose_ptr = _lookup<NativeFunction<_c_TWDerivationPathPurpose>>('TWDerivationPathPurpose');
-  late final _dart_TWDerivationPathPurpose _TWDerivationPathPurpose = _TWDerivationPathPurpose_ptr.asFunction<_dart_TWDerivationPathPurpose>();
+  static late final _TWDerivationPathPurposePtr = _lookup<NativeFunction<Int32 Function(Pointer<Void>)>>('TWDerivationPathPurpose');
+  static late final _TWDerivationPathPurpose = _TWDerivationPathPurposePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the coin value of a derivation path.
   ///
@@ -120,8 +119,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathCoin_ptr = _lookup<NativeFunction<_c_TWDerivationPathCoin>>('TWDerivationPathCoin');
-  static late final _dart_TWDerivationPathCoin _TWDerivationPathCoin = _TWDerivationPathCoin_ptr.asFunction<_dart_TWDerivationPathCoin>();
+  static late final _TWDerivationPathCoinPtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathCoin');
+  static late final _TWDerivationPathCoin = _TWDerivationPathCoinPtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the account value of a derivation path.
   ///
@@ -135,8 +134,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathAccount_ptr = _lookup<NativeFunction<_c_TWDerivationPathAccount>>('TWDerivationPathAccount');
-  static late final _dart_TWDerivationPathAccount _TWDerivationPathAccount = _TWDerivationPathAccount_ptr.asFunction<_dart_TWDerivationPathAccount>();
+  static late final _TWDerivationPathAccountPtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathAccount');
+  static late final _TWDerivationPathAccount = _TWDerivationPathAccountPtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the change value of a derivation path.
   ///
@@ -150,8 +149,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathChange_ptr = _lookup<NativeFunction<_c_TWDerivationPathChange>>('TWDerivationPathChange');
-  static late final _dart_TWDerivationPathChange _TWDerivationPathChange = _TWDerivationPathChange_ptr.asFunction<_dart_TWDerivationPathChange>();
+  static late final _TWDerivationPathChangePtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathChange');
+  static late final _TWDerivationPathChange = _TWDerivationPathChangePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the address value of a derivation path.
   ///
@@ -165,8 +164,8 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathAddress_ptr = _lookup<NativeFunction<_c_TWDerivationPathAddress>>('TWDerivationPathAddress');
-  static late final _dart_TWDerivationPathAddress _TWDerivationPathAddress = _TWDerivationPathAddress_ptr.asFunction<_dart_TWDerivationPathAddress>();
+  static late final _TWDerivationPathAddressPtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathAddress');
+  static late final _TWDerivationPathAddress = _TWDerivationPathAddressPtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns the string description of a derivation path.
   ///
@@ -180,102 +179,6 @@ class TWDerivationPath {
     );
   }
 
-  static late final _TWDerivationPathDescription_ptr = _lookup<NativeFunction<_c_TWDerivationPathDescription>>('TWDerivationPathDescription');
-  static late final _dart_TWDerivationPathDescription _TWDerivationPathDescription = _TWDerivationPathDescription_ptr.asFunction<_dart_TWDerivationPathDescription>();
+  static late final _TWDerivationPathDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWDerivationPathDescription');
+  static late final _TWDerivationPathDescription = _TWDerivationPathDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 }
-
-typedef _c_TWDerivationPathCreate = Pointer<Void> Function(
-  IntPtr purpose,
-  IntPtr coin,
-  IntPtr account,
-  IntPtr change,
-  IntPtr address,
-);
-
-typedef _dart_TWDerivationPathCreate = Pointer<Void> Function(
-  int purpose,
-  int coin,
-  int account,
-  int change,
-  int address,
-);
-
-typedef _c_TWDerivationPathCreateWithString = Pointer<Void> Function(
-  Pointer<Utf8> string,
-);
-
-typedef _dart_TWDerivationPathCreateWithString = Pointer<Void> Function(Pointer<Utf8> string);
-
-typedef _c_TWDerivationPathIndicesCount = IntPtr Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathIndicesCount = int Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathPurpose = Pointer<Void> Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathPurpose = Pointer<Void> Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathIndexAt = Void Function(
-  Pointer<Void> path,
-  IntPtr index,
-);
-
-typedef _dart_TWDerivationPathIndexAt = void Function(
-  Pointer<Void> path,
-  int index,
-);
-
-typedef _c_TWDerivationPathDelete = Void Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathDelete = void Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathCoin = IntPtr Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathCoin = int Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathAccount = IntPtr Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathAccount = int Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathChange = IntPtr Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathChange = int Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathAddress = IntPtr Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathAddress = int Function(
-  Pointer<Void> path,
-);
-
-typedef _c_TWDerivationPathDescription = Pointer<Utf8> Function(
-  Pointer<Void> path,
-);
-
-typedef _dart_TWDerivationPathDescription = Pointer<Utf8> Function(
-  Pointer<Void> path,
-);

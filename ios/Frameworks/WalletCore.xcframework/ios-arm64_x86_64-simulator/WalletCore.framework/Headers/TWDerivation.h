@@ -1,4 +1,4 @@
-// Copyright © 2017-2021 Trust Wallet.
+// Copyright © 2017-2023 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -20,10 +20,11 @@ enum TWDerivation {
     TWDerivationCustom = 1, // custom, for any coin
     TWDerivationBitcoinSegwit = 2,
     TWDerivationBitcoinLegacy = 3,
-    TWDerivationBitcoinTestnetSegwit = 4,
-    TWDerivationBitcoinTestnetLegacy = 5,
-    TWDerivationLitecoinLegacy = 6,
-    TWDerivationSolanaSolana = 7,
+    TWDerivationBitcoinTestnet = 4,
+    TWDerivationBitcoinTestnetSegwit = 5,
+    TWDerivationBitcoinTestnetLegacy = 6,
+    TWDerivationLitecoinLegacy = 7,
+    TWDerivationSolanaSolana = 8,
 };
 
 TW_EXTERN_C_END

@@ -2,7 +2,7 @@ part of trust_wallet_core_ffi;
 
 /// Preset encryption parameter with different security strength, for key store
 
-class TWStoredKeyEncryptionLevel {
+abstract class TWStoredKeyEncryptionLevel {
   /// Default, which is one of the below values, determined by the implementation.
   static const int TWStoredKeyEncryptionLevelDefault = 0;
 

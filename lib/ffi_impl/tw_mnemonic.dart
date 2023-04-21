@@ -6,7 +6,7 @@ abstract class TWMnemonic {
   ///
   /// \param mnemonic Non-null BIP39 english mnemonic
   /// \return true if the mnemonic is valid, false otherwise
-  static int TWMnemonicIsValid(
+  static bool TWMnemonicIsValid(
     Pointer<Utf8> mnemonic,
   ) {
     return _TWMnemonicIsValid(
@@ -14,14 +14,14 @@ abstract class TWMnemonic {
     );
   }
 
-  static late final _TWMnemonicIsValid_ptr = _lookup<NativeFunction<_c_TWMnemonicIsValid>>('TWMnemonicIsValid');
-  static late final _dart_TWMnemonicIsValid _TWMnemonicIsValid = _TWMnemonicIsValid_ptr.asFunction<_dart_TWMnemonicIsValid>();
+  static late final _TWMnemonicIsValidPtr = _lookup<NativeFunction<Bool Function(Pointer<Utf8>)>>('TWMnemonicIsValid');
+  static late final _TWMnemonicIsValid = _TWMnemonicIsValidPtr.asFunction<bool Function(Pointer<Utf8>)>();
 
   /// Determines whether word is a valid BIP39 English mnemonic word.
   ///
   /// \param word Non-null BIP39 English mnemonic word
   /// \return true if the word is a valid BIP39 English mnemonic word, false otherwise
-  static int TWMnemonicIsValidWord(
+  static bool TWMnemonicIsValidWord(
     Pointer<Utf8> word,
   ) {
     return _TWMnemonicIsValidWord(
@@ -29,8 +29,8 @@ abstract class TWMnemonic {
     );
   }
 
-  static late final _TWMnemonicIsValidWord_ptr = _lookup<NativeFunction<_c_TWMnemonicIsValidWord>>('TWMnemonicIsValidWord');
-  static late final _dart_TWMnemonicIsValidWord _TWMnemonicIsValidWord = _TWMnemonicIsValidWord_ptr.asFunction<_dart_TWMnemonicIsValidWord>();
+  static late final _TWMnemonicIsValidWordPtr = _lookup<NativeFunction<Bool Function(Pointer<Utf8>)>>('TWMnemonicIsValidWord');
+  static late final _TWMnemonicIsValidWord = _TWMnemonicIsValidWordPtr.asFunction<bool Function(Pointer<Utf8>)>();
 
   /// Return BIP39 English words that match the given prefix. A single string is returned, with space-separated list of words.
   ///
@@ -44,30 +44,6 @@ abstract class TWMnemonic {
     );
   }
 
-  static late final _TWMnemonicSuggest_ptr = _lookup<NativeFunction<_c_TWMnemonicSuggest>>('TWMnemonicSuggest');
-  static late final _dart_TWMnemonicSuggest _TWMnemonicSuggest = _TWMnemonicSuggest_ptr.asFunction<_dart_TWMnemonicSuggest>();
+  static late final _TWMnemonicSuggestPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Utf8>)>>('TWMnemonicSuggest');
+  static late final _TWMnemonicSuggest = _TWMnemonicSuggestPtr.asFunction<Pointer<Utf8> Function(Pointer<Utf8>)>();
 }
-
-typedef _c_TWMnemonicIsValid = Int32 Function(
-  Pointer<Utf8> mnemonic,
-);
-
-typedef _dart_TWMnemonicIsValid = int Function(
-  Pointer<Utf8> mnemonic,
-);
-
-typedef _c_TWMnemonicIsValidWord = Int32 Function(
-  Pointer<Utf8> word,
-);
-
-typedef _dart_TWMnemonicIsValidWord = int Function(
-  Pointer<Utf8> word,
-);
-
-typedef _c_TWMnemonicSuggest = Pointer<Utf8> Function(
-  Pointer<Utf8> prefix,
-);
-
-typedef _dart_TWMnemonicSuggest = Pointer<Utf8> Function(
-  Pointer<Utf8> prefix,
-);

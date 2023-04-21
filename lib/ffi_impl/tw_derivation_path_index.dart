@@ -1,7 +1,7 @@
 part of trust_wallet_core_ffi;
 
 /// Represents a derivation path index in C++ with value and hardened flag.
-class TWDerivationPathIndex {
+abstract class TWDerivationPathIndex {
   /// Creates a new Index with a value and hardened flag.
   /// Must be deleted with TWDerivationPathIndexDelete after use.
   ///
@@ -10,7 +10,7 @@ class TWDerivationPathIndex {
   /// \return A new Index.
   static Pointer<Void> TWDerivationPathIndexCreate(
     int value,
-    int hardened,
+    bool hardened,
   ) {
     return _TWDerivationPathIndexCreate(
       value,
@@ -18,107 +18,64 @@ class TWDerivationPathIndex {
     );
   }
 
-  static late final _TWDerivationPathIndexCreate_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexCreate>>('TWDerivationPathIndexCreate');
-  static late final _dart_TWDerivationPathIndexCreate _TWDerivationPathIndexCreate = _TWDerivationPathIndexCreate_ptr.asFunction<_dart_TWDerivationPathIndexCreate>();
-
-  /// Returns numeric value of an Index.
-  ///
-  /// \param index Index to get the numeric value of.
-  static void TWDerivationPathIndexDelete(
-    Pointer<Void> path,
-  ) {
-    return _TWDerivationPathIndexDelete(
-      path,
-    );
-  }
-
-  static late final _TWDerivationPathIndexDelete_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexDelete>>('TWDerivationPathIndexDelete');
-  static late final _dart_TWDerivationPathIndexDelete _TWDerivationPathIndexDelete = _TWDerivationPathIndexDelete_ptr.asFunction<_dart_TWDerivationPathIndexDelete>();
+  static late final _TWDerivationPathIndexCreatePtr = _lookup<NativeFunction<Pointer<Void> Function(Uint32, Bool)>>('TWDerivationPathIndexCreate');
+  static late final _TWDerivationPathIndexCreate = _TWDerivationPathIndexCreatePtr.asFunction<Pointer<Void> Function(int, bool)>();
 
   /// Deletes an Index.
   ///
   /// \param index Index to delete.
-  static void TWDerivationPathIndexValue(
-    Pointer<Void> path,
+  static void TWDerivationPathIndexDelete(
+    Pointer<Void> index,
   ) {
-    return _TWDerivationPathIndexValue(
-      path,
+    return _TWDerivationPathIndexDelete(
+      index,
     );
   }
 
-  static late final _TWDerivationPathIndexValue_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexValue>>('TWDerivationPathIndexValue');
-  static late final _dart_TWDerivationPathIndexValue _TWDerivationPathIndexValue = _TWDerivationPathIndexValue_ptr.asFunction<_dart_TWDerivationPathIndexValue>();
+  static late final _TWDerivationPathIndexDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDerivationPathIndexDelete');
+  static late final _TWDerivationPathIndexDelete = _TWDerivationPathIndexDeletePtr.asFunction<void Function(Pointer<Void>)>();
+
+  /// Returns numeric value of an Index.
+  ///
+  /// \param index Index to get the numeric value of.
+  static int TWDerivationPathIndexValue(
+    Pointer<Void> index,
+  ) {
+    return _TWDerivationPathIndexValue(
+      index,
+    );
+  }
+
+  static late final _TWDerivationPathIndexValuePtr = _lookup<NativeFunction<Uint32 Function(Pointer<Void>)>>('TWDerivationPathIndexValue');
+  static late final _TWDerivationPathIndexValue = _TWDerivationPathIndexValuePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Returns hardened flag of an Index.
   ///
   /// \param index Index to get hardened flag.
   /// \return true if hardened, false otherwise.
-  static void TWDerivationPathIndexHardened(
-    Pointer<Void> path,
+  static bool TWDerivationPathIndexHardened(
+    Pointer<Void> index,
   ) {
     return _TWDerivationPathIndexHardened(
-      path,
+      index,
     );
   }
 
-  static late final _TWDerivationPathIndexHardened_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexHardened>>('TWDerivationPathIndexHardened');
-  static late final _dart_TWDerivationPathIndexHardened _TWDerivationPathIndexHardened = _TWDerivationPathIndexHardened_ptr.asFunction<_dart_TWDerivationPathIndexHardened>();
+  static late final _TWDerivationPathIndexHardenedPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWDerivationPathIndexHardened');
+  static late final _TWDerivationPathIndexHardened = _TWDerivationPathIndexHardenedPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Returns the string description of a derivation path index.
   ///
   /// \param path Index to get the address of.
   /// \return The string description of the derivation path index.
   static Pointer<Utf8> TWDerivationPathIndexDescription(
-    Pointer<Void> path,
+    Pointer<Void> index,
   ) {
     return _TWDerivationPathIndexDescription(
-      path,
+      index,
     );
   }
 
-  static late final _TWDerivationPathIndexDescription_ptr = _lookup<NativeFunction<_c_TWDerivationPathIndexDescription>>('TWDerivationPathIndexDescription');
-  static late final _dart_TWDerivationPathIndexDescription _TWDerivationPathIndexDescription =
-      _TWDerivationPathIndexDescription_ptr.asFunction<_dart_TWDerivationPathIndexDescription>();
+  static late final _TWDerivationPathIndexDescriptionPtr = _lookup<NativeFunction<Pointer<Utf8> Function(Pointer<Void>)>>('TWDerivationPathIndexDescription');
+  static late final _TWDerivationPathIndexDescription = _TWDerivationPathIndexDescriptionPtr.asFunction<Pointer<Utf8> Function(Pointer<Void>)>();
 }
-
-typedef _c_TWDerivationPathIndexCreate = Pointer<Void> Function(
-  IntPtr value,
-  IntPtr hardened,
-);
-
-typedef _dart_TWDerivationPathIndexCreate = Pointer<Void> Function(
-  int value,
-  int hardened,
-);
-
-typedef _c_TWDerivationPathIndexDelete = Void Function(
-  Pointer<Void> index,
-);
-
-typedef _dart_TWDerivationPathIndexDelete = void Function(
-  Pointer<Void> index,
-);
-
-typedef _c_TWDerivationPathIndexValue = Void Function(
-  Pointer<Void> index,
-);
-
-typedef _dart_TWDerivationPathIndexValue = void Function(
-  Pointer<Void> index,
-);
-
-typedef _c_TWDerivationPathIndexHardened = Void Function(
-  Pointer<Void> index,
-);
-
-typedef _dart_TWDerivationPathIndexHardened = void Function(
-  Pointer<Void> index,
-);
-
-typedef _c_TWDerivationPathIndexDescription = Pointer<Utf8> Function(
-  Pointer<Void> index,
-);
-
-typedef _dart_TWDerivationPathIndexDescription = Pointer<Utf8> Function(
-  Pointer<Void> index,
-);

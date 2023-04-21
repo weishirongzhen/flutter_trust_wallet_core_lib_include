@@ -9,8 +9,8 @@ abstract class TWBitcoinScript {
     return _TWBitcoinScriptCreate();
   }
 
-  static late final _TWBitcoinScriptCreate_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptCreate>>('TWBitcoinScriptCreate');
-  static late final _dart_TWBitcoinScriptCreate _TWBitcoinScriptCreate = _TWBitcoinScriptCreate_ptr.asFunction<_dart_TWBitcoinScriptCreate>();
+  static late final _TWBitcoinScriptCreatePtr = _lookup<NativeFunction<Pointer<Void> Function()>>('TWBitcoinScriptCreate');
+  static late final _TWBitcoinScriptCreate = _TWBitcoinScriptCreatePtr.asFunction<Pointer<Void> Function()>();
 
   /// Creates a script from a raw data representation.
   ///
@@ -25,8 +25,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptCreateWithData_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptCreateWithData>>('TWBitcoinScriptCreateWithData');
-  static late final _dart_TWBitcoinScriptCreateWithData _TWBitcoinScriptCreateWithData = _TWBitcoinScriptCreateWithData_ptr.asFunction<_dart_TWBitcoinScriptCreateWithData>();
+  static late final _TWBitcoinScriptCreateWithDataPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptCreateWithData');
+  static late final _TWBitcoinScriptCreateWithData = _TWBitcoinScriptCreateWithDataPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Creates a script from a raw bytes and size.
   ///
@@ -44,8 +44,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptCreateWithBytes_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptCreateWithBytes>>('TWBitcoinScriptCreateWithBytes');
-  static late final _dart_TWBitcoinScriptCreateWithBytes _TWBitcoinScriptCreateWithBytes = _TWBitcoinScriptCreateWithBytes_ptr.asFunction<_dart_TWBitcoinScriptCreateWithBytes>();
+  static late final _TWBitcoinScriptCreateWithBytesPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Uint8>, Size)>>('TWBitcoinScriptCreateWithBytes');
+  static late final _TWBitcoinScriptCreateWithBytes = _TWBitcoinScriptCreateWithBytesPtr.asFunction<Pointer<Void> Function(Pointer<Uint8>, int)>();
 
   /// Creates a script by copying an existing script.
   ///
@@ -60,8 +60,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptCreateCopy_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptCreateCopy>>('TWBitcoinScriptCreateCopy');
-  static late final _dart_TWBitcoinScriptCreateCopy _TWBitcoinScriptCreateCopy = _TWBitcoinScriptCreateCopy_ptr.asFunction<_dart_TWBitcoinScriptCreateCopy>();
+  static late final _TWBitcoinScriptCreateCopyPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptCreateCopy');
+  static late final _TWBitcoinScriptCreateCopy = _TWBitcoinScriptCreateCopyPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Delete/Deallocate a given script.
   ///
@@ -74,8 +74,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptDelete_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptDelete>>('TWBitcoinScriptDelete');
-  static late final _dart_TWBitcoinScriptDelete _TWBitcoinScriptDelete = _TWBitcoinScriptDelete_ptr.asFunction<_dart_TWBitcoinScriptDelete>();
+  static late final _TWBitcoinScriptDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWBitcoinScriptDelete');
+  static late final _TWBitcoinScriptDelete = _TWBitcoinScriptDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Get size of a script
   ///
@@ -89,8 +89,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptSize_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptSize>>('TWBitcoinScriptSize');
-  static late final _dart_TWBitcoinScriptSize _TWBitcoinScriptSize = _TWBitcoinScriptSize_ptr.asFunction<_dart_TWBitcoinScriptSize>();
+  static late final _TWBitcoinScriptSizePtr = _lookup<NativeFunction<Size Function(Pointer<Void>)>>('TWBitcoinScriptSize');
+  static late final _TWBitcoinScriptSize = _TWBitcoinScriptSizePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Get data of a script
   ///
@@ -104,8 +104,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptData_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptData>>('TWBitcoinScriptData');
-  static late final _dart_TWBitcoinScriptData _TWBitcoinScriptData = _TWBitcoinScriptData_ptr.asFunction<_dart_TWBitcoinScriptData>();
+  static late final _TWBitcoinScriptDataPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptData');
+  static late final _TWBitcoinScriptData = _TWBitcoinScriptDataPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Return script hash of a script
   ///
@@ -119,14 +119,14 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptScriptHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptScriptHash>>('TWBitcoinScriptScriptHash');
-  static late final _dart_TWBitcoinScriptScriptHash _TWBitcoinScriptScriptHash = _TWBitcoinScriptScriptHash_ptr.asFunction<_dart_TWBitcoinScriptScriptHash>();
+  static late final _TWBitcoinScriptScriptHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptScriptHash');
+  static late final _TWBitcoinScriptScriptHash = _TWBitcoinScriptScriptHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Determines whether this is a pay-to-script-hash (P2SH) script.
   ///
   /// \param script Non-null pointer to a script
   /// \return true if this is a pay-to-script-hash (P2SH) script, false otherwise
-  static int TWBitcoinScriptIsPayToScriptHash(
+  static bool TWBitcoinScriptIsPayToScriptHash(
     Pointer<Void> script,
   ) {
     return _TWBitcoinScriptIsPayToScriptHash(
@@ -134,15 +134,14 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptIsPayToScriptHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptIsPayToScriptHash>>('TWBitcoinScriptIsPayToScriptHash');
-  static late final _dart_TWBitcoinScriptIsPayToScriptHash _TWBitcoinScriptIsPayToScriptHash =
-      _TWBitcoinScriptIsPayToScriptHash_ptr.asFunction<_dart_TWBitcoinScriptIsPayToScriptHash>();
+  static late final _TWBitcoinScriptIsPayToScriptHashPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWBitcoinScriptIsPayToScriptHash');
+  static late final _TWBitcoinScriptIsPayToScriptHash = _TWBitcoinScriptIsPayToScriptHashPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Determines whether this is a pay-to-witness-script-hash (P2WSH) script.
   ///
   /// \param script Non-null pointer to a script
   /// \return true if this is a pay-to-witness-script-hash (P2WSH) script, false otherwise
-  static int TWBitcoinScriptIsPayToWitnessScriptHash(
+  static bool TWBitcoinScriptIsPayToWitnessScriptHash(
     Pointer<Void> script,
   ) {
     return _TWBitcoinScriptIsPayToWitnessScriptHash(
@@ -150,15 +149,14 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptIsPayToWitnessScriptHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptIsPayToWitnessScriptHash>>('TWBitcoinScriptIsPayToWitnessScriptHash');
-  static late final _dart_TWBitcoinScriptIsPayToWitnessScriptHash _TWBitcoinScriptIsPayToWitnessScriptHash =
-      _TWBitcoinScriptIsPayToWitnessScriptHash_ptr.asFunction<_dart_TWBitcoinScriptIsPayToWitnessScriptHash>();
+  static late final _TWBitcoinScriptIsPayToWitnessScriptHashPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWBitcoinScriptIsPayToWitnessScriptHash');
+  static late final _TWBitcoinScriptIsPayToWitnessScriptHash = _TWBitcoinScriptIsPayToWitnessScriptHashPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Determines whether this is a pay-to-witness-public-key-hash (P2WPKH) script.
   ///
   /// \param script Non-null pointer to a script
   /// \return true if this is a pay-to-witness-public-key-hash (P2WPKH) script, false otherwise
-  static int TWBitcoinScriptIsPayToWitnessPublicKeyHash(
+  static bool TWBitcoinScriptIsPayToWitnessPublicKeyHash(
     Pointer<Void> script,
   ) {
     return _TWBitcoinScriptIsPayToWitnessPublicKeyHash(
@@ -166,16 +164,14 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptIsPayToWitnessPublicKeyHash_ptr =
-      _lookup<NativeFunction<_c_TWBitcoinScriptIsPayToWitnessPublicKeyHash>>('TWBitcoinScriptIsPayToWitnessPublicKeyHash');
-  static late final _dart_TWBitcoinScriptIsPayToWitnessPublicKeyHash _TWBitcoinScriptIsPayToWitnessPublicKeyHash =
-      _TWBitcoinScriptIsPayToWitnessPublicKeyHash_ptr.asFunction<_dart_TWBitcoinScriptIsPayToWitnessPublicKeyHash>();
+  static late final _TWBitcoinScriptIsPayToWitnessPublicKeyHashPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWBitcoinScriptIsPayToWitnessPublicKeyHash');
+  static late final _TWBitcoinScriptIsPayToWitnessPublicKeyHash = _TWBitcoinScriptIsPayToWitnessPublicKeyHashPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Determines whether this is a witness program script.
   ///
   /// \param script Non-null pointer to a script
   /// \return true if this is a witness program script, false otherwise
-  static int TWBitcoinScriptIsWitnessProgram(
+  static bool TWBitcoinScriptIsWitnessProgram(
     Pointer<Void> script,
   ) {
     return _TWBitcoinScriptIsWitnessProgram(
@@ -183,16 +179,15 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptIsWitnessProgram_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptIsWitnessProgram>>('TWBitcoinScriptIsWitnessProgram');
-  static late final _dart_TWBitcoinScriptIsWitnessProgram _TWBitcoinScriptIsWitnessProgram =
-      _TWBitcoinScriptIsWitnessProgram_ptr.asFunction<_dart_TWBitcoinScriptIsWitnessProgram>();
+  static late final _TWBitcoinScriptIsWitnessProgramPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>)>>('TWBitcoinScriptIsWitnessProgram');
+  static late final _TWBitcoinScriptIsWitnessProgram = _TWBitcoinScriptIsWitnessProgramPtr.asFunction<bool Function(Pointer<Void>)>();
 
   /// Determines whether 2 scripts have the same content
   ///
   /// \param lhs Non-null pointer to the first script
   /// \param rhs Non-null pointer to the second script
   /// \return true if both script have the same content
-  static int TWBitcoinScriptEqual(
+  static bool TWBitcoinScriptEqual(
     Pointer<Void> lhs,
     Pointer<Void> rhs,
   ) {
@@ -202,8 +197,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptEqual_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptEqual>>('TWBitcoinScriptEqual');
-  static late final _dart_TWBitcoinScriptEqual _TWBitcoinScriptEqual = _TWBitcoinScriptEqual_ptr.asFunction<_dart_TWBitcoinScriptEqual>();
+  static late final _TWBitcoinScriptEqualPtr = _lookup<NativeFunction<Bool Function(Pointer<Void>, Pointer<Void>)>>('TWBitcoinScriptEqual');
+  static late final _TWBitcoinScriptEqual = _TWBitcoinScriptEqualPtr.asFunction<bool Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Matches the script to a pay-to-public-key (P2PK) script.
   ///
@@ -217,9 +212,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptMatchPayToPubkey_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptMatchPayToPubkey>>('TWBitcoinScriptMatchPayToPubkey');
-  static late final _dart_TWBitcoinScriptMatchPayToPubkey _TWBitcoinScriptMatchPayToPubkey =
-      _TWBitcoinScriptMatchPayToPubkey_ptr.asFunction<_dart_TWBitcoinScriptMatchPayToPubkey>();
+  static late final _TWBitcoinScriptMatchPayToPubkeyPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptMatchPayToPubkey');
+  static late final _TWBitcoinScriptMatchPayToPubkey = _TWBitcoinScriptMatchPayToPubkeyPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Matches the script to a pay-to-public-key-hash (P2PKH).
   ///
@@ -233,9 +227,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptMatchPayToPubkeyHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptMatchPayToPubkeyHash>>('TWBitcoinScriptMatchPayToPubkeyHash');
-  static late final _dart_TWBitcoinScriptMatchPayToPubkeyHash _TWBitcoinScriptMatchPayToPubkeyHash =
-      _TWBitcoinScriptMatchPayToPubkeyHash_ptr.asFunction<_dart_TWBitcoinScriptMatchPayToPubkeyHash>();
+  static late final _TWBitcoinScriptMatchPayToPubkeyHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptMatchPayToPubkeyHash');
+  static late final _TWBitcoinScriptMatchPayToPubkeyHash = _TWBitcoinScriptMatchPayToPubkeyHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Matches the script to a pay-to-script-hash (P2SH).
   ///
@@ -249,9 +242,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptMatchPayToScriptHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptMatchPayToScriptHash>>('TWBitcoinScriptMatchPayToScriptHash');
-  static late final _dart_TWBitcoinScriptMatchPayToScriptHash _TWBitcoinScriptMatchPayToScriptHash =
-      _TWBitcoinScriptMatchPayToScriptHash_ptr.asFunction<_dart_TWBitcoinScriptMatchPayToScriptHash>();
+  static late final _TWBitcoinScriptMatchPayToScriptHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptMatchPayToScriptHash');
+  static late final _TWBitcoinScriptMatchPayToScriptHash = _TWBitcoinScriptMatchPayToScriptHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Matches the script to a pay-to-witness-public-key-hash (P2WPKH).
   ///
@@ -265,10 +257,9 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptMatchPayToWitnessPublicKeyHash_ptr =
-      _lookup<NativeFunction<_c_TWBitcoinScriptMatchPayToWitnessPublicKeyHash>>('TWBitcoinScriptMatchPayToWitnessPublicKeyHash');
-  static late final _dart_TWBitcoinScriptMatchPayToWitnessPublicKeyHash _TWBitcoinScriptMatchPayToWitnessPublicKeyHash =
-      _TWBitcoinScriptMatchPayToWitnessPublicKeyHash_ptr.asFunction<_dart_TWBitcoinScriptMatchPayToWitnessPublicKeyHash>();
+  static late final _TWBitcoinScriptMatchPayToWitnessPublicKeyHashPtr =
+      _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptMatchPayToWitnessPublicKeyHash');
+  static late final _TWBitcoinScriptMatchPayToWitnessPublicKeyHash = _TWBitcoinScriptMatchPayToWitnessPublicKeyHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Matches the script to a pay-to-witness-script-hash (P2WSH).
   ///
@@ -282,10 +273,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptMatchPayToWitnessScriptHash_ptr =
-      _lookup<NativeFunction<_c_TWBitcoinScriptMatchPayToWitnessScriptHash>>('TWBitcoinScriptMatchPayToWitnessScriptHash');
-  static late final _dart_TWBitcoinScriptMatchPayToWitnessScriptHash _TWBitcoinScriptMatchPayToWitnessScriptHash =
-      _TWBitcoinScriptMatchPayToWitnessScriptHash_ptr.asFunction<_dart_TWBitcoinScriptMatchPayToWitnessScriptHash>();
+  static late final _TWBitcoinScriptMatchPayToWitnessScriptHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptMatchPayToWitnessScriptHash');
+  static late final _TWBitcoinScriptMatchPayToWitnessScriptHash = _TWBitcoinScriptMatchPayToWitnessScriptHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Encodes the script.
   ///
@@ -299,8 +288,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptEncode_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptEncode>>('TWBitcoinScriptEncode');
-  static late final _dart_TWBitcoinScriptEncode _TWBitcoinScriptEncode = _TWBitcoinScriptEncode_ptr.asFunction<_dart_TWBitcoinScriptEncode>();
+  static late final _TWBitcoinScriptEncodePtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptEncode');
+  static late final _TWBitcoinScriptEncode = _TWBitcoinScriptEncodePtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a standard 'pay to public key' script.
   ///
@@ -308,16 +297,15 @@ abstract class TWBitcoinScript {
   /// \note Must be deleted with \TWBitcoinScriptDelete
   /// \return A pointer to the built script
   static Pointer<Void> TWBitcoinScriptBuildPayToPublicKey(
-    Pointer<Void> hash,
+    Pointer<Void> pubkey,
   ) {
     return _TWBitcoinScriptBuildPayToPublicKey(
-      hash,
+      pubkey,
     );
   }
 
-  static late final _TWBitcoinScriptBuildPayToPublicKey_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptBuildPayToPublicKey>>('TWBitcoinScriptBuildPayToPublicKey');
-  static late final _dart_TWBitcoinScriptBuildPayToPublicKeyHash _TWBitcoinScriptBuildPayToPublicKey =
-      _TWBitcoinScriptBuildPayToPublicKey_ptr.asFunction<_dart_TWBitcoinScriptBuildPayToPublicKey>();
+  static late final _TWBitcoinScriptBuildPayToPublicKeyPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptBuildPayToPublicKey');
+  static late final _TWBitcoinScriptBuildPayToPublicKey = _TWBitcoinScriptBuildPayToPublicKeyPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a standard 'pay to public key hash' script.
   ///
@@ -332,9 +320,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptBuildPayToPublicKeyHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptBuildPayToPublicKeyHash>>('TWBitcoinScriptBuildPayToPublicKeyHash');
-  static late final _dart_TWBitcoinScriptBuildPayToPublicKeyHash _TWBitcoinScriptBuildPayToPublicKeyHash =
-      _TWBitcoinScriptBuildPayToPublicKeyHash_ptr.asFunction<_dart_TWBitcoinScriptBuildPayToPublicKeyHash>();
+  static late final _TWBitcoinScriptBuildPayToPublicKeyHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptBuildPayToPublicKeyHash');
+  static late final _TWBitcoinScriptBuildPayToPublicKeyHash = _TWBitcoinScriptBuildPayToPublicKeyHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a standard 'pay to script hash' script.
   ///
@@ -349,9 +336,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptBuildPayToScriptHash_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptBuildPayToScriptHash>>('TWBitcoinScriptBuildPayToScriptHash');
-  static late final _dart_TWBitcoinScriptBuildPayToScriptHash _TWBitcoinScriptBuildPayToScriptHash =
-      _TWBitcoinScriptBuildPayToScriptHash_ptr.asFunction<_dart_TWBitcoinScriptBuildPayToScriptHash>();
+  static late final _TWBitcoinScriptBuildPayToScriptHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptBuildPayToScriptHash');
+  static late final _TWBitcoinScriptBuildPayToScriptHash = _TWBitcoinScriptBuildPayToScriptHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a pay-to-witness-public-key-hash (P2WPKH) script..
   ///
@@ -366,10 +352,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptBuildPayToWitnessPubkeyHash_ptr =
-      _lookup<NativeFunction<_c_TWBitcoinScriptBuildPayToWitnessPubkeyHash>>('TWBitcoinScriptBuildPayToWitnessPubkeyHash');
-  static late final _dart_TWBitcoinScriptBuildPayToWitnessPubkeyHash _TWBitcoinScriptBuildPayToWitnessPubkeyHash =
-      _TWBitcoinScriptBuildPayToWitnessPubkeyHash_ptr.asFunction<_dart_TWBitcoinScriptBuildPayToWitnessPubkeyHash>();
+  static late final _TWBitcoinScriptBuildPayToWitnessPubkeyHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptBuildPayToWitnessPubkeyHash');
+  static late final _TWBitcoinScriptBuildPayToWitnessPubkeyHash = _TWBitcoinScriptBuildPayToWitnessPubkeyHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a pay-to-witness-script-hash (P2WSH) script.
   ///
@@ -384,10 +368,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptBuildPayToWitnessScriptHash_ptr =
-      _lookup<NativeFunction<_c_TWBitcoinScriptBuildPayToWitnessScriptHash>>('TWBitcoinScriptBuildPayToWitnessScriptHash');
-  static late final _dart_TWBitcoinScriptBuildPayToWitnessScriptHash _TWBitcoinScriptBuildPayToWitnessScriptHash =
-      _TWBitcoinScriptBuildPayToWitnessScriptHash_ptr.asFunction<_dart_TWBitcoinScriptBuildPayToWitnessScriptHash>();
+  static late final _TWBitcoinScriptBuildPayToWitnessScriptHashPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWBitcoinScriptBuildPayToWitnessScriptHash');
+  static late final _TWBitcoinScriptBuildPayToWitnessScriptHash = _TWBitcoinScriptBuildPayToWitnessScriptHashPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Builds a appropriate lock script for the given address..
   ///
@@ -405,9 +387,8 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptLockScriptForAddress_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptLockScriptForAddress>>('TWBitcoinScriptLockScriptForAddress');
-  static late final _dart_TWBitcoinScriptLockScriptForAddress _TWBitcoinScriptLockScriptForAddress =
-      _TWBitcoinScriptLockScriptForAddress_ptr.asFunction<_dart_TWBitcoinScriptLockScriptForAddress>();
+  static late final _TWBitcoinScriptLockScriptForAddressPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Utf8>, Int32)>>('TWBitcoinScriptLockScriptForAddress');
+  static late final _TWBitcoinScriptLockScriptForAddress = _TWBitcoinScriptLockScriptForAddressPtr.asFunction<Pointer<Void> Function(Pointer<Utf8>, int)>();
 
   /// Return the default HashType for the given coin, such as TWBitcoinSigHashTypeAll.
   ///
@@ -421,216 +402,6 @@ abstract class TWBitcoinScript {
     );
   }
 
-  static late final _TWBitcoinScriptHashTypeForCoin_ptr = _lookup<NativeFunction<_c_TWBitcoinScriptHashTypeForCoin>>('TWBitcoinScriptHashTypeForCoin');
-  static late final _dart_TWBitcoinScriptHashTypeForCoin _TWBitcoinScriptHashTypeForCoin = _TWBitcoinScriptHashTypeForCoin_ptr.asFunction<_dart_TWBitcoinScriptHashTypeForCoin>();
+  static late final _TWBitcoinScriptHashTypeForCoinPtr = _lookup<NativeFunction<Uint32 Function(Int32)>>('TWBitcoinScriptHashTypeForCoin');
+  static late final _TWBitcoinScriptHashTypeForCoin = _TWBitcoinScriptHashTypeForCoinPtr.asFunction<int Function(int)>();
 }
-
-typedef _c_TWBitcoinScriptCreate = Pointer<Void> Function();
-
-typedef _dart_TWBitcoinScriptCreate = Pointer<Void> Function();
-
-typedef _c_TWBitcoinScriptCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWBitcoinScriptCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWBitcoinScriptCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  Int32 size,
-);
-
-typedef _dart_TWBitcoinScriptCreateWithBytes = Pointer<Void> Function(
-  Pointer<Uint8> bytes,
-  int size,
-);
-
-typedef _c_TWBitcoinScriptCreateCopy = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptCreateCopy = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptDelete = Void Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptDelete = void Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptSize = Int32 Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptSize = int Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptData = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptData = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptIsPayToScriptHash = Int32 Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptIsPayToScriptHash = int Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptIsPayToWitnessScriptHash = Int32 Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptIsPayToWitnessScriptHash = int Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptIsPayToWitnessPublicKeyHash = Int32 Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptIsPayToWitnessPublicKeyHash = int Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptIsWitnessProgram = Int32 Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptIsWitnessProgram = int Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptEqual = Int32 Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _dart_TWBitcoinScriptEqual = int Function(
-  Pointer<Void> lhs,
-  Pointer<Void> rhs,
-);
-
-typedef _c_TWBitcoinScriptMatchPayToPubkey = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptMatchPayToPubkey = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptMatchPayToPubkeyHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptMatchPayToPubkeyHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptMatchPayToScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptMatchPayToScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptMatchPayToWitnessPublicKeyHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptMatchPayToWitnessPublicKeyHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptMatchPayToWitnessScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptMatchPayToWitnessScriptHash = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptEncode = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _dart_TWBitcoinScriptEncode = Pointer<Void> Function(
-  Pointer<Void> script,
-);
-
-typedef _c_TWBitcoinScriptBuildPayToPublicKey = Pointer<Void> Function(
-  Pointer<Void> pubkey,
-);
-
-typedef _dart_TWBitcoinScriptBuildPayToPublicKey = Pointer<Void> Function(
-  Pointer<Void> pubkey,
-);
-
-typedef _c_TWBitcoinScriptBuildPayToPublicKeyHash = Pointer<Void> Function(
-  Pointer<Void> hash,
-);
-
-typedef _dart_TWBitcoinScriptBuildPayToPublicKeyHash = Pointer<Void> Function(
-  Pointer<Void> hash,
-);
-
-typedef _c_TWBitcoinScriptBuildPayToScriptHash = Pointer<Void> Function(
-  Pointer<Void> scriptHash,
-);
-
-typedef _dart_TWBitcoinScriptBuildPayToScriptHash = Pointer<Void> Function(
-  Pointer<Void> scriptHash,
-);
-
-typedef _c_TWBitcoinScriptBuildPayToWitnessPubkeyHash = Pointer<Void> Function(
-  Pointer<Void> hash,
-);
-
-typedef _dart_TWBitcoinScriptBuildPayToWitnessPubkeyHash = Pointer<Void> Function(
-  Pointer<Void> hash,
-);
-
-typedef _c_TWBitcoinScriptBuildPayToWitnessScriptHash = Pointer<Void> Function(
-  Pointer<Void> scriptHash,
-);
-
-typedef _dart_TWBitcoinScriptBuildPayToWitnessScriptHash = Pointer<Void> Function(
-  Pointer<Void> scriptHash,
-);
-
-typedef _c_TWBitcoinScriptLockScriptForAddress = Pointer<Void> Function(
-  Pointer<Utf8> address,
-  Int32 coin,
-);
-
-typedef _dart_TWBitcoinScriptLockScriptForAddress = Pointer<Void> Function(
-  Pointer<Utf8> address,
-  int coin,
-);
-
-typedef _c_TWBitcoinScriptHashTypeForCoin = Int32 Function(
-  Int32 coinType,
-);
-
-typedef _dart_TWBitcoinScriptHashTypeForCoin = int Function(
-  int coinType,
-);

@@ -1,7 +1,7 @@
 part of trust_wallet_core_ffi;
 
 /// A vector of TWData byte arrays
-class TWDataVector {
+abstract class TWDataVector {
   /// Creates a Vector of Data.
   ///
   /// \note Must be deleted with \TWDataVectorDelete
@@ -10,8 +10,8 @@ class TWDataVector {
     return _TWDataVectorCreate();
   }
 
-  static late final _TWDataVectorCreate_ptr = _lookup<NativeFunction<_c_TWDataVectorCreate>>('TWDataVectorCreate');
-  static late final _dart_TWDataVectorCreate _TWDataVectorCreate = _TWDataVectorCreate_ptr.asFunction<_dart_TWDataVectorCreate>();
+  static late final _TWDataVectorCreatePtr = _lookup<NativeFunction<Pointer<Void> Function()>>('TWDataVectorCreate');
+  static late final _TWDataVectorCreate = _TWDataVectorCreatePtr.asFunction<Pointer<Void> Function()>();
 
   /// Creates a Vector of Data with the given element
   ///
@@ -25,8 +25,8 @@ class TWDataVector {
     );
   }
 
-  static late final _TWDataVectorCreateWithData_ptr = _lookup<NativeFunction<_c_TWDataVectorCreateWithData>>('TWDataVectorCreateWithData');
-  static late final _dart_TWDataVectorCreateWithData _TWDataVectorCreateWithData = _TWDataVectorCreateWithData_ptr.asFunction<_dart_TWDataVectorCreateWithData>();
+  static late final _TWDataVectorCreateWithDataPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>)>>('TWDataVectorCreateWithData');
+  static late final _TWDataVectorCreateWithData = _TWDataVectorCreateWithDataPtr.asFunction<Pointer<Void> Function(Pointer<Void>)>();
 
   /// Delete/Deallocate a Vector of Data
   ///
@@ -39,15 +39,15 @@ class TWDataVector {
     );
   }
 
-  static late final _TWDataVectorDelete_ptr = _lookup<NativeFunction<_c_TWDataVectorDelete>>('TWDataVectorDelete');
-  static late final _dart_TWDataVectorDelete _TWDataVectorDelete = _TWDataVectorDelete_ptr.asFunction<_dart_TWDataVectorDelete>();
+  static late final _TWDataVectorDeletePtr = _lookup<NativeFunction<Void Function(Pointer<Void>)>>('TWDataVectorDelete');
+  static late final _TWDataVectorDelete = _TWDataVectorDeletePtr.asFunction<void Function(Pointer<Void>)>();
 
   /// Add an element to a Vector of Data. Element is cloned
   ///
   /// \param dataVector A non-null Vector of data
   /// \param data A non-null valid block of data
   /// \note data input parameter must be deleted on its own
-  void TWDataVectorAdd(
+  static void TWDataVectorAdd(
     Pointer<Void> dataVector,
     Pointer<Void> data,
   ) {
@@ -57,8 +57,8 @@ class TWDataVector {
     );
   }
 
-  late final _TWDataVectorAdd_ptr = _lookup<NativeFunction<_c_TWDataVectorAdd>>('TWDataVectorAdd');
-  late final _dart_TWDataVectorAdd _TWDataVectorAdd = _TWDataVectorAdd_ptr.asFunction<_dart_TWDataVectorAdd>();
+  static late final _TWDataVectorAddPtr = _lookup<NativeFunction<Void Function(Pointer<Void>, Pointer<Void>)>>('TWDataVectorAdd');
+  static late final _TWDataVectorAdd = _TWDataVectorAddPtr.asFunction<void Function(Pointer<Void>, Pointer<Void>)>();
 
   /// Retrieve the number of elements
   ///
@@ -72,8 +72,8 @@ class TWDataVector {
     );
   }
 
-  static late final _TWDataVectorSize_ptr = _lookup<NativeFunction<_c_TWDataVectorSize>>('TWDataVectorSize');
-  static late final _dart_TWDataVectorSize _TWDataVectorSize = _TWDataVectorSize_ptr.asFunction<_dart_TWDataVectorSize>();
+  static late final _TWDataVectorSizePtr = _lookup<NativeFunction<Size Function(Pointer<Void>)>>('TWDataVectorSize');
+  static late final _TWDataVectorSize = _TWDataVectorSizePtr.asFunction<int Function(Pointer<Void>)>();
 
   /// Retrieve the n-th element.
   ///
@@ -81,64 +81,16 @@ class TWDataVector {
   /// \param index index element of the vector to be retrieved, need to be < TWDataVectorSize
   /// \note Returned element must be freed with \TWDataDelete
   /// \return A non-null block of data
-  int TWDataVectorGet(
-    Pointer<Void> data,
+  static Pointer<Void> TWDataVectorGet(
+    Pointer<Void> dataVector,
     int index,
   ) {
     return _TWDataVectorGet(
-      data,
+      dataVector,
       index,
     );
   }
 
-  late final _TWDataVectorGet_ptr = _lookup<NativeFunction<_c_TWDataVectorGet>>('TWDataVectorGet');
-  late final _dart_TWDataVectorGet _TWDataVectorGet = _TWDataVectorGet_ptr.asFunction<_dart_TWDataVectorGet>();
+  static late final _TWDataVectorGetPtr = _lookup<NativeFunction<Pointer<Void> Function(Pointer<Void>, Size)>>('TWDataVectorGet');
+  static late final _TWDataVectorGet = _TWDataVectorGetPtr.asFunction<Pointer<Void> Function(Pointer<Void>, int)>();
 }
-
-typedef _c_TWDataVectorCreate = Pointer<Void> Function();
-
-typedef _dart_TWDataVectorCreate = Pointer<Void> Function();
-
-typedef _c_TWDataVectorCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataVectorCreateWithData = Pointer<Void> Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataVectorSize = IntPtr Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataVectorSize = int Function(
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataVectorGet = IntPtr Function(
-  Pointer<Void> data,
-  IntPtr index,
-);
-
-typedef _dart_TWDataVectorGet = int Function(
-  Pointer<Void> data,
-  int index,
-);
-
-typedef _c_TWDataVectorAdd = Void Function(
-  Pointer<Void> dataVector,
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataVectorAdd = void Function(
-  Pointer<Void> dataVector,
-  Pointer<Void> data,
-);
-
-typedef _c_TWDataVectorDelete = Void Function(
-  Pointer<Void> data,
-);
-
-typedef _dart_TWDataVectorDelete = void Function(
-  Pointer<Void> data,
-);

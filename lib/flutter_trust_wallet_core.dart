@@ -3,10 +3,12 @@ library flutter_trust_wallet_core;
 import 'dart:ffi';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:ffi/ffi.dart';
+
 import 'trust_wallet_core_ffi.dart';
-import 'extensions.dart';
 
 
+part 'extensions.dart';
 
 part 'core/mnemonic.dart';
 part 'core/hd_wallet.dart';

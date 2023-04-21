@@ -1,4 +1,4 @@
-// Copyright © 2017-2022 Trust Wallet.
+// Copyright © 2017-2023 Trust Wallet.
 //
 // This file is part of Trust. The full Trust copyright notice, including
 // terms governing use, modification, and redistribution, is contained in the
@@ -37,12 +37,15 @@ enum TWEthereumChainID {
     TWEthereumChainIDFantom = 250,
     TWEthereumChainIDBoba = 288,
     TWEthereumChainIDKcc = 321,
+    TWEthereumChainIDZksync = 324,
     TWEthereumChainIDHeco = 128,
     TWEthereumChainIDMetis = 1088,
+    TWEthereumChainIDPolygonzkevm = 1101,
     TWEthereumChainIDMoonbeam = 1284,
     TWEthereumChainIDMoonriver = 1285,
     TWEthereumChainIDRonin = 2020,
     TWEthereumChainIDKavaevm = 2222,
+    TWEthereumChainIDIotexevm = 4689,
     TWEthereumChainIDKlaytn = 8217,
     TWEthereumChainIDAvalanchec = 43114,
     TWEthereumChainIDEvmos = 9001,

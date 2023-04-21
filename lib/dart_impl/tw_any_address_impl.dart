@@ -3,7 +3,7 @@ part of trust_wallet_core_ffi;
 class TWAnyAddressImpl extends TWAnyAddress {
   static bool isValid(String address, int coinType) {
     final _address = TWStringImpl.toTWString(address);
-    final result = TWAnyAddress.TWAnyAddressIsValid(_address, coinType) >= 1;
+    final result = TWAnyAddress.TWAnyAddressIsValid(_address, coinType);
     TWStringImpl.delete(_address);
     return result;
   }
